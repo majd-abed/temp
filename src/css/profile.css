@@ -1,0 +1,288 @@
+.profile-container{
+    position: relative;
+    width:70%;
+    height:auto;
+    margin:auto;
+    margin-top:120px;
+    text-align: center;
+}
+
+
+.sub_container{
+    width:200px;
+    height: 200px;
+    background-color: white;
+    border:1px solid rgb(255, 255, 255);    
+    margin:auto;
+    margin-top: 15px;
+   
+}
+
+/*----------IMAGE INPUT SECTIONS--------------------*/
+
+/* div#ImageUpload {
+    width: 50px;
+    height: 50px;
+    margin:auto;
+    margin-top:80px;
+    background-repeat:no-repeat;
+    background-image: url('../assets/images/add.png');
+    opacity: 0.3;
+    border-radius: 10px;
+    overflow: hidden;
+   
+}
+
+div#ImageUpload input {
+    display: block !important;
+    width: 50px !important;
+    height: 50px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+	cursor:pointer;
+}
+
+div#UpdateImageUpload {
+    width: 50px;
+    height: 50px;
+    margin:auto;
+    margin-top:80px;
+    background-repeat:no-repeat;
+    opacity: 0.3;
+    border-radius: 10px;
+    overflow: hidden;
+   
+}
+
+div#UpdateImageUpload:hover {
+    width: 50px;
+    height: 50px;
+    margin:auto;
+    margin-top:80px;
+    background-image: url('../assets/images/reupload.jpg');
+    background-repeat:no-repeat;
+    opacity: 0.3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+div#UpdateImageUpload input {
+    display: block !important;
+    width: 50px !important;
+    height: 50px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+	cursor:pointer;
+} */
+
+/*----------IMAGE PREVIEW SECTIONS--------------------*/
+
+#ImagePreview {
+    width:200px;
+    height: 200px;
+    /* background-position: center center;
+    background-size: cover;
+    display: inline-block; */
+    border:1px solid rgb(190, 190, 190);
+    border-radius: 20px;
+    /* clear:both; */
+    margin:auto;
+    margin-bottom: 15px;
+} 
+/* 
+#UpdateImagePreview {
+    width:200px;
+    height: 200px;
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+    border:1px solid rgb(190, 190, 190);
+    border-radius: 20px;
+    clear:both;
+    margin:auto;
+    
+} */
+.input-container{
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+}
+.profile-input{
+    width: 99%;
+    border: none;
+    outline: 1px solid var(--primary-color);
+    padding: 2px;
+}
+.profile-input:focus{
+    outline: 2px solid var( --primary-color);
+}
+.change-btn{
+    float: right;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    color: var(--primary-btn-color);
+    margin: 15px 0;
+    cursor: pointer;
+}
+.change-img-btn{
+    position: relative;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    color: var(--primary-btn-color);
+    cursor: pointer;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 15px;
+}
+.change-img-btn input[type="file"] {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+    cursor: pointer;
+}
+.change-password-btn{
+    float: right;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    color: var(--primary-btn-color);
+    margin: 15px 0;
+    cursor: pointer;
+}
+.password-container{
+    width: 100%;
+}
+.password-input{
+    width: 100%;
+    border: none;
+    outline: 1px solid var(--primary-color);
+    padding: 2px;
+}
+.cropper-container{
+    z-index: 999;
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    top: calc(50% - 175px);;
+    right: calc(50% - 175px);
+    background-color: gray;
+}
+.cropper{
+    background-color: gray;
+}
+.crop-btns{
+    bottom: -40px;
+    right: calc(50% - 115px);
+    position: absolute;
+    display: flex;
+    gap: 20px;
+}
+.crop-upload{
+    background-color: var(--primary-btn-color);
+    font-size: 20px;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+    width: 110px;
+    cursor: pointer;
+}
+.crop-cancel{
+    background-color: rgb(254, 88, 88);
+    font-size: 20px;
+    border-radius: 1rem;
+    color: white;
+    border: none;
+    width: 110px;
+    cursor: pointer;
+}
+
+.require-profile{
+    font-size: 10px;
+    color: red;
+    text-align: start;
+    padding-top: 5px;
+}
+  .current-info{
+    padding: 0;
+    margin: 0;
+    text-align: start;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+.confirmation-text{
+    text-align: center;
+    font-size: 14px;
+}
+.email-view{
+    text-align: center;
+    font-weight: 600;
+}
+
+.submit-btns{
+    display: flex;
+    justify-content: end;
+}
+
+.extra-margin{
+    margin-top: 10px;
+}
+.profile-photo{
+    border-radius: 20px;
+    width: 100%;
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 480px) {
+
+    .sub_container{
+        width:150px;
+        height: 150px;
+        background-color: white;
+        border:1px solid rgb(255, 255, 255);    
+        margin:auto;
+        margin-top: 15px;
+    }
+
+    #ImagePreview {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 15px;
+        background-position: center center;
+        background-size: cover;
+        display: inline-block;
+        /* margin-bottom: 20px; */
+    } 
+
+    /* div#ImageUpload {
+        width: 50px;
+        height: 50px;
+        margin:auto;
+        margin-top:50px;
+        background-image: url('../assets/images/add.png');
+        background-repeat:no-repeat;
+        opacity: 0.3;
+        border-radius: 10px;
+        overflow: hidden;
+    } */
+    .input-container{
+        max-width: 200px;
+        margin: auto;
+    }
+    .password-input{
+        font-size: 10px;
+    }
+}

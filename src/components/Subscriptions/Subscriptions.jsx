@@ -1,0 +1,193 @@
+import React, { useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { http, MY_SUBSCRIPTIONS } from "../../api";
+import { useGlobal } from "../../context";
+import Footer from "../Footer";
+import Menus from "../Menus";
+import Navbar from "../Navbar";
+import Spinner from "../Spinner";
+import SubVideo from "./SubVideo";
+
+const Subscriptions = () => {
+  const {
+    subData,
+    setSubData,
+    categoryName,
+    setCategoryName,
+    isCategoryEmpty,
+    setIsCategoryEmpty,
+    setSelectedCategory,
+  } = useGlobal();
+  const [isLoading, setIsLoading] = useState(true);
+  const [likeData, setLikeData] = useState([]);
+  const [trigger, setTrigger] = useState(false);
+
+  // const filterSearch = (element, homeData) => {
+  //   if (!homeData) return null;
+  //   let tem = homeData.filter((e) => element.video_id === e.video_id);
+  //   return tem;
+  // };
+  // const filterLikedata = (data, user, vid) => {
+  //   let tem = data.filter((e) => e.user_id === user && e.video_id === vid);
+  //   return tem;
+  // };
+  const handleChange = (e) => {
+    let token = localStorage.getItem("token");
+    if (token === null) token = sessionStorage.getItem("token");
+    if (e.target.value === "newest") {
+      setIsLoading(true);
+      http
+        .get("/api/mysubscriptions/newest-to-oldest", {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "",
+          },
+        })
+        .then((res) => {
+          const data = res.data["my subscriptions"];
+          setSubData(data);
+          setIsLoading(false);
+          setIsCategoryEmpty(true);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+    if (e.target.value === "oldest") {
+      setIsLoading(true);
+      http
+        .get("/api/mysubscriptions/oldest-to-newest", {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "",
+          },
+        })
+        .then((res) => {
+          const data = res.data["my subscriptions"];
+          setSubData(data);
+          setIsLoading(false);
+          setIsCategoryEmpty(true);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  };
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token === null) token = sessionStorage.getItem("token");
+    http
+      .get(MY_SUBSCRIPTIONS, {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      })
+      .then((res) => {
+        const data = res.data["my subscriptions"];
+        setSubData(data);
+        setIsLoading(false);
+        setCategoryName("all");
+        setIsCategoryEmpty(true);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    http
+      .get("/api/videos/likes", {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      })
+      .then((res) => {
+        const data = res.data.likes;
+        setLikeData(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [trigger]);
+  useEffect(() => {}, [subData, categoryName, likeData]);
+  if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
+    return <Navigate to='/' replace={true} />;
+  return (
+    <>
+      <div className='angel-container-list'>
+        <div className='top-sub-menu'>
+          <div className='angel-top-sub-nav-divider-left'>
+            <Link className='primary-btn' value='' style={{ marginRight: "5px" }}>
+              Subcriptions
+            </Link>
+            <Link
+              to='/my-videos'
+              onClick={() => setSelectedCategory(0)}
+              className='secondary-btn'>
+              My Videos
+            </Link>
+          </div>
+          <div className='angel-top-sub-nav-divider-right'>
+            <select className='select-filter-option' onChange={handleChange}>
+              <option defaultValue={"filter"} disabled value='filter'>
+                Filter
+              </option>
+              <option value='newest'>Newest to Oldest</option>
+              <option value='oldest'>Oldest to Newest</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div className='videos-container'>
+        {isLoading ? (
+          <div className='videos-spinner'>
+            <Spinner />
+          </div>
+        ) : subData ? (
+          subData.map((element) => {
+            if (categoryName !== "all") {
+              if (element.category_name === categoryName) {
+                if (isCategoryEmpty) {
+                  setIsCategoryEmpty(false);
+                }
+                return (
+                  <SubVideo
+                    likeData={likeData}
+                    trigger={trigger}
+                    setTrigger={setTrigger}
+                    data={element}
+                    key={element.video_id}
+                  />
+                );
+              }
+            } else {
+              if (isCategoryEmpty) {
+                setIsCategoryEmpty(false);
+              }
+              return (
+                <SubVideo
+                  likeData={likeData}
+                  trigger={trigger}
+                  setTrigger={setTrigger}
+                  data={element}
+                  key={element.video_id}
+                />
+              );
+            }
+          })
+        ) : (
+          <div className='no-content'>
+            <img src={require("../../assets/images/no-video.png")} alt='' />
+            <div>No Videos to show here</div>
+          </div>
+        )}
+        {isCategoryEmpty && !isLoading ? (
+          <div className='no-content'>
+            <img src={require("../../assets/images/no-video.png")} alt='' />
+            <div>No Videos to show here</div>
+          </div>
+        ) : null}
+      </div>
+
+      <Footer />
+    </>
+  );
+};
+
+export default Subscriptions;
