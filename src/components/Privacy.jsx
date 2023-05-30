@@ -35,7 +35,7 @@ const Privacy = () => {
             rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo
             mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget
             turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit
-            tristique lorem ipsum dolor.
+            tristique lorem ipsum dolorj.
           </p>
           <p class='generic-p'>
             Interdum et malesuada fames ac ante ipsum primis in faucibus.
