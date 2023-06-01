@@ -1,16 +1,16 @@
 import React from "react";
 const Terms = () => {
   return (
-    <div className="terms-body">
+    <div className='terms-body'>
       <div class='container'>
         <div class='wow-logo'>
           <img
             class='img-responsive terms-img-logo'
-            src={require("../assets/images/wow_logo.png")}
+            src={require("../assets/images/logo.png")}
           />
         </div>
         <section class='generic text-center'>
-          <h2 className="terms-header">Terms and Conditions</h2>
+          <h2 className='terms-header'>Terms and Conditions</h2>
           <hr class='hr-mid' />
           <img
             class='img-generic img-responsive'
@@ -81,7 +81,7 @@ const Terms = () => {
             <div class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
               <img
                 class='img-responsive foot-img'
-                src={require("../assets/images/footer-logo.png")}
+                src={require("../assets/images/logo.png")}
               />
             </div>
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>

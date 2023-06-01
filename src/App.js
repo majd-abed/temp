@@ -9,7 +9,7 @@ import Signin from './components/Signin'
 import Signup from './components/Signup'
 import Invalid from './components/Invalid'
 import Terms from './components/Terms'
-import Landing from './components/Landing'
+
 import Privacy from './components/Privacy'
 
 import Subscriptions from './components/Subscriptions/Subscriptions'
@@ -20,10 +20,12 @@ import './css/signup-in.css';
 import './css/spinner.css';
 import './css/notifications.css';
 import './css/profile.css';
+import "./css/videopost.css";
 import './css/terms-landing.css';
 import './js/canvasUtils.js';
 import axios from 'axios';
 import NavMenus from './components/NavMenus'
+import IsAuth from './components/IsAuth'
 function App() {
 
 
@@ -40,7 +42,7 @@ function App() {
     <>
       <NavMenus />
       <Routes>
-        <Route path='/' element={<Landing />} />
+        <Route path='/' element={<IsAuth />} />
         {/* <Route path='/welcome' element={<Landing />} /> */}
         <Route path='/terms' element={<Terms />} />
         <Route path='/privacy' element={<Privacy />} />
