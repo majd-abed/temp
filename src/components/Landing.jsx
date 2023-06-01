@@ -217,9 +217,9 @@ const Landing = () => {
           </div>
 
           <div class='row text-center'>
-            <a class='wow-button' href='#'>
+            <Link to='/signup' class='wow-button' href='#'>
               Sign Up Now
-            </a>
+            </Link>
           </div>
         </div>
       </section>
