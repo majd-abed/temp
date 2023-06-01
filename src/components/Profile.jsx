@@ -53,9 +53,12 @@ const Profile = () => {
   async function handleChangeName(id) {
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .patch(`http://s360.cloud/glueprobeta/api/myprofile/username/update/${id}`, {
-        name: usernameRef.current.value,
-      })
+      .patch(
+        `https://beta-api-test.s360.cloud/api/myprofile/username/update/${id}`,
+        {
+          name: usernameRef.current.value,
+        }
+      )
       .then((res) => {
         if (res.status === 201) {
           toast.success("Username has changed Successfully");
@@ -111,7 +114,7 @@ const Profile = () => {
   async function handleChangeLocation(id) {
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .patch(`http://s360.cloud/glueprobeta/api/myprofile/country/update/${id}`, {
+      .patch(`https://beta-api-test.s360.cloud/api/myprofile/country/update/${id}`, {
         country: locationId,
       })
       .then((res) => {
@@ -185,7 +188,7 @@ const Profile = () => {
         console.log(e);
       });
     axios
-      .get("http://s360.cloud/glueprobeta/api/propic/view", {
+      .get("https://beta-api-test.s360.cloud/api/propic/view", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -308,7 +311,7 @@ const Profile = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
-      .post("http://s360.cloud/glueprobeta/api/propic/upload", formData, {
+      .post("https://beta-api-test.s360.cloud/api/propic/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: token ? `Bearer ${token}` : "",

@@ -14,7 +14,7 @@ const Navbar = () => {
     if (token === null) token = sessionStorage.getItem("token");
     await axios
       .post(
-        "http://s360.cloud/glueprobeta/api/videos/search",
+        "https://beta-api-test.s360.cloud/api/videos/search",
         {
           keyword: searchRef.current.value,
         },
@@ -40,7 +40,7 @@ const Navbar = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     axios
-      .get("http://s360.cloud/glueprobeta/api/propic/view", {
+      .get("https://beta-api-test.s360.cloud/api/propic/view", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -80,7 +80,10 @@ const Navbar = () => {
               className='top-search'
               ref={searchRef}
             />
-            <Link to='/' className='top-search-submit' onClick={() => handleSearch()}>
+            <Link
+              to='/'
+              className='top-search-submit'
+              onClick={() => handleSearch()}>
               Search
             </Link>
           </div>

@@ -39,7 +39,7 @@ const Menus = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     await http
-      .get(`http://s360.cloud/glueprobeta/api/videos/categories/${id}`, {
+      .get(`https://beta-api-test.s360.cloud/api/videos/categories/${id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },

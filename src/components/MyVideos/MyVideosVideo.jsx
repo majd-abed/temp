@@ -33,7 +33,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     if (Comment === "") return;
     axios
       .post(
-        `http://s360.cloud/glueprobeta/api/videos/question/${id}`,
+        `https://beta-api-test.s360.cloud/api/videos/question/${id}`,
         { comments: Comment },
         {
           headers: {
@@ -91,7 +91,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     await http.get("/sanctum/csrf-cookie");
     await axios
       .post(
-        "http://s360.cloud/glueprobeta/api/myvideo/publisher",
+        "https://beta-api-test.s360.cloud/api/myvideo/publisher",
         {
           video_id: data.video_id,
           status: 1,
@@ -117,7 +117,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     await http.get("/sanctum/csrf-cookie");
     await axios
       .post(
-        "http://s360.cloud/glueprobeta/api/myvideo/publisher",
+        "https://beta-api-test.s360.cloud/api/myvideo/publisher",
         {
           video_id: data.video_id,
           status: 0,
@@ -142,7 +142,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     if (token === null) token = sessionStorage.getItem("token");
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .delete(`http://s360.cloud/glueprobeta/api/myvideo/delete/${id}`, {
+      .delete(`https://beta-api-test.s360.cloud/api/myvideo/delete/${id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -163,7 +163,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     await http.get("/sanctum/csrf-cookie");
     await axios
       .post(
-        `http://s360.cloud/glueprobeta/api/videos/like/${id}`,
+        `https://beta-api-test.s360.cloud/api/videos/like/${id}`,
         {
           video_id: data.video_id,
           status: 0,
@@ -188,7 +188,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     if (token === null) token = sessionStorage.getItem("token");
     axios
       .post(
-        `http://s360.cloud/glueprobeta/api/videos/answer/${id}`,
+        `https://beta-api-test.s360.cloud/api/videos/answer/${id}`,
         { comment_reply: Reply },
         {
           headers: {
@@ -208,7 +208,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
-      .get(`http://s360.cloud/glueprobeta/api/videos/faqs/${data.video_id}`, {
+      .get(`https://beta-api-test.s360.cloud/api/videos/faqs/${data.video_id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },

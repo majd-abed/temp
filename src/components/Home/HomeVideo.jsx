@@ -39,7 +39,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
     if (Comment === "") return;
     axios
       .post(
-        `http://s360.cloud/glueprobeta/api/videos/question/${id}`,
+        `https://beta-api-test.s360.cloud/api/videos/question/${id}`,
         { comments: Comment },
         {
           headers: {
@@ -88,7 +88,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
     if (token === null) token = sessionStorage.getItem("token");
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .post(`http://s360.cloud/glueprobeta/api/subscribe/${id}`, {
+      .post(`https://beta-api-test.s360.cloud/api/subscribe/${id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -109,7 +109,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
     if (token === null) token = sessionStorage.getItem("token");
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .delete(`http://s360.cloud/glueprobeta/api/mysubscriptions/remove/${id}`, {
+      .delete(`https://beta-api-test.s360.cloud/api/mysubscriptions/remove/${id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -130,7 +130,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
     await http.get("/sanctum/csrf-cookie");
     await axios
       .post(
-        `http://s360.cloud/glueprobeta/api/videos/like/${id}`,
+        `https://beta-api-test.s360.cloud/api/videos/like/${id}`,
         {
           video_id: data.video_id,
           status: 0,
@@ -154,7 +154,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
-      .get(`http://s360.cloud/glueprobeta/api/videos/faqs/${data.video_id}`, {
+      .get(`https://beta-api-test.s360.cloud/api/videos/faqs/${data.video_id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },

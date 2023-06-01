@@ -19,7 +19,7 @@ const Footer = () => {
       .then((res) => {
         const data = res.data.profile[0].user_id;
         axios
-          .post(`http://s360.cloud/glueprobeta/api/logout/${data}`, {
+          .post(`https://beta-api-test.s360.cloud/api/logout/${data}`, {
             headers: {
               Authorization: token ? `Bearer ${token}` : "",
             },
