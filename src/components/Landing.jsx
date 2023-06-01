@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -19,9 +20,9 @@ const Landing = () => {
                 </p>
               </div>
               <div class='wow-btn text-center'>
-                <a class='wow-button' href='#'>
-                  GET OLY OLI NOW
-                </a>
+                <Link to="/signin" class='wow-button' href='#'>
+                  Sign In
+                </Link>
               </div>
             </div>
           </div>

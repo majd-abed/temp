@@ -7,7 +7,6 @@ import VideoPost from './components/VideoPost'
 import Profile from './components/Profile'
 import Signin from './components/Signin'
 import Signup from './components/Signup'
-import IsAuth from './components/IsAuth'
 import Invalid from './components/Invalid'
 import Terms from './components/Terms'
 import Landing from './components/Landing'
@@ -41,8 +40,8 @@ function App() {
     <>
       <NavMenus />
       <Routes>
-        <Route path='/' element={<IsAuth />} />
-        <Route path='/welcome' element={<Landing />} />
+        <Route path='/' element={<Landing />} />
+        {/* <Route path='/welcome' element={<Landing />} /> */}
         <Route path='/terms' element={<Terms />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/home' element={<Home />} />
