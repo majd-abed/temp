@@ -7,7 +7,7 @@ const Privacy = () => {
         <div class='wow-logo'>
           <img
             class='img-responsive terms-img-logo'
-            src={require("../assets/images/logo.png")}
+            src={require("../assets/images/wow_logo.png")}
           />
         </div>
         <section class='generic text-center'>
@@ -82,7 +82,7 @@ const Privacy = () => {
             <div class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
               <img
                 class='img-responsive foot-img'
-                src={require("../assets/images/logo.png")}
+                src={require("../assets/images/footer-logo.png")}
               />
             </div>
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>

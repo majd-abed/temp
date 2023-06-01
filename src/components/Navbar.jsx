@@ -69,7 +69,11 @@ const Navbar = () => {
   return (
     <nav className='angel-top-nav header'>
       <div className='angel-top-nav-divider-left'>
-        <img src={require("../assets/images/logo.png")} height={40} alt='logo' />
+        <img
+          src={require("../assets/images/footer-logo.png")}
+          height={40}
+          alt='logo'
+        />
       </div>
       <div className='angel-top-nav-divider-right'>
         <div className='angel-top-icon-group'>
