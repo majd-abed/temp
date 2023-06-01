@@ -3,8 +3,6 @@ import { HOME, http, MY_SUBSCRIPTIONS } from "../../api";
 
 import Footer from "../Footer";
 import HomeVideo from "./HomeVideo";
-import Menus from "../Menus";
-import Navbar from "../Navbar";
 import Spinner from "../Spinner";
 import { useGlobal } from "../../context";
 
@@ -37,7 +35,6 @@ const Home = () => {
         .then((res) => {
           const data = res.data.video;
           setIsHomeLoading(false);
-
           setHomeData(data);
           setCategoryName("all");
         })
@@ -74,7 +71,7 @@ const Home = () => {
       });
   }, [trigger]);
   useEffect(() => {
-    // console.log(homeData);
+    console.log(homeData);
   }, [homeData, subData, categoryName, likeData]);
   return (
     <>
