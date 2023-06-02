@@ -97,7 +97,6 @@ const Profile = () => {
         }
       )
       .then((res) => {
-
         if (res.data.message === "User email updated successfully") {
           toast.success(res.data.message);
           setTimeout(() => {
@@ -121,7 +120,6 @@ const Profile = () => {
         if (res.status === 201) {
           toast.success("Location has changed Successfully");
           setTrigger(!trigger);
-
         }
       })
       .catch((e) => {
@@ -522,7 +520,7 @@ const Profile = () => {
                     <button
                       onClick={() => changeEmail(userInfo.user_id)}
                       className='change-btn'>
-                      Submit change
+                      Submit email change
                     </button>
                   </div>
                 </div>
@@ -550,18 +548,25 @@ const Profile = () => {
                   }}
                 />
                 {isPasswordSubmit ? (
-                  <input
-                    ref={currPasswordRef}
-                    type='password'
-                    name='password'
-                    id='currpassword'
-                    className='password-input extra-margin'
-                    placeholder='Current Password'
-                    onChange={() => {
-                      setIsCurrPasswordShort(false);
-                      setIsPasswordShort(false);
-                    }}
-                  />
+                  <>
+                    <button
+                      onClick={() => window.location.reload()}
+                      className='change-btn'>
+                      Cancel
+                    </button>
+                    <input
+                      ref={currPasswordRef}
+                      type='password'
+                      name='password'
+                      id='currpassword'
+                      className='password-input extra-margin'
+                      placeholder='Current Password'
+                      onChange={() => {
+                        setIsCurrPasswordShort(false);
+                        setIsPasswordShort(false);
+                      }}
+                    />
+                  </>
                 ) : null}
               </div>
               {isPasswordShort || isCurrPasswordShort ? (
@@ -575,7 +580,7 @@ const Profile = () => {
                     changePassword(userInfo.user_id);
                   }}
                   className='change-password-btn'>
-                  Submit Change
+                  Submit password Change
                 </button>
               ) : (
                 <button
