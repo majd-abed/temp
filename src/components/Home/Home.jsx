@@ -84,8 +84,8 @@ const Home = () => {
           homeData.map((element) => {
             console.log(element, element.is_live);
             if (element.is_live === "1") {
+              console.log(element, element.category_name, categoryName);
               if (categoryName !== "all") {
-                console.log(element, element.category_name, categoryName);
                 if (element.category_name === categoryName) {
                   if (isCategoryEmpty) {
                     setIsCategoryEmpty(false);
