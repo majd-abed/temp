@@ -87,13 +87,7 @@ const Terms = () => {
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
               <div class='footer-p2'>
                 <p class='font-2'>
-                  <a href='#' target='_blank'>
-                    Privacy
-                  </a>{" "}
-                  &
-                  <a href='#' target='_blank'>
-                    Terms
-                  </a>
+                  <Link to='/privacy'>Privacy</Link> &<Link to='/terms'>Terms</Link>
                 </p>
               </div>
             </div>
