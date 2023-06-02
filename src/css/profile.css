@@ -112,6 +112,8 @@ div#UpdateImageUpload input {
     border: none;
     outline: 1px solid var(--primary-color);
     padding: 2px;
+    border-radius: 1rem;
+    padding-left: 5px;
 }
 .profile-input:focus{
     outline: 2px solid var( --primary-color);
@@ -169,6 +171,8 @@ div#UpdateImageUpload input {
     border: none;
     outline: 1px solid var(--primary-color);
     padding: 2px;
+    border-radius: 1rem;
+    padding-left: 5px;
 }
 .cropper-container{
     z-index: 999;
