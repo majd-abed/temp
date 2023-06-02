@@ -39,22 +39,24 @@
   background-color: var(--primary-btn-color);
   color: white;
   margin-right: 15px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   width: 100px;
   padding: 5px 0;
   cursor: pointer;
   font-size: 16px;
+
 }
 .notification-submit-reply-btn{
   border: none;
   background-color: var(--primary-btn-color);
   color: white;
   margin-right: 5px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   width: 120px;
   padding: 5px 0;
   cursor: pointer;
   font-size: 14px;
+
 }
 .notification-replied{
   border: none;
@@ -62,10 +64,11 @@
   opacity: .6;
   color: white;
   margin-right: 15px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   width: 100px;
   padding: 5px 0;
   font-size: 16px;
+
 }
 .notification-info{
   text-align: center;
@@ -110,7 +113,8 @@
   min-height: 40px;
   padding:10px 10px;
   border: 1px solid #ccc;
-  border-radius: 1rem;
+  border-radius: .5rem;
+
 }
 @media (max-width: 770px) {
   .notification-name{
@@ -128,10 +132,7 @@
   .notification-video{
     height: 150px;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+
 }
   .notification-pic{
     width: 30px;

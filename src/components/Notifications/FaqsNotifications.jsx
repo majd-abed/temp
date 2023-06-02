@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import Footer from "../Footer";
 import Spinner from "../Spinner";
-import Navbar from "../Navbar";
 import { http } from "../../api";
 import Faq from "./Faq";
 
