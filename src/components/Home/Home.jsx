@@ -71,7 +71,7 @@ const Home = () => {
       });
   }, [trigger]);
   useEffect(() => {
-    console.log("home", homeData);
+    // console.log(homeData);
   }, [homeData, subData, categoryName, likeData]);
   return (
     <>
@@ -82,9 +82,7 @@ const Home = () => {
           </div>
         ) : homeData ? (
           homeData.map((element) => {
-            console.log(element, element.is_live);
             if (element.is_live === 1) {
-              console.log(element, element.category_name, categoryName);
               if (categoryName !== "all") {
                 if (element.category_name === categoryName) {
                   if (isCategoryEmpty) {
@@ -102,7 +100,6 @@ const Home = () => {
                   );
                 }
               } else {
-                console.log(element, element.category_name, categoryName);
                 if (isCategoryEmpty) {
                   setIsCategoryEmpty(false);
                 }
@@ -122,18 +119,15 @@ const Home = () => {
         ) : (
           <div className='no-content'>
             <img src={require("../../assets/images/no-video.png")} alt='' />
-            <div>No Videos to show here11111</div>
+            <div>No Videos to show here</div>
           </div>
         )}
         {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
           <div className='no-content'>
-            {console.log(isCategoryEmpty, isHomeLoading, isSubLoading)}
             <img src={require("../../assets/images/no-video.png")} alt='' />
-            <div>No Videos to show here222222</div>
+            <div>No Videos to show here</div>
           </div>
-        ) : (
-          console.log("last")
-        )}
+        ) : null}
       </div>
       <Footer />
     </>

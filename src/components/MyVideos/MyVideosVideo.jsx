@@ -407,7 +407,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
         </div>
         {/* ------------ video buttons -------- */}
         <div className='video-btns'>
-          {data.is_live !== "1" ? (
+          {data.is_live !== 1 ? (
             <div className='publish-now-btn' onClick={() => handlePublish()}>
               Publish now
             </div>
