@@ -71,7 +71,7 @@ const Home = () => {
       });
   }, [trigger]);
   useEffect(() => {
-    console.log(homeData);
+    console.log("home", homeData);
   }, [homeData, subData, categoryName, likeData]);
   return (
     <>
@@ -82,6 +82,7 @@ const Home = () => {
           </div>
         ) : homeData ? (
           homeData.map((element) => {
+            console.log("home data found")
             if (element.is_live === "1") {
               if (categoryName !== "all") {
                 if (element.category_name === categoryName) {
@@ -119,15 +120,17 @@ const Home = () => {
         ) : (
           <div className='no-content'>
             <img src={require("../../assets/images/no-video.png")} alt='' />
-            <div>No Videos to show here</div>
+            <div>No Videos to show here11111</div>
           </div>
         )}
         {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
           <div className='no-content'>
             <img src={require("../../assets/images/no-video.png")} alt='' />
-            <div>No Videos to show here</div>
+            <div>No Videos to show here222222</div>
           </div>
-        ) : null}
+        ) : (
+          console.log("last")
+        )}
       </div>
       <Footer />
     </>
