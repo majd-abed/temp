@@ -82,9 +82,10 @@ const Home = () => {
           </div>
         ) : homeData ? (
           homeData.map((element) => {
-            console.log("home data found");
+            console.log(element, element.is_live);
             if (element.is_live === "1") {
               if (categoryName !== "all") {
+                console.log(element, element.category_name, categoryName);
                 if (element.category_name === categoryName) {
                   if (isCategoryEmpty) {
                     setIsCategoryEmpty(false);
@@ -101,6 +102,7 @@ const Home = () => {
                   );
                 }
               } else {
+                console.log(element, element.category_name, categoryName);
                 if (isCategoryEmpty) {
                   setIsCategoryEmpty(false);
                 }
