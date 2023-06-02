@@ -250,7 +250,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
             {faqData.map((f) => {
               return f.user_id !== null ? (
                 <div key={f.question_id}>
-                  <div className='container'>
+                  <div className=''>
                     <details>
                       <summary>
                         <div className='question-container'>

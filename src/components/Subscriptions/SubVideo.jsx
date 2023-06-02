@@ -249,7 +249,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
             {faqData.map((f) => {
               return f.user_id !== null ? (
                 <>
-                  <div className='container' key={f.question_id}>
+                  <div className='' key={f.question_id}>
                     <details>
                       <summary>
                         <div className='question-container'>
