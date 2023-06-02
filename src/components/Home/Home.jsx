@@ -63,7 +63,7 @@ const Home = () => {
       })
       .then((res) => {
         const data = res.data.likes;
-        // console.log("likes", data);
+
         setLikeData(data);
       })
       .catch((e) => {
@@ -71,7 +71,7 @@ const Home = () => {
       });
   }, [trigger]);
   useEffect(() => {
-    // console.log(homeData);
+
   }, [homeData, subData, categoryName, likeData]);
   return (
     <>

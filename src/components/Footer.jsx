@@ -25,7 +25,7 @@ const Footer = () => {
             },
           })
           .then((res) => {
-            console.log("logout", res);
+
           })
           .catch((e) => {
             console.log(e);

@@ -82,7 +82,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
       })
       .then((res) => {
         if (res.status === 201) {
-          console.log(res);
+
           setTrigger(!trigger);
         }
       })
@@ -121,7 +121,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     if (Comment === "") return;
-    console.log(Comment);
+
     axios
       .post(
         `https://beta-api-test.s360.cloud/api/videos/question/${id}`,

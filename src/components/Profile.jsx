@@ -97,7 +97,7 @@ const Profile = () => {
         }
       )
       .then((res) => {
-        console.log(res);
+
         if (res.data.message === "User email updated successfully") {
           toast.success(res.data.message);
           setTimeout(() => {
@@ -121,7 +121,7 @@ const Profile = () => {
         if (res.status === 201) {
           toast.success("Location has changed Successfully");
           setTrigger(!trigger);
-          console.log(res);
+
         }
       })
       .catch((e) => {
@@ -242,7 +242,7 @@ const Profile = () => {
       const myFile = new File([myBlob], "image.jpeg", {
         type: myBlob.type,
       });
-      console.log(myFile);
+
       uploadImage(myFile);
     } catch (e) {
       console.error(e);
@@ -319,7 +319,7 @@ const Profile = () => {
       })
       .then((success) => {
         toast.success("Photo Uploaded Successfully!");
-        console.log(success);
+
         setTimeout(() => {
           window.location.reload();
         }, 3000);

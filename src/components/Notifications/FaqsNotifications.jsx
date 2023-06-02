@@ -24,7 +24,7 @@ const FaqsNotifications = () => {
         })
         .then((res) => {
           const data = res.data.notifications;
-          console.log(data);
+
           setnotificationsData(data);
           setIsLoading(false);
         })
@@ -42,7 +42,7 @@ const FaqsNotifications = () => {
         })
         .then((res) => {
           const data = res.data.notifications;
-          console.log(data);
+
           setnotificationsData(data);
           setIsLoading(false);
         })
@@ -63,7 +63,7 @@ const FaqsNotifications = () => {
       })
       .then((res) => {
         const data = res.data.notifications;
-        console.log(data);
+
         setnotificationsData(data);
         setIsLoading(false);
       })
