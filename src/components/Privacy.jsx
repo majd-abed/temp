@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Privacy = () => {
   return (
@@ -88,13 +89,13 @@ const Privacy = () => {
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
               <div class='footer-p2'>
                 <p class='font-2'>
-                  <a href='#' target='_blank'>
+                  <Link to='/privacy'>
                     Privacy
-                  </a>{" "}
+                  </Link>{" "}
                   &
-                  <a href='#' target='_blank'>
+                  <Link to='/terms'>
                     Terms
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
