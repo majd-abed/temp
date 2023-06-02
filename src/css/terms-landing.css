@@ -47,6 +47,9 @@
     box-sizing: border-box;
     max-height: 5vh;
 }
+.heading-margin{
+    margin-bottom: 20px;
+}
 .wow-button{
     box-sizing: border-box;
     padding: 16px 60px;

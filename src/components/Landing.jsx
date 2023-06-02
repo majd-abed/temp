@@ -15,7 +15,7 @@ const Landing = () => {
                 />
               </div>
               <div class='font-1 helmet text-center'>
-                <p>
+                <p className='heading-margin'>
                   A way of <strong>attract</strong> your consumers.
                 </p>
               </div>
