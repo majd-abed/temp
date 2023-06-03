@@ -90,13 +90,15 @@ const FaqsNotifications = () => {
             <Link className='primary-btn'>FAQS</Link>
           </div>
           <div className='angel-top-sub-nav-divider-right'>
-            <select className='select-filter-option' onChange={handleChange}>
-              <option defaultValue={"filter"} disabled value='filter'>
-                Filter
-              </option>
-              <option value='newest'>Newest to Oldest</option>
-              <option value='oldest'>Oldest to Newest</option>
-            </select>
+            {notificationsData ? (
+              <select className='select-filter-option' onChange={handleChange}>
+                <option defaultValue={"filter"} disabled value='filter'>
+                  Filter
+                </option>
+                <option value='newest'>Newest to Oldest</option>
+                <option value='oldest'>Oldest to Newest</option>
+              </select>
+            ) : null}
           </div>
         </div>
       </div>

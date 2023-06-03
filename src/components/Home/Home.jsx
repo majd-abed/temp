@@ -70,9 +70,7 @@ const Home = () => {
         console.log(e);
       });
   }, [trigger]);
-  useEffect(() => {
-
-  }, [homeData, subData, categoryName, likeData]);
+  useEffect(() => {}, [homeData, subData, categoryName, likeData]);
   return (
     <>
       <div className='angel-container'>
@@ -118,6 +116,7 @@ const Home = () => {
           })
         ) : (
           <div className='no-content'>
+            {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
             <img src={require("../../assets/images/no-video.png")} alt='' />
             <div>No Videos to show here</div>
           </div>

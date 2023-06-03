@@ -94,13 +94,15 @@ const LikesNotifications = () => {
             </Link>
           </div>
           <div className='angel-top-sub-nav-divider-right'>
-            <select className='select-filter-option' onChange={handleChange}>
-              <option defaultValue={"filter"} disabled value='filter'>
-                Filter
-              </option>
-              <option value='newest'>Newest to Oldest</option>
-              <option value='oldest'>Oldest to Newest</option>
-            </select>
+            {notificationsData ? (
+              <select className='select-filter-option' onChange={handleChange}>
+                <option defaultValue={"filter"} disabled value='filter'>
+                  Filter
+                </option>
+                <option value='newest'>Newest to Oldest</option>
+                <option value='oldest'>Oldest to Newest</option>
+              </select>
+            ) : null}
           </div>
         </div>
       </div>
@@ -160,7 +162,10 @@ const LikesNotifications = () => {
                   notifications
                 </span>
                 <h4>Your notifications live here</h4>
-                <p>Subscribe to your favorite channels to get notified about their latest videos</p>
+                <p>
+                  Subscribe to your favorite channels to get notified about their
+                  latest videos
+                </p>
               </div>
             )}
           </>
