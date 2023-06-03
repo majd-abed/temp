@@ -112,13 +112,15 @@ const MyVideos = () => {
             <Link className='primary-btn'>My Videos</Link>
           </div>
           <div className='angel-top-sub-nav-divider-right'>
-            <select className='select-filter-option' onChange={handleChange}>
-              <option defaultValue={"filter"} disabled value='filter'>
-                Filter
-              </option>
-              <option value='newest'>Newest to Oldest</option>
-              <option value='oldest'>Oldest to Newest</option>
-            </select>
+            {vidData ? (
+              <select className='select-filter-option' onChange={handleChange}>
+                <option defaultValue={"filter"} disabled value='filter'>
+                  Filter
+                </option>
+                <option value='newest'>Newest to Oldest</option>
+                <option value='oldest'>Oldest to Newest</option>
+              </select>
+            ) : null}
           </div>
         </div>
       </div>
@@ -161,6 +163,7 @@ const MyVideos = () => {
           })
         ) : (
           <div className='no-content'>
+            {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
             <img src={require("../../assets/images/no-video.png")} alt='' />
             <div>No Videos to show here</div>
           </div>
