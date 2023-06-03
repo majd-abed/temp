@@ -63,8 +63,7 @@ const Home = () => {
       })
       .then((res) => {
         const data = res.data.likes;
-
-        setLikeData(data);
+        if (data !== "Likes Not Found!") setLikeData(data);
       })
       .catch((e) => {
         console.log(e);
