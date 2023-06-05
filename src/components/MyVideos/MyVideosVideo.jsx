@@ -353,7 +353,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
               ) : null;
             })}
           </div>
-          <div className='comment-section'>
+          {/* <div className='comment-section'>
             <div className='comment'>
               <textarea
                 value={Comment}
@@ -373,7 +373,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* ------------ control buttons -------- */}
         <div className='control-btns'>
