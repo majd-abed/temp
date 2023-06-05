@@ -22,7 +22,6 @@ const VideoPost = () => {
     const index = e.target.selectedIndex;
     const el = e.target.childNodes[index];
     const option = el.getAttribute("id");
-    console.log(option);
     if (option === 9999) return setIsCatEmpty(true);
     setIsCatEmpty(false);
     setVideoCategory(option);
@@ -211,6 +210,7 @@ const VideoPost = () => {
               );
             })}
           </select>
+          {isCatEmpty ? <br /> : null}
           <div className='require'>{isCatEmpty ? "Please Choose Category" : ""}</div>
           <input
             ref={inputRef}
