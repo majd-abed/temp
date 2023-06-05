@@ -13,7 +13,7 @@ const VideoPost = () => {
   const [count, setCount] = useState(0);
   const [filename, setFilename] = useState("");
   const [categories, setCategories] = useState([]);
-  const [videoCategory, setVideoCategory] = useState(9999);
+  const [videoCategory, setVideoCategory] = useState(0);
   const [videoInput, setvideoInput] = useState(null);
   const [isVideoEmpty, setIsVideoEmpty] = useState(false);
   const [isKeywordsEmpty, setIsKeywordsEmpty] = useState(false);
@@ -31,12 +31,11 @@ const VideoPost = () => {
     if (inputRef.current.value) setIsKeywordsEmpty(false);
   };
   const publish = () => {
-    console.log(option);
     const formData = new FormData();
     if (!videoInput) setIsVideoEmpty(true);
     if (!videoCategory) setIsCatEmpty(true);
     if (!inputRef.current.value) setIsKeywordsEmpty(true);
-    if (!videoInput || !inputRef.current.value) return null;
+    if (!videoInput || !inputRef.current.value || !videoCategory) return null;
     const videoFile = videoInput[0];
     setIsVideoEmpty(false);
     setIsKeywordsEmpty(false);
@@ -75,7 +74,7 @@ const VideoPost = () => {
     if (!videoInput) setIsVideoEmpty(true);
     if (!videoCategory) setIsCatEmpty(true);
     if (!inputRef.current.value) setIsKeywordsEmpty(true);
-    if (!videoInput || !inputRef.current.value) return null;
+    if (!videoInput || !inputRef.current.value || !videoCategory) return null;
     const videoFile = videoInput[0];
     setIsVideoEmpty(false);
     setIsKeywordsEmpty(false);
