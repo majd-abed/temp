@@ -210,7 +210,12 @@ const VideoPost = () => {
               );
             })}
           </select>
-          {isCatEmpty ? <br /> : null}
+          {isCatEmpty ? (
+            <>
+              <br />
+              <br />
+            </>
+          ) : null}
           <div className='require'>{isCatEmpty ? "Please Choose Category" : ""}</div>
           <input
             ref={inputRef}
