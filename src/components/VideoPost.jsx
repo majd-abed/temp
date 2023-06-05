@@ -22,6 +22,7 @@ const VideoPost = () => {
     const index = e.target.selectedIndex;
     const el = e.target.childNodes[index];
     const option = el.getAttribute("id");
+    console.log(option);
     if (option === 9999) return setIsCatEmpty(true);
     setIsCatEmpty(false);
     setVideoCategory(option);
@@ -221,7 +222,7 @@ const VideoPost = () => {
             required
           />
           <p className='keyword-text'>
-            This keyword / Topic help users to find your video
+            This keywords / Topic help users to find your video
           </p>
           <br />
           <div className='require'>
