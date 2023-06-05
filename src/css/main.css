@@ -598,12 +598,16 @@ footer{
     color: grey;
     text-align: center;
 }
+.reply{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .reply textarea{
-    max-width: 95%;
-    min-width: 95%;
+    max-width: calc(100% - 35px);
+    min-width: calc(100% - 35px);
+    padding: 10px;
     width: 95%;
-    padding:10px 20px;
-    margin: 0 10px;
     margin: auto;
     border: 1px solid #ccc;
     border-radius: .5rem;
