@@ -599,10 +599,12 @@ footer{
     text-align: center;
 }
 .reply textarea{
-    max-width: 195px;
-    width: 195px;
+    max-width: 95%;
+    min-width: 95%;
+    width: 95%;
     padding:10px 20px;
     margin: 0 10px;
+    margin: auto;
     border: 1px solid #ccc;
     border-radius: .5rem;
 }
