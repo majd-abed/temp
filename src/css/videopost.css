@@ -48,7 +48,8 @@
 }
 .keyword-text{
     text-align: center;
-    font-size: 14px;
+    font-size: 11px;
+    padding: 7px 0;
 }
 @media only screen and (max-width: 800px) {
     .video-post-container{

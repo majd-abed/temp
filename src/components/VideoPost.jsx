@@ -189,7 +189,7 @@ const VideoPost = () => {
           </div>
 
           <select className='select-option' onChange={onSelectHandler} required>
-            <option defaultValue={"choose"} disabled value='filter'>
+            <option defaultValue={"choose"} disabled value='filter' selected>
               Choose Category
             </option>
             {categories.map((c) => {
