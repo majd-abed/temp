@@ -11,6 +11,7 @@ const Footer = () => {
     setSelectedCategory,
     setIsHomeLoading,
     setHomeData,
+    setSearchValue,
   } = useGlobal();
   const [notify, setNotify] = useState(null);
 
@@ -31,6 +32,7 @@ const Footer = () => {
         setCategoryName("all");
         setIsCategoryEmpty(false);
         setSelectedCategory(0);
+        setSearchValue("");
       })
       .catch((e) => {
         console.log(e);
