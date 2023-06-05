@@ -189,6 +189,9 @@ const VideoPost = () => {
           </div>
 
           <select className='select-option' onChange={onSelectHandler} required>
+            <option defaultValue={"choose"} disabled value='filter'>
+              Choose Category
+            </option>
             {categories.map((c) => {
               return (
                 <option key={c.id} id={c.id}>
@@ -202,10 +205,13 @@ const VideoPost = () => {
             onChange={handleInput}
             type='text'
             className='keywords-input'
-            placeholder='keywords'
+            placeholder='keywords / Topic'
             maxLength='50'
             required
           />
+          <p className='keyword-text'>
+            This keyword / Topic help users to find your video
+          </p>
           <br />
           <div className='require'>
             {isKeywordsEmpty ? "Please provide Keywords" : ""}
