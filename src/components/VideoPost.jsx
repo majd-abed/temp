@@ -31,6 +31,7 @@ const VideoPost = () => {
     if (inputRef.current.value) setIsKeywordsEmpty(false);
   };
   const publish = () => {
+    console.log(option);
     const formData = new FormData();
     if (!videoInput) setIsVideoEmpty(true);
     if (!videoCategory) setIsCatEmpty(true);
