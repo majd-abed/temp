@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import Progressbar from "./Progressbar";
 const VideoPost = () => {
   const inputRef = useRef(null);
+  const categoryRef = useRef(null);
 
   const [count, setCount] = useState(0);
   const [filename, setFilename] = useState("");
@@ -16,10 +17,13 @@ const VideoPost = () => {
   const [videoInput, setvideoInput] = useState(null);
   const [isVideoEmpty, setIsVideoEmpty] = useState(false);
   const [isKeywordsEmpty, setIsKeywordsEmpty] = useState(false);
+  const [isCatEmpty, setIsCatEmpty] = useState(false);
   const onSelectHandler = (e) => {
     const index = e.target.selectedIndex;
     const el = e.target.childNodes[index];
     const option = el.getAttribute("id");
+    if (option === 9999) return setIsCatEmpty(true);
+    setIsCatEmpty(false);
     setVideoCategory(option);
   };
   const handleInput = () => {
@@ -28,6 +32,7 @@ const VideoPost = () => {
   const publish = () => {
     const formData = new FormData();
     if (!videoInput) setIsVideoEmpty(true);
+    if (!videoCategory) setIsCatEmpty(true);
     if (!inputRef.current.value) setIsKeywordsEmpty(true);
     if (!videoInput || !inputRef.current.value) return null;
     const videoFile = videoInput[0];
@@ -188,8 +193,12 @@ const VideoPost = () => {
             {isVideoEmpty ? "Select a video to upload" : ""}
           </div>
 
-          <select className='select-option' onChange={onSelectHandler} required>
-            <option defaultValue={"choose"} disabled value='filter' selected>
+          <select
+            className='select-option'
+            onChange={onSelectHandler}
+            required
+            ref={categoryRef}>
+            <option id={9999} key={9999} hidden>
               Choose Category
             </option>
             {categories.map((c) => {
@@ -200,6 +209,7 @@ const VideoPost = () => {
               );
             })}
           </select>
+          <div className='require'>{isCatEmpty ? "Please Choose Category" : ""}</div>
           <input
             ref={inputRef}
             onChange={handleInput}
