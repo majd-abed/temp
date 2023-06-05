@@ -6,7 +6,7 @@ import { useGlobal } from "../context";
 
 const Navbar = () => {
   const searchRef = useRef(null);
-  const { setHomeData, setIsHomeLoading, setUserInfo, setIsSearch } = useGlobal();
+  const { setHomeData, setIsHomeLoading, setUserInfo, setIsSearch,searchValue } = useGlobal();
   const [profilePic, setProfilePic] = useState(null);
   async function handleSearch() {
     setIsHomeLoading(true);
@@ -83,6 +83,7 @@ const Navbar = () => {
               placeholder='Search'
               className='top-search'
               ref={searchRef}
+              value = {searchValue}
             />
             <Link
               to='/'

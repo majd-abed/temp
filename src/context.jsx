@@ -12,6 +12,7 @@ const ContextProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(0);
+  const [searchValue, setSearchValue] = useState("")
   return (
     <GlobalContext.Provider
       value={{
@@ -35,6 +36,8 @@ const ContextProvider = ({ children }) => {
         setIsSearch,
         selectedCategory,
         setSelectedCategory,
+        searchValue,
+        setSearchValue,
       }}>
       {children}
     </GlobalContext.Provider>

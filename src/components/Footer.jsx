@@ -1,12 +1,41 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { http, MY_PROFILE } from "../api";
+import { HOME, http, MY_PROFILE } from "../api";
 import { useGlobal } from "../context";
 
 const Footer = () => {
-  const { setCategoryName, setIsCategoryEmpty, setSelectedCategory } = useGlobal();
+  const {
+    setCategoryName,
+    setIsCategoryEmpty,
+    setSelectedCategory,
+    setIsHomeLoading,
+    setHomeData,
+  } = useGlobal();
   const [notify, setNotify] = useState(null);
+
+  const handlehome = () => {
+    setIsHomeLoading(true);
+    let token = localStorage.getItem("token");
+    if (token === null) token = sessionStorage.getItem("token");
+    http
+      .get(HOME, {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      })
+      .then((res) => {
+        const data = res.data.video;
+        setIsHomeLoading(false);
+        setHomeData(data);
+        setCategoryName("all");
+        setIsCategoryEmpty(false);
+        setSelectedCategory(0);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   const handleLogout = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
@@ -24,9 +53,7 @@ const Footer = () => {
               Authorization: token ? `Bearer ${token}` : "",
             },
           })
-          .then((res) => {
-
-          })
+          .then((res) => {})
           .catch((e) => {
             console.log(e);
           });
@@ -62,9 +89,7 @@ const Footer = () => {
           <Link
             to='/'
             onClick={() => {
-              setCategoryName("all");
-              setIsCategoryEmpty(false);
-              setSelectedCategory(0);
+              handlehome();
             }}
             className='angel-foot-icon'>
             <span className='material-symbols-outlined'>home</span>
