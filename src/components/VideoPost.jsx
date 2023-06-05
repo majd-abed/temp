@@ -13,7 +13,7 @@ const VideoPost = () => {
   const [count, setCount] = useState(0);
   const [filename, setFilename] = useState("");
   const [categories, setCategories] = useState([]);
-  const [videoCategory, setVideoCategory] = useState(1);
+  const [videoCategory, setVideoCategory] = useState(9999);
   const [videoInput, setvideoInput] = useState(null);
   const [isVideoEmpty, setIsVideoEmpty] = useState(false);
   const [isKeywordsEmpty, setIsKeywordsEmpty] = useState(false);
@@ -71,6 +71,7 @@ const VideoPost = () => {
   const save = () => {
     const formData = new FormData();
     if (!videoInput) setIsVideoEmpty(true);
+    if (!videoCategory) setIsCatEmpty(true);
     if (!inputRef.current.value) setIsKeywordsEmpty(true);
     if (!videoInput || !inputRef.current.value) return null;
     const videoFile = videoInput[0];
