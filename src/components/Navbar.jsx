@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { http, MY_PROFILE } from "../api";
+import { HOME, http, MY_PROFILE } from "../api";
 import { useGlobal } from "../context";
 
 const Navbar = () => {
@@ -13,6 +13,10 @@ const Navbar = () => {
     setIsSearch,
     searchValue,
     setSearchValue,
+    setCategoryName,
+    setIsCategoryEmpty,
+    setSelectedCategory,
+
   } = useGlobal();
   const [profilePic, setProfilePic] = useState(null);
   async function handleSearch() {
@@ -43,6 +47,29 @@ const Navbar = () => {
         console.log(e);
       });
   }
+  const handlehome = () => {
+    setIsHomeLoading(true);
+    let token = localStorage.getItem("token");
+    if (token === null) token = sessionStorage.getItem("token");
+    http
+      .get(HOME, {
+        headers: {
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+      })
+      .then((res) => {
+        const data = res.data.video;
+        setIsHomeLoading(false);
+        setHomeData(data);
+        setCategoryName("all");
+        setIsCategoryEmpty(false);
+        setSelectedCategory(0);
+        setSearchValue("");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   useEffect(() => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
@@ -76,11 +103,17 @@ const Navbar = () => {
   return (
     <nav className='angel-top-nav header'>
       <div className='angel-top-nav-divider-left'>
-        <img
-          src={require("../assets/images/footer-logo.png")}
-          height={40}
-          alt='logo'
-        />
+        <Link
+          to='/'
+          onClick={() => {
+            handlehome();
+          }}>
+          <img
+            src={require("../assets/images/footer-logo.png")}
+            height={40}
+            alt='logo'
+          />
+        </Link>
       </div>
       <div className='angel-top-nav-divider-right'>
         <div className='angel-top-icon-group'>
