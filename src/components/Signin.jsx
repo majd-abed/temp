@@ -25,7 +25,7 @@ const Signin = () => {
           window.location = "/home";
         }
         if (res.status === 200) {
-          toast.success(res.data.Message);
+          toast.error(res.data.Message);
         }
       })
       .catch((e) => {

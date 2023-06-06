@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { COUNTRIES, http, SIGNUP } from "../api";
+import toast, { Toaster } from "react-hot-toast";
 const Signup = () => {
   const nameRef = useRef(null);
   const passwordRef = useRef(null);
@@ -28,6 +29,9 @@ const Signup = () => {
         if (res.status === 201) {
           window.location = "/signin";
         }
+        if (res.status === 200) {
+          toast.error(res.data.email);
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -44,6 +48,37 @@ const Signup = () => {
   }, []);
   return (
     <>
+      <Toaster
+        position='bottom-right'
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=''
+        containerStyle={{}}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "white",
+            color: "black",
+          },
+          // Default options for specific types
+          success: {
+            duration: 5000,
+            theme: {
+              primary: "#B9F9C7",
+              secondary: "black",
+            },
+          },
+          error: {
+            duration: 5000,
+            style: {
+              background: "#FEB8B8",
+              color: "black",
+            },
+          },
+        }}
+      />
       <div className='parent clearfix'>
         <div className='bg-illustration'>
           <img src='https://i.ibb.co/Pcg0Pk1/logo.png' alt='logo' />
