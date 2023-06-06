@@ -176,14 +176,22 @@ const Subscriptions = () => {
         ) : (
           <div className='no-content'>
             {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
-            <img src={require("../../assets/images/no-video.png")} alt='' />
-            <div>No Videos to show here</div>
+            <span
+              className='material-symbols-outlined'
+              style={{ fontSize: "100px", color: "#aaaaaa" }}>
+              notifications
+            </span>
+            <div>Your Subscriptions channels videos live here</div>
           </div>
         )}
         {isCategoryEmpty && !isLoading ? (
           <div className='no-content'>
-            <img src={require("../../assets/images/no-video.png")} alt='' />
-            <div>No Videos to show here</div>
+            <span
+              className='material-symbols-outlined'
+              style={{ fontSize: "100px", color: "#aaaaaa" }}>
+              notifications
+            </span>
+            <div>Your Subscriptions channels videos live here</div>
           </div>
         ) : null}
       </div>
