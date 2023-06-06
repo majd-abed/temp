@@ -136,7 +136,11 @@ const LikesNotifications = () => {
                         <div className='notification-info-profile'>
                           <p className='notification-name'>{e.name}</p>
                           <img
-                            src={e.profile_pic}
+                            src={
+                              profilePic === null
+                                ? require("../../assets/images/propic.png")
+                                : e.profile_pic
+                            }
                             className='notification-pic'></img>
                         </div>
                         <div className='notification-content'>

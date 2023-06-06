@@ -78,7 +78,13 @@ const Faq = ({ data, setTrigger, trigger }) => {
         <div className='notification-info'>
           <div className='notification-info-profile'>
             <p className='notification-name'>{data["Asked By"]}</p>
-            <img src={data.profile_pic} className='notification-pic'></img>
+            <img
+              src={
+                profilePic === null
+                  ? require("../../assets/images/propic.png")
+                  : data.profile_pic
+              }
+              className='notification-pic'></img>
           </div>
           <div className='notification-content'>
             <p className='question'>{data.question}</p>
