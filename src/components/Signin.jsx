@@ -24,6 +24,9 @@ const Signin = () => {
           else sessionStorage.setItem("token", res.data?.token);
           window.location = "/home";
         }
+        if (res.status === 200) {
+          console.log(res.data);
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -72,11 +75,13 @@ const Signin = () => {
                 <div className='forget-pass'>
                   <a href='#'>Forgot Password ?</a>
                 </div>
-              <div className='signup-ask'>
-                {/* Already have an account? Sign in */}
-                Don't have an account?
-                <Link to='/signup' className="signup-ask-link">Sign up</Link>
-              </div>
+                <div className='signup-ask'>
+                  {/* Already have an account? Sign in */}
+                  Don't have an account?
+                  <Link to='/signup' className='signup-ask-link'>
+                    Sign up
+                  </Link>
+                </div>
                 <button type='submit'>Signin</button>
               </form>
             </div>
