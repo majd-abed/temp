@@ -59,6 +59,9 @@
 
 }
 .notification-replied{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: var(--primary-btn-color);
   opacity: .6;
@@ -68,6 +71,7 @@
   width: 100px;
   padding: 5px 0;
   font-size: 16px;
+  
 }
 
 .notification-replied::before{
