@@ -80,7 +80,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
             <p className='notification-name'>{data["Asked By"]}</p>
             <img
               src={
-                profilePic === null
+                data.profile_pic === null
                   ? require("../../assets/images/propic.png")
                   : data.profile_pic
               }

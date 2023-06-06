@@ -137,7 +137,7 @@ const LikesNotifications = () => {
                           <p className='notification-name'>{e.name}</p>
                           <img
                             src={
-                              profilePic === null
+                              e.profile_pic === null
                                 ? require("../../assets/images/propic.png")
                                 : e.profile_pic
                             }
