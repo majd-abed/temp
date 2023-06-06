@@ -5,6 +5,7 @@ import Footer from "../Footer";
 import HomeVideo from "./HomeVideo";
 import Spinner from "../Spinner";
 import { useGlobal } from "../../context";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
   const {
@@ -76,7 +77,7 @@ const Home = () => {
     <>
       <div className='angel-container'>
         {isHomeLoading || isSubLoading ? (
-          <div className='home-spinner'>
+          <div className='home-spinner '>
             <Spinner />
           </div>
         ) : homeData ? (
