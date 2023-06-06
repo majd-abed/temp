@@ -65,7 +65,6 @@ const Footer = () => {
       });
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
-    window.opener = null;
     window.open("about:blank", "_self");
     window.close();
     window.location = "/signin";
