@@ -62,6 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
   border: none;
   background-color: var(--primary-btn-color);
   opacity: .6;
