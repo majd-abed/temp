@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap');
+
 .notification-container{
   margin: auto;
   margin-bottom: 20px;
@@ -185,6 +187,13 @@
     width: 80px;
     font-size: 14px;
   }
+  
+.notification-replied::before{
+  font-family: "Material Icons";
+  content: "\e5ca";
+  padding-right:3px;
+  color: white;
+}
 }
     @media (max-width: 1050px) {
       .notification-reply textarea{
