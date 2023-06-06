@@ -19,43 +19,43 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
   const [faqData, setFaqData] = useState([]);
   const [faqsTrigger, setFaqsTrigger] = useState(false);
   const [Reply, setReply] = useState("");
-  const [Comment, setComment] = useState("");
+  // const [Comment, setComment] = useState("");
 
   const { userInfo } = useGlobal();
 
-  const handleCommentChange = (event) => {
-    setComment(event.target.value);
-  };
+  // const handleCommentChange = (event) => {
+  //   setComment(event.target.value);
+  // };
 
-  const handleComment = (id) => {
-    let token = localStorage.getItem("token");
-    if (token === null) token = sessionStorage.getItem("token");
-    if (Comment === "") return;
-    axios
-      .post(
-        `https://beta-api-test.s360.cloud/api/videos/question/${id}`,
-        { comments: Comment },
-        {
-          headers: {
-            Authorization: token ? `Bearer ${token}` : "",
-          },
-        }
-      )
-      .then((success) => {
-        setFaqsTrigger(!faqsTrigger);
-        setComment("");
-        toast.success("Comment submitted successfully");
-        setTimeout(() => {
-          faqsRef.current?.scrollTo({
-            top: 999999,
-            behavior: "smooth",
-          });
-        }, 1000);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleComment = (id) => {
+  //   let token = localStorage.getItem("token");
+  //   if (token === null) token = sessionStorage.getItem("token");
+  //   if (Comment === "") return;
+  //   axios
+  //     .post(
+  //       `https://beta-api-test.s360.cloud/api/videos/question/${id}`,
+  //       { comments: Comment },
+  //       {
+  //         headers: {
+  //           Authorization: token ? `Bearer ${token}` : "",
+  //         },
+  //       }
+  //     )
+  //     .then((success) => {
+  //       setFaqsTrigger(!faqsTrigger);
+  //       setComment("");
+  //       toast.success("Comment submitted successfully");
+  //       setTimeout(() => {
+  //         faqsRef.current?.scrollTo({
+  //           top: 999999,
+  //           behavior: "smooth",
+  //         });
+  //       }, 1000);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   const handleReplyChange = (event) => {
     setReply(event.target.value);
@@ -104,6 +104,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
       )
       .then((res) => {
         if (res.status === 201) {
+          toast.success("Video is published");
           setTrigger(!trigger);
         }
       })
@@ -130,6 +131,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
       )
       .then((res) => {
         if (res.status === 201) {
+          toast.success("Video is Unpublished");
           setTrigger(!trigger);
         }
       })
@@ -176,6 +178,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
       )
       .then((res) => {
         if (res.status === 201) {
+          toast.success("Video is Liked!");
           setIsLiked(true);
         }
       })

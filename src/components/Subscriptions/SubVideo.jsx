@@ -62,6 +62,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
       })
       .then((res) => {
         if (res.status === 201) {
+          toast.success("Subscribed!");
           setTrigger(!trigger);
         }
       })
@@ -82,7 +83,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
       })
       .then((res) => {
         if (res.status === 201) {
-
+          toast.success("Unsubscribed!");
           setTrigger(!trigger);
         }
       })
@@ -109,6 +110,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
       )
       .then((res) => {
         if (res.status === 201) {
+          toast.success("Video is Liked!");
           setIsLiked(true);
         }
       })

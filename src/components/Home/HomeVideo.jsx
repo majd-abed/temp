@@ -95,7 +95,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
       })
       .then((res) => {
         if (res.status === 201) {
-
+          toast.success("Subscribed!");
           setTrigger(!trigger);
         }
       })
@@ -104,7 +104,6 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
       });
   }
   async function handleUnSub(id) {
-
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     await http.get("/sanctum/csrf-cookie");
@@ -116,7 +115,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
       })
       .then((res) => {
         if (res.status === 201) {
-
+          toast.success("Unsubscribed!");
           setTrigger(!trigger);
         }
       })
@@ -143,6 +142,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
       )
       .then((res) => {
         if (res.status === 201) {
+          toast.success("Video is Liked!");
           setIsLiked(true);
         }
       })
