@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { http, SIGNIN } from "../api";
-
+import toast, { Toaster } from "react-hot-toast";
 const Signin = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -25,7 +25,7 @@ const Signin = () => {
           window.location = "/home";
         }
         if (res.status === 200) {
-          console.log(res.data);
+          toast.success(res.data.Message);
         }
       })
       .catch((e) => {
@@ -38,6 +38,37 @@ const Signin = () => {
   };
   return (
     <>
+      <Toaster
+        position='bottom-right'
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=''
+        containerStyle={{}}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "white",
+            color: "black",
+          },
+          // Default options for specific types
+          success: {
+            duration: 5000,
+            theme: {
+              primary: "#B9F9C7",
+              secondary: "black",
+            },
+          },
+          error: {
+            duration: 5000,
+            style: {
+              background: "#FEB8B8",
+              color: "black",
+            },
+          },
+        }}
+      />
       <div className='parent clearfix'>
         <div className='bg-illustration'>
           <img src='https://i.ibb.co/Pcg0Pk1/logo.png' alt='logo' />
