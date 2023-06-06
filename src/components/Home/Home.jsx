@@ -70,6 +70,8 @@ const Home = () => {
       });
   }, [trigger]);
   useEffect(() => {}, [homeData, subData, categoryName, likeData]);
+  if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
+    return <Navigate to='/' replace={true} />;
   return (
     <>
       <div className='angel-container'>
