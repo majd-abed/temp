@@ -256,7 +256,13 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
                         <div className='question-container'>
                           <div>
                             <div className='profile-pic-container'>
-                              <img src={f.profile_pic} className='profile-pic'></img>
+                              <img
+                                src={
+                                  f.profile_pic === null
+                                    ? require("../../assets/images/propic.png")
+                                    : f.profile_pic
+                                }
+                                className='profile-pic'></img>
                             </div>
                           </div>
                           <div className='question-info'>
