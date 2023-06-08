@@ -464,6 +464,8 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
             <br />
             {data.likes
               ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
+              : isLiked
+              ? 1
               : 0}
             <br />
             <button
