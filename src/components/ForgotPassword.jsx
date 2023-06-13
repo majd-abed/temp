@@ -17,14 +17,12 @@ const ForgotPassword = () => {
         email: emailRef.current.value,
       })
       .then((res) => {
-        console.log(emailRef.current.value);
         console.log(res);
-        if (res.data.message !== "Email Not Found!"){
+        if (res.data.messsage !== "Email Not Found!") {
           setStep(2);
-          toast.success(res.data.message);
-        }
-        else{
-          toast.error(res.data.message);
+          toast.success(res.data.messsage);
+        } else {
+          toast.error(res.data.messsage);
         }
         setTimeout(() => {
           // window.location.reload();
