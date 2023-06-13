@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [otp, setOtp] = useState("");
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const emailRef = useRef(null);
   const PasswordRef = useRef(null);
 
