@@ -12,14 +12,15 @@ const ForgotPassword = () => {
 
   async function handleEmail(id) {
     await axios
-      .patch("https://beta-api-test.s360.cloud/api/forget/password", {
+      .post("https://beta-api-test.s360.cloud/api/forget/password", {
         form_id: 1,
         email: emailRef.current.value,
       })
       .then((res) => {
-        if (res.status === 201) {
+        if (res.status === 200) {
           toast.success("Password has changed Successfully");
           console.log(emailRef.current.value);
+          console.log(res);
           setStep(2);
           setTimeout(() => {
             window.location.reload();
