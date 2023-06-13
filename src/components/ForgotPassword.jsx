@@ -9,7 +9,8 @@ const ForgotPassword = () => {
   const [step, setStep] = useState(1);
   const [credential, setCredential] = useState("");
   const emailRef = useRef(null);
-  const PasswordRef = useRef(null);
+  const passwordRef = useRef(null);
+  const [isPasswordShort, setIsPasswordShort] = useState(false);
 
   async function handleEmail() {
     await axios
@@ -50,11 +51,13 @@ const ForgotPassword = () => {
       });
   }
   async function handleDone() {
+    if (!passwordRef.current.value || passwordRef.current.value.length < 8)
+      return setIsPasswordShort(true);
     await axios
       .post("https://beta-api-test.s360.cloud/api/forget/password", {
         form_id: 3,
         credential: credential,
-        new_password: PasswordRef.current.value,
+        new_password: passwordRef.current.value,
       })
       .then((res) => {
         toast.success(res.data.message);
@@ -67,7 +70,7 @@ const ForgotPassword = () => {
       });
   }
   if (localStorage.getItem("token") || sessionStorage.getItem("token"))
-  return <Navigate to='/' replace={true} />;
+    return <Navigate to='/' replace={true} />;
   return (
     <div style={{ maxWidth: "1200px", margin: "auto" }}>
       <Toaster
@@ -163,11 +166,17 @@ const ForgotPassword = () => {
           <div className='enter-password-container'>
             <p className='otp-text'>Please Enter your new password</p>
             <input
-              ref={PasswordRef}
+              ref={passwordRef}
               type='text'
               className='otp-input'
               placeholder='New Password'
+              onChange={() => setIsPasswordShort(false)}
             />
+            {isPasswordShort ? (
+              <div className='require-otp-password'>
+                Password must contain at least 8 characters
+              </div>
+            ) : null}
             <button
               className='opt-btn'
               onClick={() => {
