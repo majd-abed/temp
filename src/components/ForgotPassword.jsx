@@ -21,21 +21,14 @@ const ForgotPassword = () => {
         console.log(res);
         if (res.data.messsage !== "Email Not Found!") {
           setStep(2);
-          toast.success(res.data.message);
+        } else {
+          toast.error(res.data.messsage);
         }
-        setTimeout(() => {
-          // window.location.reload();
-        }, 3000);
       })
       .catch((e) => {
         console.log(e);
       });
   }
-
-  // const handleEmail = () => {
-  //   console.log(emailRef.current.value);
-  //   setStep(2);
-  // };
   async function handleOtp() {
     await axios
       .post("https://beta-api-test.s360.cloud/api/forget/password", {
@@ -45,9 +38,11 @@ const ForgotPassword = () => {
       .then((res) => {
         console.log(res);
         if (res.data.message !== "Invalid OTP") {
+          toast.success(res.data.message);
+          setCredential(res.data.credential);
           setStep(3);
         } else {
-          toast.error(res.data.messsage);
+          toast.error(res.data.message);
         }
       })
       .catch((e) => {
@@ -64,12 +59,11 @@ const ForgotPassword = () => {
       .then((res) => {
         console.log(res);
         // if (res.data.messsage !== "Email Not Found!") {
-          setStep(2);
-          // window.location.reload();
-          toast.success(res.data.message);
+        setStep(2);
+        // window.location.reload();
+        toast.success(res.data.message);
         // }
-        setTimeout(() => {
-        }, 3000);
+        setTimeout(() => {}, 3000);
       })
       .catch((e) => {
         console.log(e);
