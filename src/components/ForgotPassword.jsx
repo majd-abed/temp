@@ -11,8 +11,17 @@ const ForgotPassword = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [isPasswordShort, setIsPasswordShort] = useState(false);
+  const [emailWarning, setEmailWarning] = useState(false);
+
+  const validateEmail = (mail) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+      return true;
+    }
+    return false;
+  };
 
   async function handleEmail() {
+    if (!validateEmail(emailRef.current.value)) return setEmailWarning(true);
     await axios
       .post("https://beta-api-test.s360.cloud/api/forget/password", {
         form_id: 1,
@@ -125,7 +134,11 @@ const ForgotPassword = () => {
               type='email'
               className='otp-input'
               placeholder='Email'
+              onChange={() => setEmailWarning(false)}
             />
+            {emailWarning ? (
+              <div className='require-otp'>Email is not valid</div>
+            ) : null}
             <button
               className='opt-btn'
               onClick={() => {
@@ -173,7 +186,7 @@ const ForgotPassword = () => {
               onChange={() => setIsPasswordShort(false)}
             />
             {isPasswordShort ? (
-              <div className='require-otp-password'>
+              <div className='require-otp'>
                 Password must contain at least 8 characters
               </div>
             ) : null}
