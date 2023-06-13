@@ -17,15 +17,13 @@ const ForgotPassword = () => {
         email: emailRef.current.value,
       })
       .then((res) => {
-        if (res.status === 200) {
-          toast.success("Password has changed Successfully");
-          console.log(emailRef.current.value);
-          console.log(res);
-          setStep(2);
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000);
-        }
+        toast.success(res.message);
+        console.log(emailRef.current.value);
+        console.log(res);
+        setStep(2);
+        setTimeout(() => {
+          // window.location.reload();
+        }, 3000);
       })
       .catch((e) => {
         console.log(e);
