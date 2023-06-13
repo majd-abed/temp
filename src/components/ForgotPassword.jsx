@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const ForgotPassword = () => {
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
+  const [credential, setCredential] = useState("");
   const emailRef = useRef(null);
   const PasswordRef = useRef(null);
 
@@ -21,8 +22,6 @@ const ForgotPassword = () => {
         if (res.data.messsage !== "Email Not Found!") {
           setStep(2);
           toast.success(res.data.message);
-        } else {
-          toast.error(res.data.messsage);
         }
         setTimeout(() => {
           // window.location.reload();
@@ -37,14 +36,44 @@ const ForgotPassword = () => {
   //   console.log(emailRef.current.value);
   //   setStep(2);
   // };
-  const handleOtp = () => {
-    console.log(otp);
-    setStep(3);
+  async function handleOtp() {
+    await axios
+      .post("https://beta-api-test.s360.cloud/api/forget/password", {
+        form_id: 2,
+        otp: otp,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.message !== "Invalid OTP") {
+          setStep(3);
+        } else {
+          toast.error(res.data.messsage);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
-  const handleDone = () => {
-    console.log(PasswordRef.current.value);
-    setStep(1);
-  };
+  async function handleDone() {
+    await axios
+      .post("https://beta-api-test.s360.cloud/api/forget/password", {
+        form_id: 3,
+        email: emailRef.current.value,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.messsage !== "Email Not Found!") {
+          setStep(2);
+          toast.success(res.data.message);
+        }
+        setTimeout(() => {
+          // window.location.reload();
+        }, 3000);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
 
   // const validateEmail = (mail) => {
   //   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
