@@ -117,7 +117,7 @@ const ForgotPassword = () => {
             </p>
             <input
               ref={emailRef}
-              type='text'
+              type='email'
               className='otp-input'
               placeholder='Email'
             />
