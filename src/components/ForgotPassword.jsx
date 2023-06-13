@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import OtpInput from "react-otp-input";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [otp, setOtp] = useState("");
@@ -66,6 +66,8 @@ const ForgotPassword = () => {
         console.log(e);
       });
   }
+  if (localStorage.getItem("token") || sessionStorage.getItem("token"))
+  return <Navigate to='/' replace={true} />;
   return (
     <div style={{ maxWidth: "1200px", margin: "auto" }}>
       <Toaster
