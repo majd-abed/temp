@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [otp, setOtp] = useState("");
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const emailRef = useRef(null);
   const PasswordRef = useRef(null);
 
-  async function handleEmail(id) {
+  async function handleEmail() {
     await axios
       .post("https://beta-api-test.s360.cloud/api/forget/password", {
         form_id: 1,
@@ -120,6 +120,11 @@ const ForgotPassword = () => {
         ) : null}
         {step === 2 ? (
           <div className='otp-container'>
+            <p className='otp-text-info'>
+              An email has been sent to your email address containing OTP. If you do
+              not receive the email within a few minutes, please check your spam
+              folder.
+            </p>
             <p className='otp-text'>Please Enter Validation Code</p>
             <OtpInput
               inputType='tel'
