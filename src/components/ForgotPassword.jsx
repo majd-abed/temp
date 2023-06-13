@@ -20,7 +20,7 @@ const ForgotPassword = () => {
         console.log(res);
         if (res.data.messsage !== "Email Not Found!") {
           setStep(2);
-          toast.success(res.data.messsage);
+          toast.success(res.data.message);
         } else {
           toast.error(res.data.messsage);
         }
