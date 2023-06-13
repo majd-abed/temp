@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import OtpInput from "react-otp-input";
 import { Link } from "react-router-dom";
@@ -57,27 +57,15 @@ const ForgotPassword = () => {
         new_password: PasswordRef.current.value,
       })
       .then((res) => {
-        console.log(res);
-        // if (res.data.messsage !== "Email Not Found!") {
-        setStep(2);
-        // window.location.reload();
         toast.success(res.data.message);
-        // }
-        setTimeout(() => {}, 3000);
+        setTimeout(() => {
+          window.location = "/signin";
+        }, 3000);
       })
       .catch((e) => {
         console.log(e);
       });
   }
-
-  // const validateEmail = (mail) => {
-  //   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
-
-  // useEffect(() => {}, [step]);
   return (
     <div style={{ maxWidth: "1200px", margin: "auto" }}>
       <Toaster
@@ -89,21 +77,21 @@ const ForgotPassword = () => {
         toastOptions={{
           // Define default options
           className: "",
-          duration: 5000,
+          duration: 3000,
           style: {
             background: "white",
             color: "black",
           },
           // Default options for specific types
           success: {
-            duration: 5000,
+            duration: 3000,
             theme: {
               primary: "#B9F9C7",
               secondary: "black",
             },
           },
           error: {
-            duration: 5000,
+            duration: 3000,
             style: {
               background: "#FEB8B8",
               color: "black",
