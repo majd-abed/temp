@@ -53,21 +53,22 @@ const ForgotPassword = () => {
       .catch((e) => {
         console.log(e);
       });
-  };
+  }
   async function handleDone() {
     await axios
       .post("https://beta-api-test.s360.cloud/api/forget/password", {
         form_id: 3,
-        email: emailRef.current.value,
+        credential: credential,
+        new_password: PasswordRef.current.value,
       })
       .then((res) => {
         console.log(res);
-        if (res.data.messsage !== "Email Not Found!") {
+        // if (res.data.messsage !== "Email Not Found!") {
           setStep(2);
-          toast.success(res.data.message);
-        }
-        setTimeout(() => {
           // window.location.reload();
+          toast.success(res.data.message);
+        // }
+        setTimeout(() => {
         }, 3000);
       })
       .catch((e) => {
