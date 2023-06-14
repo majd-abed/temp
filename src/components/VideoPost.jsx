@@ -96,11 +96,10 @@ const VideoPost = () => {
         },
       })
       .then((success) => {
-        // toast.success("Video Uploaded Successfully!");
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 3000);
-        console.log(success);
+        toast.success("Video Uploaded Successfully!");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       })
       .catch((error) => {
         console.log(error);

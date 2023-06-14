@@ -28,7 +28,6 @@ const ForgotPassword = () => {
         email: emailRef.current.value,
       })
       .then((res) => {
-        console.log(res);
         if (res.data.messsage !== "Email Not Found!") {
           setStep(2);
         } else {
@@ -46,7 +45,6 @@ const ForgotPassword = () => {
         otp: otp,
       })
       .then((res) => {
-        console.log(res);
         if (res.data.message !== "Invalid OTP") {
           toast.success(res.data.message);
           setCredential(res.data.credential);
@@ -180,7 +178,7 @@ const ForgotPassword = () => {
             <p className='otp-text'>Please Enter your new password</p>
             <input
               ref={passwordRef}
-              type='text'
+              type='password'
               className='otp-input'
               placeholder='New Password'
               onChange={() => setIsPasswordShort(false)}
