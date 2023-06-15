@@ -8,8 +8,6 @@ import { useGlobal } from "../../context";
 import { Navigate } from "react-router-dom";
 
 const Home = () => {
-  if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
-    return <Navigate to='/' replace={true} />;
   const {
     homeData,
     setHomeData,
@@ -73,6 +71,8 @@ const Home = () => {
       });
   }, [trigger]);
   useEffect(() => {}, [homeData, subData, categoryName, likeData]);
+  if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
+    return <Navigate to='/' replace={true} />;
   return (
     <>
       <div className='angel-container'>
