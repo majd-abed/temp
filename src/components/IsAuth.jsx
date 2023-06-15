@@ -4,8 +4,9 @@ import Landing from "./Landing";
 // import Signin from "./Signin";
 
 const IsAuth = () => {
-  if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
-    return <Landing />;
+  let token = localStorage.getItem("token");
+  if (token === null) token = sessionStorage.getItem("token");
+  if (!token) return <Landing />;
   return <Home />;
 };
 
