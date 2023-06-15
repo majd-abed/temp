@@ -47,13 +47,14 @@ const Footer = () => {
           Authorization: token ? `Bearer ${token}` : "",
         },
       })
-      .then((res) => {})
+      .then((res) => {
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
+        window.location = "/signin";
+      })
       .catch((e) => {
         console.log(e);
       });
-    // localStorage.removeItem("token");
-    // sessionStorage.removeItem("token");
-    // window.location = "/signin";
   }
   useEffect(() => {
     let token = localStorage.getItem("token");
