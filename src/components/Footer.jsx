@@ -41,25 +41,13 @@ const Footer = () => {
   const handleLogout = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
-    http
-      .get(MY_PROFILE, {
+    axios
+      .post(`https://beta-api-test.s360.cloud/api/logout`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
       })
-      .then((res) => {
-        const data = res.data.profile[0].user_id;
-        axios
-          .post(`https://beta-api-test.s360.cloud/api/logout/${data}`, {
-            headers: {
-              Authorization: token ? `Bearer ${token}` : "",
-            },
-          })
-          .then((res) => {})
-          .catch((e) => {
-            console.log(e);
-          });
-      })
+      .then((res) => {})
       .catch((e) => {
         console.log(e);
       });
