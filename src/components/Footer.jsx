@@ -53,7 +53,7 @@ const Footer = () => {
       });
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
-    window.location = "/signin";
+    // window.location = "/signin";
   };
   useEffect(() => {
     let token = localStorage.getItem("token");
