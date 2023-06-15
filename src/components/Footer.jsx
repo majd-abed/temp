@@ -41,8 +41,9 @@ const Footer = () => {
   const handleLogout = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
-    axios
-      .post(`https://beta-api-test.s360.cloud/api/logout`, {
+    http
+      .post(
+        "/api/logout", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
