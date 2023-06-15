@@ -52,8 +52,8 @@ const Footer = () => {
       .catch((e) => {
         console.log(e);
       });
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
+    // localStorage.removeItem("token");
+    // sessionStorage.removeItem("token");
     // window.location = "/signin";
   };
   useEffect(() => {
