@@ -41,9 +41,9 @@ const Footer = () => {
   const handleLogout = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
+    console.log(token);
     http
-      .post(
-        "/api/logout", {
+      .post("/api/logout", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
