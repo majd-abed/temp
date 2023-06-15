@@ -38,10 +38,10 @@ const Footer = () => {
         console.log(e);
       });
   };
-  const handleLogout = () => {
+  async function handleLogout() {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
-    http
+    await http
       .post("/api/logout", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
@@ -54,7 +54,7 @@ const Footer = () => {
     // localStorage.removeItem("token");
     // sessionStorage.removeItem("token");
     // window.location = "/signin";
-  };
+  }
   useEffect(() => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
