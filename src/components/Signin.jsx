@@ -151,7 +151,6 @@ const Signin = () => {
           <div>
             <button
               className='sign-btn'
-              onClick={() => handleSignin()}
               style={{ backgroundColor: "black", color: "white" }}>
               Login
             </button>
