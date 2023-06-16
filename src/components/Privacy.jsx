@@ -6,17 +6,20 @@ const Privacy = () => {
     <div className='terms-body'>
       <div class='container'>
         <div class='wow-logo'>
-          <img
-            class='img-responsive terms-img-logo'
-            src={require("../assets/images/wow_logo.png")}
-          />
+          <Link to='/'>
+            <img
+              class='img-responsive terms-img-logo'
+              src={require("../assets/images/wow_logo.png")}
+            />
+          </Link>
         </div>
         <section class='generic text-center'>
           <h2 className='terms-header'>Privacy and Policies</h2>
           <hr class='hr-mid' />
           <img
             class='img-generic img-responsive'
-            src={require("../assets/images/5.jpg")}
+            style={{ borderRadius: "2rem" }}
+            src={require("../assets/images/privacy.jpeg")}
           />
         </section>
         <section class='font-2'>
@@ -89,13 +92,7 @@ const Privacy = () => {
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
               <div class='footer-p2'>
                 <p class='font-2'>
-                  <Link to='/privacy'>
-                    Privacy
-                  </Link>{" "}
-                  &
-                  <Link to='/terms'>
-                    Terms
-                  </Link>
+                  <Link to='/privacy'>Privacy</Link> &<Link to='/terms'>Terms</Link>
                 </p>
               </div>
             </div>

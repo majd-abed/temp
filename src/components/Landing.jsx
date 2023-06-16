@@ -135,7 +135,7 @@ const Landing = () => {
               <div class='holder-img'>
                 <img
                   class='round-img img-responsive center-block'
-                  src={require("../assets/images/2.jpg")}
+                  src={require("../assets/images/short.jpeg")}
                 />
               </div>
             </div>
@@ -164,7 +164,7 @@ const Landing = () => {
               <div class='holder-img'>
                 <img
                   class='round-img img-responsive center-block'
-                  src={require("../assets/images/3.jpg")}
+                  src={require("../assets/images/network.jpeg")}
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ const Landing = () => {
               <div class='holder-img'>
                 <img
                   class='round-img img-responsive center-block'
-                  src={require("../assets/images/2.jpg")}
+                  src={require("../assets/images/social.jpeg")}
                 />
               </div>
             </div>

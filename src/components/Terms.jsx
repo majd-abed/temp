@@ -5,17 +5,20 @@ const Terms = () => {
     <div className='terms-body'>
       <div class='container'>
         <div class='wow-logo'>
-          <img
-            class='img-responsive terms-img-logo'
-            src={require("../assets/images/wow_logo.png")}
-          />
+          <Link to='/'>
+            <img
+              class='img-responsive terms-img-logo'
+              src={require("../assets/images/wow_logo.png")}
+            />
+          </Link>
         </div>
         <section class='generic text-center'>
           <h2 className='terms-header'>Terms and Conditions</h2>
           <hr class='hr-mid' />
           <img
             class='img-generic img-responsive'
-            src={require("../assets/images/5.jpg")}
+            style={{ borderRadius: "2rem" }}
+            src={require("../assets/images/terms.jpeg")}
           />
         </section>
         <section class='font-2'>
