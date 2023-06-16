@@ -21,7 +21,7 @@ const Signin = () => {
   };
   async function handleSignin() {
     if (!validateEmail(emailRef.current.value)) setEmailWarning(true);
-    if (!passwordRef.current.value.length < 8) setIsPasswordShort(true);
+    if (passwordRef.current.value.length < 8) setIsPasswordShort(true);
     if (
       !validateEmail(emailRef.current.value) ||
       !passwordRef.current.value.length < 8
