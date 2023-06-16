@@ -24,7 +24,7 @@ const Signin = () => {
     if (passwordRef.current.value.length < 8) setIsPasswordShort(true);
     if (
       !validateEmail(emailRef.current.value) ||
-      !passwordRef.current.value.length < 8
+      passwordRef.current.value.length < 8
     )
       return null;
     await http.get("/sanctum/csrf-cookie");
