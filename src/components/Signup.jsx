@@ -143,11 +143,10 @@ const Signup = () => {
                 })}
               </select>
             </div>
-            <div className='form-floating mb-3'>
+            <div className=''>
               <input
                 type='email'
-                className='form-control rounded-0 sign-input'
-                id='floatingInput'
+                className='sign-input'
                 placeholder='E-mail Address'
                 ref={emailRef}
                 onChange={() => {
@@ -167,8 +166,7 @@ const Signup = () => {
             <div className='form-floating'>
               <input
                 type='password'
-                className='form-control rounded-0 sign-input'
-                id='floatingPassword'
+                className='sign-input'
                 placeholder='Password'
                 ref={passwordRef}
                 onChange={() => {
