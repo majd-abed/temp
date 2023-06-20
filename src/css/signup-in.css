@@ -16,6 +16,7 @@
 
 .sign-btn{
   border-radius: 1rem;
+  border: black;
   margin-top: 10px;
   font-size: 20px;
   background-color: var(--primary-btn-color);
