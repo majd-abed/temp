@@ -34,7 +34,8 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
   };
   const handlePause = () => {
     videoRef.current.pause();
-    setIsPlaying(false);
+    if (!isReplay) setIsPlaying(false);
+    setIsFaqsOpen(false);
   };
   const handleMute = () => {
     // videoRef.current.volume = 1;
@@ -316,7 +317,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
         <div className='control-btns'>
           <button
             className='material-symbols-rounded control-btn-style'
-            style={{ display: `${isPlaying ? "none" : "block"}` }}
+            style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
             onClick={handlePlay}>
             play_arrow
           </button>

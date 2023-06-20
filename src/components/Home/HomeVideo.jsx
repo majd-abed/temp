@@ -74,6 +74,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
   const handlePause = () => {
     videoRef.current.pause();
     if (!isReplay) setIsPlaying(false);
+    setIsFaqsOpen(false);
   };
   const handleMute = () => {
     videoRef.current.muted = true;

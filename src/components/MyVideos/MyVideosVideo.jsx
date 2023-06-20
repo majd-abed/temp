@@ -71,7 +71,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
   };
   const handlePause = () => {
     videoRef.current.pause();
-    setIsPlaying(false);
+    if (!isReplay) setIsPlaying(false);
     setDeleteModal(false);
     setIsFaqsOpen(false);
   };
@@ -388,7 +388,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
         <div className='control-btns'>
           <button
             className='material-symbols-rounded control-btn-style'
-            style={{ display: `${isPlaying ? "none" : "block"}` }}
+            style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
             onClick={handlePlay}>
             play_arrow
           </button>
