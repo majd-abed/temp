@@ -119,13 +119,13 @@ const Home = () => {
         ) : (
           <div className='no-content'>
             {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
-            <img src={require("../../assets/images/no-video.png")} alt='' />
+            <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
             <div>No Videos to show here</div>
           </div>
         )}
         {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
           <div className='no-content'>
-            <img src={require("../../assets/images/no-video.png")} alt='' />
+            <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
             <div>No Videos to show here</div>
           </div>
         ) : null}

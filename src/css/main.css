@@ -419,6 +419,9 @@ footer{
 .no-content-notifications p{
     font-size: 16px;
 }
+.no-video-icon{
+    font-size: 40px;
+}
 .require{
     font-size: 10px;
     color: red;
