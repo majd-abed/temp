@@ -227,7 +227,7 @@ header{
 }
 
 .no-img-video{
-    width:350px;
+    width:350px !important;
 }
 
 .video-container{
@@ -420,7 +420,8 @@ footer{
     font-size: 16px;
 }
 .no-video-icon{
-    font-size: 40px;
+    font-size: 60px;
+    color: #aaa;
 }
 .require{
     font-size: 10px;

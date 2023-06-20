@@ -263,7 +263,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
       <div className='user-details'>
         <div className='user-info no-img-video'>
           <h5>{data.category_name}</h5>
-          <span style={{ fontWeight: "400", fontSize: "small" }}>
+          <span style={{ fontWeight: "400", fontSize: "11px" }}>
             Created at {data.created_at}
           </span>
         </div>
