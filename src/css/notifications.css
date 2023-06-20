@@ -126,6 +126,15 @@
   border: 1px solid #ccc;
   border-radius: .5rem;
 }
+
+.like-video{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.like-text{
+  text-align: center;
+}
 @media (max-width: 770px) {
   .notification-name{
     padding-top: 5px;
