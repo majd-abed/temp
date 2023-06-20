@@ -315,7 +315,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
         <div className='control-btns'>
           <button
             className='material-symbols-rounded control-btn-style'
-            style={{ display: `${isPlaying ? "none" : "block"}` }}
+            style={{ display: `${isPlaying && !isReplay ? "none" : "block"}` }}
             onClick={handlePlay}>
             play_arrow
           </button>
