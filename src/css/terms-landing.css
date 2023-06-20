@@ -80,11 +80,11 @@
 .head{
     box-sizing: border-box;
     min-height: 100vh;
-    background-image: url('../assets/images/1.jpg');
+    background-image: url('../assets/images/olyoli-banner-image.png');
     position: relative;
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size:53vh;
+    background-size:90vh;
 }
 .font-1{
     box-sizing: border-box;

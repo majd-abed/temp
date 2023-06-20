@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 const Privacy = () => {
   return (
     <div className='terms-body'>
-      <div className='container'>
-        <div className='wow-logo'>
+      <div class='container'>
+        <div class='wow-logo'>
           <Link to='/'>
             <img
-              className='img-responsive terms-img-logo'
+              class='img-responsive terms-img-logo'
               src={require("../assets/images/wow_logo.png")}
             />
           </Link>
         </div>
-        <section className='generic text-center'>
+        <section class='generic text-center'>
           <h2 className='terms-header'>Privacy and Policies</h2>
-          <hr className='hr-mid' />
-          <img
-            className='img-generic img-responsive'
+          <hr class='hr-mid' />
+          {/* <img
+            class='img-generic img-responsive'
             style={{ borderRadius: "2rem" }}
             src={require("../assets/images/privacy.jpeg")}
-          />
+          /> */}
         </section>
-        <section className='font-2'>
-          <p className='generic-p'>
+        <section class='font-2'>
+          <p class='generic-p'>
             Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in
             faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis.
             Praesent rutrum sem diam, vitae egestas enim auctor sit amet.
@@ -33,7 +33,7 @@ const Privacy = () => {
             commodo eget turpis at, elementum convallis elit. Pellentesque enim
             turpis, hendrerit tristique.
           </p>
-          <p className='generic-p'>
+          <p class='generic-p'>
             Interdum et malesuada fames ac ante ipsum primis in faucibus.
             Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent
             rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo
@@ -41,7 +41,7 @@ const Privacy = () => {
             turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit
             tristique lorem ipsum dolorj.
           </p>
-          <p className='generic-p'>
+          <p class='generic-p'>
             Interdum et malesuada fames ac ante ipsum primis in faucibus.
             Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent
             rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo
@@ -58,40 +58,40 @@ const Privacy = () => {
         </section>
       </div>
 
-      <section className='social'>
+      {/* <section class='social'>
         <ul>
           <li>
-            <a href='#' className='fa fa-facebook fa-2x' aria-hidden='true'></a>
+            <a href='#' class='fa fa-facebook fa-2x' aria-hidden='true'></a>
           </li>
           <li>
-            <a href='#' className='fa fa-twitter fa-2x' aria-hidden='true'></a>
+            <a href='#' class='fa fa-twitter fa-2x' aria-hidden='true'></a>
           </li>
           <li>
-            <a href='#' className='fa fa-linkedin fa-2x' aria-hidden='true'></a>
+            <a href='#' class='fa fa-linkedin fa-2x' aria-hidden='true'></a>
           </li>
           <li>
-            <a href='#' className='fa fa-youtube fa-2x' aria-hidden='true'></a>
+            <a href='#' class='fa fa-youtube fa-2x' aria-hidden='true'></a>
           </li>
         </ul>
-      </section>
+      </section> */}
 
-      <section className='footer'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
-              <div className='footer-p1'>
-                <p className='font-2'>Copy right 2023 by Oly Oli</p>
+      <section class='footer'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
+              <div class='footer-p1'>
+                <p class='font-2'>Copy right 2023 by Oly Oli</p>
               </div>
             </div>
-            <div className='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
+            <div class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
               <img
-                className='img-responsive foot-img'
+                class='img-responsive foot-img'
                 src={require("../assets/images/footer-logo.png")}
               />
             </div>
-            <div className='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
-              <div className='footer-p2'>
-                <p className='font-2'>
+            <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
+              <div class='footer-p2'>
+                <p class='font-2'>
                   <Link to='/privacy'>Privacy</Link> &<Link to='/terms'>Terms</Link>
                 </p>
               </div>
