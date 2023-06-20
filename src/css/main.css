@@ -581,8 +581,9 @@ footer{
         font-size: 9px;
     }
 }
-.question{
+.question-faq{
     font-size: 14px;
+    padding-bottom: 20px;
 
 }
 .answer{

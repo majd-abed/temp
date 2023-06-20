@@ -269,7 +269,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
                           <div className='question-info'>
                             <div className='question-username'>{f["Asked By"]}</div>
                             <div className='question-country'>{f.country_name}</div>
-                            <div className='question'>{f.question}</div>
+                            <div className='question-faq'>{f.question}</div>
                           </div>
                         </div>
                       </summary>
