@@ -215,12 +215,12 @@ const VideoPost = () => {
             onChange={handleInput}
             type='text'
             className='keywords-input'
-            placeholder='keywords / Topic'
+            placeholder='Video Topic'
             maxLength='50'
             required
           />
           <p className='keyword-text'>
-            This keywords / Topic help users to find your video
+            Your video topic will be search keyword. So write appropriate topic
           </p>
           <br />
           <div className='require'>
