@@ -283,10 +283,10 @@ div#UpdateImageUpload input {
         overflow: hidden;
     } */
     .input-container{
-        max-width: 200px;
+        max-width: 270px;
         margin: auto;
     }
-    .password-input{
+    /* .password-input{
         font-size: 10px;
-    }
+    } */
 }
