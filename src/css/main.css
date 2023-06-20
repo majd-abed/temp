@@ -514,7 +514,7 @@ footer{
     height: 450px;
     top: calc(50% - 124px);
     right: 0;
-    border-radius: 1rem;
+    border-radius: inherit;
 }
 
 .faqs-header{
