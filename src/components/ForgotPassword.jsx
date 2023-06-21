@@ -10,7 +10,9 @@ const ForgotPassword = () => {
   const [credential, setCredential] = useState("");
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const ConfirmPasswordRef = useRef(null);
   const [isPasswordShort, setIsPasswordShort] = useState(false);
+  const [isPassIndetical, setIsPassIndetical] = useState(true);
   const [emailWarning, setEmailWarning] = useState(false);
 
   const validateEmail = (mail) => {
@@ -59,7 +61,15 @@ const ForgotPassword = () => {
   }
   async function handleDone() {
     if (!passwordRef.current.value || passwordRef.current.value.length < 8)
-      return setIsPasswordShort(true);
+      setIsPasswordShort(true);
+    if (passwordRef.current.value !== ConfirmPasswordRef.current.value)
+      setIsPassIndetical(false);
+    if (
+      !passwordRef.current.value ||
+      passwordRef.current.value.length < 8 ||
+      passwordRef.current.value !== ConfirmPasswordRef.current.value
+    )
+      return null;
     await axios
       .post("https://beta-api-test.s360.cloud/api/forget/password", {
         form_id: 3,
@@ -181,11 +191,29 @@ const ForgotPassword = () => {
               type='password'
               className='otp-input'
               placeholder='New Password'
-              onChange={() => setIsPasswordShort(false)}
+              onChange={() => {
+                setIsPasswordShort(false);
+                setIsPassIndetical(true);
+              }}
             />
-            {isPasswordShort ? (
+            <input
+              ref={ConfirmPasswordRef}
+              type='password'
+              className='otp-input'
+              placeholder='Confirm Password'
+              onChange={() => {
+                setIsPasswordShort(false);
+                setIsPassIndetical(true);
+              }}
+            />
+            {isPasswordShort && isPassIndetical ? (
               <div className='require-otp'>
                 Password must contain at least 8 characters
+              </div>
+            ) : null}
+            {!isPassIndetical ? (
+              <div className='require-otp'>
+                Password confirmation doesn't match password
               </div>
             ) : null}
             <button
