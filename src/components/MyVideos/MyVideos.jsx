@@ -169,9 +169,9 @@ const MyVideos = () => {
               style={{ fontSize: "100px", color: "#aaaaaa" }}>
               notifications
             </span>
-            <div>Your Videos live here</div>
+            <div style={{ marginBottom: "20px" }}>Your Videos live here</div>
             <div>
-              <Link to="/video-post" className="upload-btn">
+              <Link to='/video-post' className='upload-btn'>
                 Upload Video
               </Link>
             </div>

@@ -55,12 +55,13 @@
 .upload-btn{
     border-radius: 1rem;
     border: black;
-    margin-top: 10px;
     font-size: 20px;
     background-color: var(--primary-btn-color);
     width: 264px;
     color: white;
     cursor: pointer;
+    padding: 5px 15px;
+    font-weight: normal;
 }
 @media only screen and (max-width: 800px) {
     .video-post-container{
