@@ -20,7 +20,7 @@ const Home = () => {
     isSearch,
     searchValue,
   } = useGlobal();
-  let searchPhrase = searchValue
+  const searchPhrase = searchValue;
   const [subData, setSubData] = useState([]);
   const [likeData, setLikeData] = useState([]);
   const [isSubLoading, setIsSubLoading] = useState(true);
