@@ -119,14 +119,7 @@ const Home = () => {
               }
             }
           })
-        ) : (
-          <div className='no-content'>
-            {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
-            <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
-            <div>No Videos to show here</div>
-          </div>
-        )}
-        {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
+        ) : isSearch ? (
           <div className='no-content'>
             <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
             <div>
@@ -136,6 +129,19 @@ const Home = () => {
               </span>{" "}
               - didn't match any videos
             </div>
+          </div>
+        ) : (
+          <div className='no-content'>
+            {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
+            <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
+            <div>No Videos to show here</div>
+          </div>
+        )}
+        {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
+          <div className='no-content'>
+            {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
+            <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
+            <div>No Videos to show here</div>
           </div>
         ) : null}
       </div>
