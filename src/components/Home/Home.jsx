@@ -19,6 +19,7 @@ const Home = () => {
     setIsCategoryEmpty,
     isSearch,
     searchValue,
+    noVideoPhrase,
   } = useGlobal();
   const searchPhrase = searchValue;
   const [subData, setSubData] = useState([]);
@@ -126,7 +127,7 @@ const Home = () => {
             <div>
               your search -{" "}
               <span style={{ color: "black", fontWeight: "bold" }}>
-                {searchPhrase}
+                {noVideoPhrase}
               </span>{" "}
               - didn't match any videos
             </div>

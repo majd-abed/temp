@@ -181,7 +181,8 @@ const Subscriptions = () => {
               style={{ fontSize: "100px", color: "#aaaaaa" }}>
               notifications
             </span>
-            <div>Your Subscriptions channels videos live here</div>
+            <div>Subscribe to your favorite channels to get notified about their
+                  latest videos</div>
           </div>
         )}
         {isCategoryEmpty && !isLoading ? (
@@ -191,7 +192,8 @@ const Subscriptions = () => {
               style={{ fontSize: "100px", color: "#aaaaaa" }}>
               notifications
             </span>
-            <div>Your Subscriptions channels videos live here</div>
+            <div>Subscribe to your favorite channels to get notified about their
+                  latest videos</div>
           </div>
         ) : null}
       </div>

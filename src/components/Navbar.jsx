@@ -16,9 +16,11 @@ const Navbar = () => {
     setCategoryName,
     setIsCategoryEmpty,
     setSelectedCategory,
+    setNoVideoPhrase,
   } = useGlobal();
   const [profilePic, setProfilePic] = useState(null);
   async function handleSearch() {
+    setNoVideoPhrase(searchValue);
     setIsHomeLoading(true);
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");

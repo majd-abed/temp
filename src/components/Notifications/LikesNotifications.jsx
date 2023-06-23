@@ -166,10 +166,6 @@ const LikesNotifications = () => {
                   notifications
                 </span>
                 <h4>Your notifications live here</h4>
-                <p>
-                  Subscribe to your favorite channels to get notified about their
-                  latest videos
-                </p>
               </div>
             )}
           </>
