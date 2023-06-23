@@ -185,6 +185,11 @@ const MyVideos = () => {
               notifications
             </span>
             <div>Your Videos live here</div>
+            <div>
+              <Link to='/video-post' className='upload-btn'>
+                Upload Video
+              </Link>
+            </div>
           </div>
         ) : null}
       </div>
