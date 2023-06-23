@@ -20,6 +20,7 @@ const LikesNotifications = () => {
           },
         })
         .then((res) => {
+          console.log(res.data.notifications);
           const data = res.data.notifications;
 
           setnotificationsData(data);
@@ -128,7 +129,7 @@ const LikesNotifications = () => {
                           <p style={{ fontWeight: "bold" }}>{e.category_name}</p>
                           <p>{e.keywords}</p>
                         </div>
-                        <div className="like-video">
+                        <div className='like-video'>
                           <video src={e.video} className='notification-video' />
                         </div>
                       </div>
