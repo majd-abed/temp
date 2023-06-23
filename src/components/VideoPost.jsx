@@ -57,11 +57,16 @@ const VideoPost = () => {
           setCount(Math.round((data.loaded / data.total) * 100));
         },
       })
-      .then((success) => {
-        toast.success("Video Uploaded Successfully!");
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+      .then((res) => {
+        if (res.status === 200) {
+          toast.error(res.data.Message);
+        }
+        if (res.status === 201) {
+          toast.success(res.data.Message);
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -82,7 +87,7 @@ const VideoPost = () => {
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
 
-    if (videoFile.size > 25000000) return toast.error("Video Size is too big.");
+    if (videoFile.size > 20000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
@@ -95,11 +100,16 @@ const VideoPost = () => {
           setCount(Math.round((data.loaded / data.total) * 100));
         },
       })
-      .then((success) => {
-        toast.success("Video Uploaded Successfully!");
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
+      .then((res) => {
+        if (res.status === 200) {
+          toast.error(res.data.Message);
+        }
+        if (res.status === 201) {
+          toast.success(res.data.Message);
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
+        }
       })
       .catch((error) => {
         console.log(error);

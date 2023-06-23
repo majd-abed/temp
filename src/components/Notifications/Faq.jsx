@@ -22,9 +22,14 @@ const Faq = ({ data, setTrigger, trigger }) => {
           },
         }
       )
-      .then((success) => {
-        setTrigger(!trigger);
-        toast.success("Reply submitted successfully");
+      .then((res) => {
+        if (res.status === 200) {
+          toast.error(res.data.Message);
+        }
+        if (res.status === 201) {
+          setTrigger(!trigger);
+          toast.success(res.data.Message);
+        }    
       })
       .catch((error) => {
         console.log(error);

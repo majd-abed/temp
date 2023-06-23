@@ -22,7 +22,6 @@ const FaqsNotifications = () => {
           },
         })
         .then((res) => {
-          console.log(res.data.notifications);
           const data = res.data.notifications;
 
           setnotificationsData(data);

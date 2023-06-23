@@ -99,9 +99,13 @@
   
 }
 .notification-name{
-  padding-top: 12px;
+  padding-top: 6px;
   padding-right: 10px;
   font-weight: bold;
+}
+.notification-country{
+font-size: 11px;
+padding-right: 15px;
 }
 .notification-pic{
   width: 50px;
@@ -137,9 +141,12 @@
 }
 @media (max-width: 770px) {
   .notification-name{
-    padding-top: 5px;
+    padding-top: 0px;
+
+  }
+  .notification-country{
     padding-right: 10px;
-    font-weight: bold;
+
   }
   .notification-info-profile{
     justify-content: center;
