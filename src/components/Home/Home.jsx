@@ -71,7 +71,9 @@ const Home = () => {
         console.log(e);
       });
   }, [trigger]);
-  useEffect(() => {}, [homeData, subData, categoryName, likeData]);
+  useEffect(() => {
+    console.log(homeData);
+  }, [homeData, subData, categoryName, likeData]);
   if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
     return <Navigate to='/' replace={true} />;
   return (

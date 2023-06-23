@@ -36,7 +36,6 @@ const Navbar = () => {
       )
       .then((res) => {
         if (res.status === 201) {
-          console.log(res.data.videos);
           setHomeData(res.data.videos);
           setIsHomeLoading(false);
           setIsSearch(true);
