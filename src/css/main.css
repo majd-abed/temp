@@ -404,6 +404,11 @@ footer{
     font-size: 24px;
     font-weight: 600;
 }
+.no-content-text{
+    width: 300px;
+    margin: auto;
+    font-size: 18px;
+}
 .no-content-notifications{
     width: 300px;
     text-align: center;

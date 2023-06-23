@@ -59,7 +59,7 @@ const VideoPost = () => {
       })
       .then((res) => {
         if (res.status === 200) {
-          toast.error(res.data.Message);
+          toast.error(res.data.video);
         }
         if (res.status === 201) {
           toast.success(res.data.Message);
@@ -102,7 +102,7 @@ const VideoPost = () => {
       })
       .then((res) => {
         if (res.status === 200) {
-          toast.error(res.data.Message);
+          toast.error(res.data.video);
         }
         if (res.status === 201) {
           toast.success(res.data.Message);
