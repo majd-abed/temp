@@ -102,10 +102,10 @@ const VideoPost = () => {
       })
       .then((res) => {
         if (res.status === 200) {
-          toast.error(res.data.message);
+          toast.error(res.data.Message);
         }
         if (res.status === 201) {
-          toast.success(res.data.message);
+          toast.success(res.data.Message);
           setTimeout(() => {
             window.location.reload();
           }, 3000);
