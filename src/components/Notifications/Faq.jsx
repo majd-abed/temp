@@ -23,7 +23,6 @@ const Faq = ({ data, setTrigger, trigger }) => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         if (res.status === 200) {
           toast.error(res.data.message);
         }

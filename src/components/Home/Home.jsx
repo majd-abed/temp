@@ -18,6 +18,7 @@ const Home = () => {
     isCategoryEmpty,
     setIsCategoryEmpty,
     isSearch,
+    searchValue,
   } = useGlobal();
   const [subData, setSubData] = useState([]);
   const [likeData, setLikeData] = useState([]);
@@ -126,7 +127,13 @@ const Home = () => {
         {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
           <div className='no-content'>
             <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
-            <div>No Videos to show here</div>
+            <div>
+              your search -{" "}
+              <span style={{ color: "black", fontWeight: "bold" }}>
+                {searchValue}
+              </span>{" "}
+              - didn't match any videos
+            </div>
           </div>
         ) : null}
       </div>
