@@ -90,7 +90,8 @@ const VideoPost = () => {
     formData.append("is_live", 0);
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
-
+    if (vidHeight > 1920 || vidWidth > 1080)
+      return toast.error("Video Resolution is bigger than 1920×1080.");
     if (videoFile.size > 20000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
@@ -249,6 +250,16 @@ const VideoPost = () => {
           />
           <p className='keyword-text'>
             Your video topic will be search keyword. So write appropriate topic
+          </p>
+          <p class='keyword-text'>
+            <span
+              style={{
+                color: "red",
+              }}>
+              *
+            </span>
+            The video Size sould be less than 2MB and it's resolution should be less
+            than 1920×1080
           </p>
           <br />
           <div className='require'>
