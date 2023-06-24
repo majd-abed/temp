@@ -22,33 +22,35 @@ const Navbar = () => {
   const [profilePic, setProfilePic] = useState(null);
   function handleSearch() {
     if (!searchValue) return toast.error("Please enter Keywords to look for");
-    setNoVideoPhrase(searchValue);
-    setIsHomeLoading(true);
-    let token = localStorage.getItem("token");
-    if (token === null) token = sessionStorage.getItem("token");
-    axios
-      .post(
-        "https://beta-api-test.s360.cloud/api/videos/search",
-        {
-          keyword: searchRef.current.value,
-        },
-        {
-          headers: {
-            Authorization: token ? `Bearer ${token}` : "",
+    else {
+      setNoVideoPhrase(searchValue);
+      setIsHomeLoading(true);
+      let token = localStorage.getItem("token");
+      if (token === null) token = sessionStorage.getItem("token");
+      axios
+        .post(
+          "https://beta-api-test.s360.cloud/api/videos/search",
+          {
+            keyword: searchRef.current.value,
           },
-        }
-      )
-      .then((res) => {
-        if (res.status === 201) {
-          setHomeData(res.data.videos);
-          setIsHomeLoading(false);
-          setIsSearch(true);
-          // window.location = "/home";
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+          {
+            headers: {
+              Authorization: token ? `Bearer ${token}` : "",
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status === 201) {
+            setHomeData(res.data.videos);
+            setIsHomeLoading(false);
+            setIsSearch(true);
+            // window.location = "/home";
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   }
   const handlehome = () => {
     setIsHomeLoading(true);
