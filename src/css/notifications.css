@@ -171,6 +171,9 @@ padding-right: 15px;
   .notification-replied{
     margin: 0;
   }
+  .notification-reply-btn{
+    margin-right:0px
+  }
   .notification-submit-reply-btn-container{
     display: flex;
     justify-content: center;
