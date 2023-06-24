@@ -38,7 +38,7 @@ const VideoPost = () => {
     const videoFile = videoInput[0];
     console.log(videoFile);
 
-    const url = URL.createObjectURL(file)
+    const url = URL.createObjectURL(videoFile)
     const video = document.createElement('video')
     video.onloadedmetadata = evt => {
       // Revoke when you don't need the url any more to release any reference
