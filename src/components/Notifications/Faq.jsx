@@ -72,7 +72,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
       </div>
       <div className='notification-body'>
         <div className='notification-video-section'>
-          <div className='notification-video-info center-text'>
+          <div className='notification-video-info'>
             <p style={{ fontWeight: "bold" }}>{data.category_name}</p>
             <p>{data.keywords}</p>
           </div>
