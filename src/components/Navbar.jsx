@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { HOME, http, MY_PROFILE } from "../api";
 import { useGlobal } from "../context";
@@ -20,6 +21,7 @@ const Navbar = () => {
   } = useGlobal();
   const [profilePic, setProfilePic] = useState(null);
   async function handleSearch() {
+    if (!searchValue) return toast.error("Please enter Keywords to look for");
     setNoVideoPhrase(searchValue);
     setIsHomeLoading(true);
     let token = localStorage.getItem("token");
@@ -103,6 +105,37 @@ const Navbar = () => {
   }, []);
   return (
     <nav className='angel-top-nav header'>
+      <Toaster
+        position='bottom-right'
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=''
+        containerStyle={{}}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 5000,
+          style: {
+            background: "white",
+            color: "black",
+          },
+          // Default options for specific types
+          success: {
+            duration: 5000,
+            theme: {
+              primary: "#B9F9C7",
+              secondary: "black",
+            },
+          },
+          error: {
+            duration: 5000,
+            style: {
+              background: "#FEB8B8",
+              color: "black",
+            },
+          },
+        }}
+      />
       <div className='angel-top-nav-divider-left'>
         <Link
           to='/'

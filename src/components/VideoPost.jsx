@@ -44,7 +44,7 @@ const VideoPost = () => {
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
 
-    if (videoFile.size > 25000000) return toast.error("Video Size is too big.");
+    if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
