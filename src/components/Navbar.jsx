@@ -20,13 +20,13 @@ const Navbar = () => {
     setNoVideoPhrase,
   } = useGlobal();
   const [profilePic, setProfilePic] = useState(null);
-  async function handleSearch() {
+  function handleSearch() {
     if (!searchValue) return toast.error("Please enter Keywords to look for");
     setNoVideoPhrase(searchValue);
     setIsHomeLoading(true);
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
-    await axios
+    axios
       .post(
         "https://beta-api-test.s360.cloud/api/videos/search",
         {
