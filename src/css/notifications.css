@@ -136,7 +136,7 @@ padding-right: 15px;
     justify-content: center;
     margin: 10px;
 }
-.like-text{
+.center-text{
   text-align: center;
 }
 @media (max-width: 770px) {
