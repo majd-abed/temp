@@ -115,21 +115,21 @@ const Navbar = () => {
         toastOptions={{
           // Define default options
           className: "",
-          duration: 5000,
+          duration: 3000,
           style: {
             background: "white",
             color: "black",
           },
           // Default options for specific types
           success: {
-            duration: 5000,
+            duration: 3000,
             theme: {
               primary: "#B9F9C7",
               secondary: "black",
             },
           },
           error: {
-            duration: 5000,
+            duration: 3000,
             style: {
               background: "#FEB8B8",
               color: "black",

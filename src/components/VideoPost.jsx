@@ -29,13 +29,27 @@ const VideoPost = () => {
   const handleInput = () => {
     if (inputRef.current.value) setIsKeywordsEmpty(false);
   };
-  const publish = () => {
+  const publish = (evt) => {
     const formData = new FormData();
     if (!videoInput) setIsVideoEmpty(true);
     if (!videoCategory) setIsCatEmpty(true);
     if (!inputRef.current.value) setIsKeywordsEmpty(true);
     if (!videoInput || !inputRef.current.value || !videoCategory) return null;
     const videoFile = videoInput[0];
+    console.log(videoFile);
+
+    const url = URL.createObjectURL(file)
+    const video = document.createElement('video')
+    video.onloadedmetadata = evt => {
+      // Revoke when you don't need the url any more to release any reference
+      URL.revokeObjectURL(url)
+      console.log(video.videoWidth, video.videoHeight)
+    }
+    video.src = url
+    video.load() // fetches metadata
+
+
+
     setIsVideoEmpty(false);
     setIsKeywordsEmpty(false);
 
@@ -47,31 +61,31 @@ const VideoPost = () => {
     if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
-    http
-      .post(VIDEO_CREATE, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: token ? `Bearer ${token}` : "",
-        },
-        onUploadProgress: (data) => {
-          setCount(Math.round((data.loaded / data.total) * 100));
-        },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          toast.error(res.data.video);
-        }
-        if (res.status === 201) {
-          toast.success(res.data.Message);
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        alert("Error happened!");
-      });
+    // http
+    //   .post(VIDEO_CREATE, formData, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //       Authorization: token ? `Bearer ${token}` : "",
+    //     },
+    //     onUploadProgress: (data) => {
+    //       setCount(Math.round((data.loaded / data.total) * 100));
+    //     },
+    //   })
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       toast.error(res.data.video);
+    //     }
+    //     if (res.status === 201) {
+    //       toast.success(res.data.Message);
+    //       setTimeout(() => {
+    //         window.location.reload();
+    //       }, 3000);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     alert("Error happened!");
+    //   });
   };
   const save = () => {
     const formData = new FormData();
