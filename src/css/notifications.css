@@ -99,7 +99,7 @@
   
 }
 .notification-name{
-  padding-top: 6px;
+  padding-top: 2px;
   padding-right: 10px;
   font-weight: bold;
 }
@@ -196,7 +196,7 @@ padding-right: 15px;
     padding:  0;
   }
   .question{
-    padding: 0;
+    padding: 10px 0;
   }
   .notification-answer{
     padding: 10px 0;
