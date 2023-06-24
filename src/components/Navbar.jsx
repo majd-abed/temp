@@ -21,6 +21,7 @@ const Navbar = () => {
   } = useGlobal();
   const [profilePic, setProfilePic] = useState(null);
   function handleSearch() {
+    console.log(searchValue);
     if (!searchValue) return toast.error("Please enter Keywords to look for");
     setNoVideoPhrase(searchValue);
     setIsHomeLoading(true);
