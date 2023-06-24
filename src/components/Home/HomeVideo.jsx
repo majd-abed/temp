@@ -215,7 +215,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
         </div>
         <div className='user-info'>
           <h5>{data.name}</h5>
-          <span style={{ fontWeight: "400", fontSize: "small" }}>
+          <span style={{ fontWeight: "400", fontSize: "11px" }}>
             {data.country_name}
           </span>
           <span className='small-note'>
