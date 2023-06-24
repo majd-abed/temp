@@ -40,6 +40,7 @@ const Navbar = () => {
           }
         )
         .then((res) => {
+          console.log(res);
           if (res.status === 201) {
             setHomeData(res.data.videos);
             setIsHomeLoading(false);
