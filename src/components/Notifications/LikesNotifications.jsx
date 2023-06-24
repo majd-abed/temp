@@ -135,6 +135,7 @@ const LikesNotifications = () => {
                       <div className='notification-info'>
                         <div className='notification-info-profile'>
                           <p className='notification-name'>{e.name}</p>
+                          <p className='notification-country'>{data.country_name}</p>
                           <img
                             src={
                               e.profile_pic === null

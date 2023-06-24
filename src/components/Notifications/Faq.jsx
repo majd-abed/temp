@@ -83,6 +83,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
         <div className='notification-info'>
           <div className='notification-info-profile'>
             <p className='notification-name'>{data["Asked By"]}</p>
+            <p className='notification-country'>{data.country_name}</p>
             <img
               src={
                 data.profile_pic === null
