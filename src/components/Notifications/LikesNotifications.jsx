@@ -147,7 +147,7 @@ const LikesNotifications = () => {
                             className='notification-pic'></img>
                         </div>
                         <div className='notification-content'>
-                          <p style={{ fontStyle: "italic", paddingBottom: "20px" }}>
+                          <p style={{ fontStyle: "italic", padding: "20px" }}>
                             you got a Like!
                           </p>
                           <span
