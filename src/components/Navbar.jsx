@@ -164,7 +164,7 @@ const Navbar = () => {
               maxLength={50}
             />
             <Link
-              to={`${searchValue ? "/" : ""}`}
+              // to={`${searchValue ? "/" : ""}`}
               className='top-search-submit'
               onClick={() => handleSearch()}>
               Search
