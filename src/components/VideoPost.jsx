@@ -18,6 +18,8 @@ const VideoPost = () => {
   const [isVideoEmpty, setIsVideoEmpty] = useState(false);
   const [isKeywordsEmpty, setIsKeywordsEmpty] = useState(false);
   const [isCatEmpty, setIsCatEmpty] = useState(false);
+  const [vidWidth, setVidWidth] = useState(0);
+  const [vidHeight, setVidHeight] = useState(0);
   const onSelectHandler = (e) => {
     const index = e.target.selectedIndex;
     const el = e.target.childNodes[index];
@@ -38,17 +40,16 @@ const VideoPost = () => {
     const videoFile = videoInput[0];
     console.log(videoFile);
 
-    const url = URL.createObjectURL(videoFile)
-    const video = document.createElement('video')
-    video.onloadedmetadata = evt => {
+    const url = URL.createObjectURL(videoFile);
+    const video = document.createElement("video");
+    video.onloadedmetadata = (evt) => {
       // Revoke when you don't need the url any more to release any reference
-      URL.revokeObjectURL(url)
-      console.log(video.videoWidth, video.videoHeight)
-    }
-    video.src = url
-    video.load() // fetches metadata
-
-
+      URL.revokeObjectURL(url);
+      setVidWidth(video.videoWidth);
+      setVidHeight(video.videoHeight);
+    };
+    video.src = url;
+    video.load(); // fetches metadata
 
     setIsVideoEmpty(false);
     setIsKeywordsEmpty(false);
@@ -57,7 +58,8 @@ const VideoPost = () => {
     formData.append("is_live", 1);
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
-
+    if (vidHeight > 1920 || vidWidth > 1080)
+      return toast.error("Video Resolution is bigger than 1920×1080.");
     if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
