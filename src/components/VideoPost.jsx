@@ -51,31 +51,31 @@ const VideoPost = () => {
     if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
-    // http
-    //   .post(VIDEO_CREATE, formData, {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //       Authorization: token ? `Bearer ${token}` : "",
-    //     },
-    //     onUploadProgress: (data) => {
-    //       setCount(Math.round((data.loaded / data.total) * 100));
-    //     },
-    //   })
-    //   .then((res) => {
-    //     if (res.status === 200) {
-    //       toast.error(res.data.video);
-    //     }
-    //     if (res.status === 201) {
-    //       toast.success(res.data.Message);
-    //       setTimeout(() => {
-    //         window.location.reload();
-    //       }, 3000);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     alert("Error happened!");
-    //   });
+    http
+      .post(VIDEO_CREATE, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: token ? `Bearer ${token}` : "",
+        },
+        onUploadProgress: (data) => {
+          setCount(Math.round((data.loaded / data.total) * 100));
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          toast.error(res.data.video);
+        }
+        if (res.status === 201) {
+          toast.success(res.data.Message);
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Error happened!");
+      });
   };
   const save = () => {
     const formData = new FormData();
