@@ -22,36 +22,34 @@ const Navbar = () => {
   const [profilePic, setProfilePic] = useState(null);
   function handleSearch() {
     if (!searchValue) return toast.error("Please enter Keywords to look for");
-    else {
-      setNoVideoPhrase(searchValue);
-      setIsHomeLoading(true);
-      let token = localStorage.getItem("token");
-      if (token === null) token = sessionStorage.getItem("token");
-      axios
-        .post(
-          "https://beta-api-test.s360.cloud/api/videos/search",
-          {
-            keyword: searchRef.current.value,
+    setNoVideoPhrase(searchValue);
+    setIsHomeLoading(true);
+    let token = localStorage.getItem("token");
+    if (token === null) token = sessionStorage.getItem("token");
+    axios
+      .post(
+        "https://beta-api-test.s360.cloud/api/videos/search",
+        {
+          keyword: searchRef.current.value,
+        },
+        {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : "",
           },
-          {
-            headers: {
-              Authorization: token ? `Bearer ${token}` : "",
-            },
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          if (res.status === 201 || res.status === 200) {
-            setHomeData(res.data.videos);
-            setIsHomeLoading(false);
-            setIsSearch(true);
-            // window.location = "/home";
-          }
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.status === 201 || res.status === 200) {
+          setHomeData(res.data.videos);
+          setIsHomeLoading(false);
+          setIsSearch(true);
+          // window.location = "/home";
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
   const handlehome = () => {
     setIsHomeLoading(true);
@@ -165,7 +163,7 @@ const Navbar = () => {
               maxLength={50}
             />
             <Link
-              to='/'
+              to={`${searchValue ? "/" : ""}`}
               className='top-search-submit'
               onClick={() => handleSearch()}>
               Search
