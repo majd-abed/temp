@@ -162,6 +162,7 @@ const Navbar = () => {
               ref={searchRef}
               value={searchValue}
               onChange={() => setSearchValue(searchRef.current.value)}
+              maxLength={50}
             />
             <Link
               to='/'
