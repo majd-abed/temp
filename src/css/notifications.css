@@ -97,16 +97,19 @@
 }
 .notification-content{
   padding: 50px 0 0 0;
+  text-align: center;
 }
 .question{
   font-style: italic;
   padding-bottom: 20px;
+  text-align: center;
   
 }
 .notification-name{
   padding-top: 2px;
   padding-right: 10px;
   font-weight: bold;
+  text-align: center;
 }
 .notification-country{
 font-size: 11px;
