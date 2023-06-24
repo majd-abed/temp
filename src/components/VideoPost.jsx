@@ -58,7 +58,7 @@ const VideoPost = () => {
     formData.append("is_live", 1);
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
-    if (vidHeight > 1920 || vidWidth > 1080)
+    if (vidHeight > 1920 || vidWidth > 225)
       return toast.error("Video Resolution is bigger than 1920×1080.");
     if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
