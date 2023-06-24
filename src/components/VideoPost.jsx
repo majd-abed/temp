@@ -18,6 +18,8 @@ const VideoPost = () => {
   const [isVideoEmpty, setIsVideoEmpty] = useState(false);
   const [isKeywordsEmpty, setIsKeywordsEmpty] = useState(false);
   const [isCatEmpty, setIsCatEmpty] = useState(false);
+  const [vidWidth, setVidWidth] = useState(0);
+  const [vidHeight, setVidHeight] = useState(0);
   const onSelectHandler = (e) => {
     const index = e.target.selectedIndex;
     const el = e.target.childNodes[index];
@@ -36,20 +38,6 @@ const VideoPost = () => {
     if (!inputRef.current.value) setIsKeywordsEmpty(true);
     if (!videoInput || !inputRef.current.value || !videoCategory) return null;
     const videoFile = videoInput[0];
-    console.log(videoFile);
-
-    const url = URL.createObjectURL(videoFile);
-    const video = document.createElement("video");
-    let w = 0;
-    let h = 0;
-    video.onloadedmetadata = (evt) => {
-      // Revoke when you don't need the url any more to release any reference
-      URL.revokeObjectURL(url);
-      w = video.videoWidth;
-      h = video.videoHeight;
-    };
-    video.src = url;
-    video.load(); // fetches metadata
 
     setIsVideoEmpty(false);
     setIsKeywordsEmpty(false);
@@ -58,8 +46,8 @@ const VideoPost = () => {
     formData.append("is_live", 1);
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
-    console.log(h, w);
-    if (video.videoHeight > 1920 || video.videoWidth > 225)
+    console.log(vidWidth, vidHeight);
+    if (vidHeight > 1920 || vidWidth > 225)
       return toast.error("Video Resolution is bigger than 1920×1080.");
     if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
@@ -151,16 +139,30 @@ const VideoPost = () => {
       });
   }, []);
 
-  useEffect(() => {}, [categories]);
-
   const uploadHandler = (e) => {
     setIsVideoEmpty(false);
     setvideoInput(e.target.files);
+    //--------------------------------
+    const url = URL.createObjectURL(e.target.files[0]);
+    const video = document.createElement("video");
+    video.onloadedmetadata = (evt) => {
+      // Revoke when you don't need the url any more to release any reference
+      setVidWidth(video.videoWidth);
+      setVidHeight(video.videoHeight);
+      URL.revokeObjectURL(url);
+    };
+    video.src = url;
+    video.load(); // fetches metadata
+    //--------------------------------------------
+
     if (e.target.files.length > 0) {
       let fname = e.target.files[0].name;
       setFilename(fname);
     }
   };
+
+  useEffect(() => {}, [categories]);
+
   if (!localStorage.getItem("token") && !sessionStorage.getItem("token"))
     return <Navigate to='/' replace={true} />;
   return (
