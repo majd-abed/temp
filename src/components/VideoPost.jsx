@@ -40,9 +40,13 @@ const VideoPost = () => {
 
     const url = URL.createObjectURL(videoFile);
     const video = document.createElement("video");
+    let w = 0;
+    let h = 0;
     video.onloadedmetadata = (evt) => {
       // Revoke when you don't need the url any more to release any reference
       URL.revokeObjectURL(url);
+      w = video.videoWidth;
+      h = video.videoHeight;
     };
     video.src = url;
     video.load(); // fetches metadata
@@ -54,7 +58,7 @@ const VideoPost = () => {
     formData.append("is_live", 1);
     formData.append("category_id", videoCategory);
     formData.append("keywords", inputRef.current.value);
-    console.log(video.videoHeight, video.videoWidth);
+    console.log(h, w);
     if (video.videoHeight > 1920 || video.videoWidth > 225)
       return toast.error("Video Resolution is bigger than 1920×1080.");
     if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
