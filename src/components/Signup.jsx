@@ -66,8 +66,8 @@ const Signup = () => {
       passwordRef.current.value !== confirmPasswordRef.current.value
     )
       return null;
-    console.log(passwordRef.current.value, confirmPasswordRef.current.value);
-    setStep(2);
+    // console.log(passwordRef.current.value, confirmPasswordRef.current.value);
+    // setStep(2);
     await http.get("/sanctum/csrf-cookie");
     await http
       .post(SIGNUP, {
