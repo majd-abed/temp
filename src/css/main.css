@@ -33,7 +33,7 @@ body{
 
 a{
     text-decoration: none;
-    color:var(--primary-color);
+    /* color:var(--primary-color); */
     background: none;
     font-size: medium;
 }

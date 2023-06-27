@@ -97,19 +97,27 @@ const Signin = () => {
           className='container'
           style={{ maxWidth: "600px", margin: "auto", textAlign: "center" }}>
           <div className='logo-container' style={{ marginBottom: "20px" }}>
-            <img src={require("../assets/images/wow_logo.png")} alt='logo' />
+            <img
+              src={require("../assets/images/wow_logo.png")}
+              alt='logo'
+              width='100px'
+            />
           </div>
-          <div className='form-floating mb-3' style={{ textAlign: "center" }}>
+
+          <div class='input-group'>
             <input
-              type='email'
-              className='sign-input'
-              placeholder='E-mail Address'
+              type='text'
+              className='input'
               ref={emailRef}
               onChange={() => {
                 setEmailWarning(false);
               }}
               required
+              id='email-signin'
             />
+            <label for='email-signin' className='input-label'>
+              E-mail Address
+            </label>
             {emailWarning ? (
               <div
                 className='require-sign'
@@ -118,40 +126,48 @@ const Signin = () => {
               </div>
             ) : null}
           </div>
-          <div className='form-floating' style={{}}>
+
+          <div class='input-group'>
             <input
               type='password'
-              className='sign-input'
-              placeholder='Password'
+              className='input'
               ref={passwordRef}
               onChange={() => {
                 setIsPasswordShort(false);
               }}
               required
+              id='password-signin'
             />
+            <label for='password-signin' className='input-label'>
+              Password
+            </label>
             {isPasswordShort ? (
               <div className='require-sign' style={{ textAlign: "center" }}>
                 Password must contain at least 8 characters
               </div>
             ) : null}
           </div>
-          <div className='options-container'>
-            <div className='remember-form'>
-              <input type='checkbox' onChange={handlecheckbox} />
-              <span>Remember me</span>
-            </div>
-            <div className=''>
-              <Link to='/forgot-password' className='forget-pass'>
-                Forgot Password ?
-              </Link>
-            </div>
-          </div>
+
+
           <div>
             <button
               className='sign-btn'
               style={{ backgroundColor: "black", color: "white" }}>
               Login
             </button>
+          </div>
+          <div className="options-container">
+            <div className='options'>
+              <div className='remember-form'>
+                <input type='checkbox' onChange={handlecheckbox} />
+                <span>Remember me</span>
+              </div>
+              <div className=''>
+                <Link to='/forgot-password' className='forget-pass'>
+                  Forgot Password ?
+                </Link>
+              </div>
+            </div>
           </div>
           <div className='signup-ask'>
             Don't have an account?

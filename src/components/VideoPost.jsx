@@ -92,7 +92,7 @@ const VideoPost = () => {
     formData.append("keywords", inputRef.current.value);
     if (vidHeight > 1920 || vidWidth > 1080)
       return toast.error("Video Resolution is bigger than 1920×1080.");
-    if (videoFile.size > 20000000) return toast.error("Video Size is too big.");
+    if (videoFile.size > 2000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
@@ -248,6 +248,12 @@ const VideoPost = () => {
             maxLength='50'
             required
           />
+          <br />
+          <div className='require'>
+            {isKeywordsEmpty ? "Please provide Keywords" : ""}
+          </div>
+
+          <br />
           <p className='keyword-text'>
             Your video topic will be search keyword. So write appropriate topic
           </p>
@@ -262,10 +268,6 @@ const VideoPost = () => {
             than 1920×1080
           </p>
           <br />
-          <div className='require'>
-            {isKeywordsEmpty ? "Please provide Keywords" : ""}
-          </div>
-
           <br />
           <div style={{ display: `${!count ? "none" : "block"}` }}>
             <div>
