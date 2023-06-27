@@ -281,7 +281,11 @@ const Signup = () => {
                     <p>- Symbols (special characters) </p>- At least one number
                   </div>
                 ) : null}
-                {!isPasswordInvalid && !isPassIndetical ? <div>hi</div> : null}
+                {!isPasswordInvalid && !isPassIndetical ? (
+                  <div className='require-sign'>
+                    Password confirmation doesn't match password
+                  </div>
+                ) : null}
                 {/* ----------- country ------------ */}
                 <select
                   onChange={onSelectHandler}
