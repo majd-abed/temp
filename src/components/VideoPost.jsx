@@ -238,7 +238,13 @@ const VideoPost = () => {
               );
             })}
           </select>
-          <div className='require'>{isCatEmpty ? "Please Choose Category" : ""}</div>
+          {isCatEmpty ? (
+            <div className='require'>
+              <br />
+              Please Choose Category
+            </div>
+          ) : null}
+
           <input
             ref={inputRef}
             onChange={handleInput}
@@ -248,10 +254,12 @@ const VideoPost = () => {
             maxLength='50'
             required
           />
-          <br />
-          <div className='require'>
-            {isKeywordsEmpty ? "Please provide Keywords" : ""}
-          </div>
+          {isKeywordsEmpty ? (
+            <div className='require'>
+              <br />
+              Please provide Keywords
+            </div>
+          ) : null}
 
           <br />
           <p className='keyword-text'>
