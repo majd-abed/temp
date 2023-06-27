@@ -86,7 +86,6 @@ const Signup = () => {
         // if (res.status === 200) {
         //   console.log(res);
         //   // toast.error(res.data.email);
-        }
       })
       .catch((e) => {
         console.log(e);
