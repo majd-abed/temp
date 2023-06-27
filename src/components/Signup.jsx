@@ -81,12 +81,11 @@ const Signup = () => {
       })
       .then((res) => {
         if (res.status === 201) {
-          // window.location = "/signin";
-          console.log(res);
+          window.location = "/signin";
         }
-        if (res.status === 200) {
-          console.log(res);
-          // toast.error(res.data.email);
+        // if (res.status === 200) {
+        //   console.log(res);
+        //   // toast.error(res.data.email);
         }
       })
       .catch((e) => {
