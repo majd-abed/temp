@@ -90,8 +90,9 @@ const Signup = () => {
         password_confirmation: confirmPasswordRef.current.value,
       })
       .then((res) => {
+        console.log(res);
         if (res.status === 201) {
-          window.location = "/signin";
+          // window.location = "/signin";
         }
         if (res.status === 200) {
           toast.error(res.data.email);
@@ -178,7 +179,7 @@ const Signup = () => {
                       className='input two-cols'
                       ref={fNameRef}
                       maxLength={25}
-                      // required
+                      required
                       id='firstname-signup'
                       onChange={() => setIsFirstNameEmpty(false)}
                     />
@@ -197,7 +198,7 @@ const Signup = () => {
                       className='input two-cols'
                       ref={lNameRef}
                       maxLength={25}
-                      // required
+                      required
                       id='lastname-signup'
                       onChange={() => setIsLastNameEmpty(false)}
                     />
@@ -218,7 +219,7 @@ const Signup = () => {
                     className='input'
                     ref={businessRef}
                     maxLength={120}
-                    // required
+                    required
                     id='business'
                     // onChange={() => setIsBusinessEmpty(false)}
                   />
@@ -238,7 +239,7 @@ const Signup = () => {
                     onChange={() => {
                       setEmailWarning(false);
                     }}
-                    // required
+                    required
                     id='email-signin'
                   />
                   <label for='email-signin' className='input-label'>
@@ -263,7 +264,7 @@ const Signup = () => {
                         setIsPasswordInvalid(false);
                         setIsPassIndetical(true);
                       }}
-                      // required
+                      required
                       id='password-signin'
                     />
                     <label
@@ -290,7 +291,7 @@ const Signup = () => {
                         setIsPasswordInvalid(false);
                         setIsPassIndetical(true);
                       }}
-                      // required
+                      required
                       id='confirmpassword'
                     />
                     <label
