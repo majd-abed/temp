@@ -94,7 +94,7 @@ const Signup = () => {
           window.location = "/signin";
         }
         if (res.status === 200) {
-          toast.error(res.data.email)
+          toast.error(res.data.email);
         }
       })
       .catch((e) => {
@@ -220,14 +220,14 @@ const Signup = () => {
                     maxLength={120}
                     // required
                     id='business'
-                    onChange={() => setIsBusinessEmpty(false)}
+                    // onChange={() => setIsBusinessEmpty(false)}
                   />
                   <label for='business' className='input-label'>
-                    Business Name
+                    Business Name (optional)
                   </label>
-                  {isBusinessEmpty ? (
+                  {/* {isBusinessEmpty ? (
                     <div className='require-sign'>Business Name is required</div>
-                  ) : null}
+                  ) : null} */}
                 </div>
                 {/* ------------ email ----------- */}
                 <div class='input-group'>
