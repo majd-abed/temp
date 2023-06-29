@@ -20,8 +20,10 @@ const Profile = () => {
   const [isUsernameEmpty, setIsUsernameEmpty] = useState(false);
   const [isEmailEmpty, setIsEmailEmpty] = useState(false);
   const [emailWarning, setEmailWarning] = useState(false);
-  const [isPasswordShort, setIsPasswordShort] = useState(false);
-  const [isCurrPasswordShort, setIsCurrPasswordShort] = useState(false);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(true);
+  // const [isPassIndetical, setIsPassIndetical] = useState(true);
+  // const [isPasswordShort, setIsPasswordShort] = useState(false);
+  // const [isCurrPasswordShort, setIsCurrPasswordShort] = useState(false);
   const [isEmailPassowrdShort, setIsEmailPassowrdShort] = useState(false);
   const [isLocationEmpty, setIsLocationEmpty] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);
@@ -41,6 +43,25 @@ const Profile = () => {
     }
     return false;
   };
+
+  function validatePassword(password) {
+    // Regular expressions for each requirement
+    const lengthRegex = /^.{8,}$/;
+    const upperCaseRegex = /[A-Z]/;
+    const lowerCaseRegex = /[a-z]/;
+    const symbolRegex = /[\W_]/;
+    const numberRegex = /\d/;
+
+    // Checking each requirement using regular expressions
+    const hasLength = lengthRegex.test(password);
+    const hasUpperCase = upperCaseRegex.test(password);
+    const hasLowerCase = lowerCaseRegex.test(password);
+    const hasSymbol = symbolRegex.test(password);
+    const hasNumber = numberRegex.test(password);
+
+    // Returning true if all requirements are met, false otherwise
+    return hasLength && hasUpperCase && hasLowerCase && hasSymbol && hasNumber;
+  }
 
   const onSelectHandler = (e) => {
     const index = e.target.selectedIndex;
@@ -133,9 +154,8 @@ const Profile = () => {
     handleChangeLocation(userInfo.user_id);
   };
   const changePassword = async (id) => {
-    if (!passwordRef.current.value || passwordRef.current.value.length < 8)
-      return setIsPasswordShort(true);
-    if (!currPasswordRef.current.value) return setIsCurrPasswordShort(true);
+    if (!validatePassword(passwordRef.current.value))
+      return setIsPasswordInvalid(true);
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     await http
@@ -544,8 +564,9 @@ const Profile = () => {
                   className='password-input'
                   placeholder='New Password'
                   onChange={() => {
-                    setIsCurrPasswordShort(false);
-                    setIsPasswordShort(false);
+                    setIsPasswordInvalid(false);
+                    // setIsCurrPasswordShort(false);
+                    // setIsPasswordShort(false);
                   }}
                 />
                 {isPasswordSubmit ? (
@@ -563,18 +584,37 @@ const Profile = () => {
                       className='password-input extra-margin'
                       placeholder='Current Password'
                       onChange={() => {
-                        setIsCurrPasswordShort(false);
-                        setIsPasswordShort(false);
+                        // setIsCurrPasswordShort(false);
+                        // setIsPasswordShort(false);
                       }}
                     />
                   </>
                 ) : null}
               </div>
-              {isPasswordShort || isCurrPasswordShort ? (
+              {isPasswordInvalid ? (
+                <div
+                  className='require-sign'
+                  style={{
+                    textAlign: "start",
+                    width: "fit-content",
+                    // marginLeft: "55px",
+                  }}>
+                  The password must contain:
+                  <p>- Minimum 8 characters</p>
+                  <p>- A mix of uppercase and lowercase letters</p>
+                  <p>- Symbols (special characters) </p>- At least one number
+                </div>
+              ) : null}
+              {/* {!isPasswordInvalid && !isPassIndetical ? (
+                <div className='require-sign'>
+                  Password confirmation doesn't match password
+                </div>
+              ) : null} */}
+              {/* {isPasswordShort || isCurrPasswordShort ? (
                 <div className='require-profile'>
                   both Fields must contain at least 8 characters
                 </div>
-              ) : null}
+              ) : null} */}
               {isPasswordSubmit ? (
                 <button
                   onClick={() => {
