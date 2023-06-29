@@ -257,6 +257,12 @@ header{
         height: 70vh;
     }
 }
+@media (max-width:400px) {
+    .video{
+        max-width: 300px
+    }
+
+}
 .video-btns{
     color: white;
     position: absolute;

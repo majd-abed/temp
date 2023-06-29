@@ -92,7 +92,7 @@ const Signup = () => {
       .then((res) => {
         console.log(res);
         if (res.status === 201) {
-          // window.location = "/signin";
+          window.location = "/signin";
         }
         if (res.status === 200) {
           toast.error(res.data.email);
