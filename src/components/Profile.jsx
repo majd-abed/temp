@@ -506,16 +506,31 @@ const Profile = () => {
                     className='change-btn'>
                     Cancel
                   </button>
+                  <input
+                    ref={emailRef}
+                    type='email'
+                    name='email'
+                    id='email'
+                    placeholder='New Email'
+                    className='profile-input'
+                    onChange={() => {
+                      setEmailWarning(false);
+                    }}
+                  />
+
+                  {emailWarning ? (
+                    <div className='require-profile'>Email is not valid </div>
+                  ) : null}
                   <div style={{ position: "relative" }}>
                     <input
-                      ref={emailRef}
-                      type='email'
-                      name='email'
-                      id='email'
-                      placeholder='New Email'
-                      className='profile-input'
+                      ref={emailPasswordRef}
+                      type={isShowEmailPass ? "text" : "password"}
+                      name='password'
+                      id='password'
+                      className='profile-input extra-margin'
+                      placeholder='Current Password'
                       onChange={() => {
-                        setEmailWarning(false);
+                        setIsEmailPassowrdShort(false);
                       }}
                     />
                     <span
@@ -528,21 +543,6 @@ const Profile = () => {
                       )}
                     </span>
                   </div>
-
-                  {emailWarning ? (
-                    <div className='require-profile'>Email is not valid </div>
-                  ) : null}
-                  <input
-                    ref={emailPasswordRef}
-                    type={isShowEmailPass ? "text" : "password"}
-                    name='password'
-                    id='password'
-                    className='profile-input extra-margin'
-                    placeholder='Current Password'
-                    onChange={() => {
-                      setIsEmailPassowrdShort(false);
-                    }}
-                  />
                   {isEmailPassowrdShort ? (
                     <div className='require-profile'>
                       Password must contain at least 8 characters{" "}
