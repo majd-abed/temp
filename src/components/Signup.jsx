@@ -94,6 +94,9 @@ const Signup = () => {
         if (res.status === 201) {
           window.location = "/signin";
         }
+        if (res.status === 200) {
+          toast.error(res.data.email)
+        }
       })
       .catch((e) => {
         console.log(e);
