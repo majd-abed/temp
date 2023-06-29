@@ -20,7 +20,7 @@ const Profile = () => {
   const [isUsernameEmpty, setIsUsernameEmpty] = useState(false);
   const [isEmailEmpty, setIsEmailEmpty] = useState(false);
   const [emailWarning, setEmailWarning] = useState(false);
-  const [isPasswordInvalid, setIsPasswordInvalid] = useState(true);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
   // const [isPassIndetical, setIsPassIndetical] = useState(true);
   // const [isPasswordShort, setIsPasswordShort] = useState(false);
   // const [isCurrPasswordShort, setIsCurrPasswordShort] = useState(false);
@@ -569,6 +569,21 @@ const Profile = () => {
                     // setIsPasswordShort(false);
                   }}
                 />
+                {isPasswordInvalid ? (
+                  <div
+                    className='require-sign'
+                    style={{
+                      textAlign: "start",
+                      width: "fit-content",
+                      paddingBottom: "0px",
+                    }}>
+                    <br />
+                    The password must contain:
+                    <p>- Minimum 8 characters</p>
+                    <p>- A mix of uppercase and lowercase letters</p>
+                    <p>- Symbols (special characters) </p>- At least one number
+                  </div>
+                ) : null}
                 {isPasswordSubmit ? (
                   <>
                     <button
@@ -591,20 +606,7 @@ const Profile = () => {
                   </>
                 ) : null}
               </div>
-              {isPasswordInvalid ? (
-                <div
-                  className='require-sign'
-                  style={{
-                    textAlign: "start",
-                    width: "fit-content",
-                    // marginLeft: "55px",
-                  }}>
-                  The password must contain:
-                  <p>- Minimum 8 characters</p>
-                  <p>- A mix of uppercase and lowercase letters</p>
-                  <p>- Symbols (special characters) </p>- At least one number
-                </div>
-              ) : null}
+
               {/* {!isPasswordInvalid && !isPassIndetical ? (
                 <div className='require-sign'>
                   Password confirmation doesn't match password
