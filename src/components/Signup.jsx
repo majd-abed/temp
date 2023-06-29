@@ -212,15 +212,16 @@ const Signup = () => {
                     ) : null}
                   </div>
                 </div>
-                {/* ------------ Bussiness --------- */}
+                {/* ------------ Business --------- */}
                 <div class='input-group'>
                   <input
                     type='text'
-                    className='input'
+                    className='input-biz'
                     ref={businessRef}
                     maxLength={120}
-                    required
+                    // required
                     id='business'
+                    placeholder="."
                     // onChange={() => setIsBusinessEmpty(false)}
                   />
                   <label for='business' className='input-label'>
