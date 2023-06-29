@@ -500,32 +500,35 @@ const Profile = () => {
                 className='profile-input'
               />
               {isEmailSubmit ? (
-                <div style={{ position: "relative" }}>
+                <div>
                   <button
                     onClick={() => window.location.reload()}
                     className='change-btn'>
                     Cancel
                   </button>
-                  <input
-                    ref={emailRef}
-                    type='email'
-                    name='email'
-                    id='email'
-                    placeholder='New Email'
-                    className='profile-input'
-                    onChange={() => {
-                      setEmailWarning(false);
-                    }}
-                  />
-                  <span
-                    className='password-show'
-                    onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
-                    {isShowEmailPass ? (
-                      <span class='material-symbols-outlined'>visibility_off</span>
-                    ) : (
-                      <span class='material-symbols-outlined'>visibility</span>
-                    )}
-                  </span>
+                  <div style={{ position: "relative" }}>
+                    <input
+                      ref={emailRef}
+                      type='email'
+                      name='email'
+                      id='email'
+                      placeholder='New Email'
+                      className='profile-input'
+                      onChange={() => {
+                        setEmailWarning(false);
+                      }}
+                    />
+                    <span
+                      className='password-show'
+                      onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
+                      {isShowEmailPass ? (
+                        <span class='material-symbols-outlined'>visibility_off</span>
+                      ) : (
+                        <span class='material-symbols-outlined'>visibility</span>
+                      )}
+                    </span>
+                  </div>
+
                   {emailWarning ? (
                     <div className='require-profile'>Email is not valid </div>
                   ) : null}
