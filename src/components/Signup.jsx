@@ -179,7 +179,8 @@ const Signup = () => {
                       className='input two-cols'
                       ref={fNameRef}
                       maxLength={25}
-                      required
+                      // required
+                      placeholder="."
                       id='firstname-signup'
                       onChange={() => setIsFirstNameEmpty(false)}
                     />
@@ -198,7 +199,8 @@ const Signup = () => {
                       className='input two-cols'
                       ref={lNameRef}
                       maxLength={25}
-                      required
+                      // required
+                      placeholder="."
                       id='lastname-signup'
                       onChange={() => setIsLastNameEmpty(false)}
                     />
@@ -216,7 +218,7 @@ const Signup = () => {
                 <div class='input-group'>
                   <input
                     type='text'
-                    className='input-biz'
+                    className='input'
                     ref={businessRef}
                     maxLength={120}
                     // required
@@ -240,7 +242,8 @@ const Signup = () => {
                     onChange={() => {
                       setEmailWarning(false);
                     }}
-                    required
+                    // required
+                    placeholder="."
                     id='email-signin'
                   />
                   <label for='email-signin' className='input-label'>
@@ -265,7 +268,8 @@ const Signup = () => {
                         setIsPasswordInvalid(false);
                         setIsPassIndetical(true);
                       }}
-                      required
+                      // required
+                      placeholder="."
                       id='password-signin'
                     />
                     <label
@@ -292,7 +296,8 @@ const Signup = () => {
                         setIsPasswordInvalid(false);
                         setIsPassIndetical(true);
                       }}
-                      required
+                      // required
+                      placeholder="."
                       id='confirmpassword'
                     />
                     <label

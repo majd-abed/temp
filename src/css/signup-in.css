@@ -152,7 +152,15 @@
   cursor: text;
 }
 
-.input:focus+.input-label,.input:valid+.input-label{
+/* .input:focus+.input-label,.input:valid+.input-label{
+  transform: translate(0px,-10px) scale(.8);
+  color: #000;
+  font-weight: bold;
+  background-color:white;
+  border-top: none;
+  border-bottom: none;
+} */
+.input:not(:placeholder-shown)+.input-label{
   transform: translate(0px,-10px) scale(.8);
   color: #000;
   font-weight: bold;
@@ -160,21 +168,13 @@
   border-top: none;
   border-bottom: none;
 }
-.input-biz:not(:placeholder-shown)+.input-label{
-  transform: translate(0px,-10px) scale(.8);
-  color: #000;
-  font-weight: bold;
-  background-color:white;
-  border-top: none;
-  border-bottom: none;
-}
-.input-biz::placeholder{
+.input::placeholder{
   color: white;
 }
-.input:is(:valid,:focus){
+/* .input:is(:valid,:focus){
   outline-color: gray;
-}
-.input-biz:is(:not(:placeholder-shown),:focus){
+} */
+.input:is(:not(:placeholder-shown),:focus){
   outline-color: gray;
 }
 
