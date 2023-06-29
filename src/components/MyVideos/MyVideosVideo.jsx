@@ -453,7 +453,10 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
                 </button>
               )
             ) : (
-              <button className='vid-btn' onClick={() => handleLike(data.video_id)}>
+              <button
+                className='vid-btn'
+                // onClick={() => handleLike(data.video_id)}
+                disabled>
                 <span
                   className='material-symbols-outlined'
                   style={{ paddingTop: "15px", color: "white" }}>
