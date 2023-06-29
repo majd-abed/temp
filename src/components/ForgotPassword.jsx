@@ -94,6 +94,7 @@ const ForgotPassword = () => {
         form_id: 3,
         credential: credential,
         new_password: passwordRef.current.value,
+        password_confirmation: confirmPasswordRef.current.value,
       })
       .then((res) => {
         console.log(res);
