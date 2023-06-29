@@ -741,6 +741,14 @@ details[open]{
 
 }
 
+.password-show{
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    top: 7px;
+    right: 5px;
+}
+
 @media only screen and (max-width: 880px) {
 
     a{

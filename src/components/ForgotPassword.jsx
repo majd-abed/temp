@@ -10,10 +10,12 @@ const ForgotPassword = () => {
   const [credential, setCredential] = useState("");
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const ConfirmPasswordRef = useRef(null);
-  const [isPasswordShort, setIsPasswordShort] = useState(false);
+  const confirmPasswordRef = useRef(null);
+  const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
   const [isPassIndetical, setIsPassIndetical] = useState(true);
   const [emailWarning, setEmailWarning] = useState(false);
+  const [isShowPass, setIsShowPass] = useState(false);
+  const [isShowConfirmPass, setIsShowConfirmPass] = useState(false);
 
   const validateEmail = (mail) => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
@@ -21,6 +23,25 @@ const ForgotPassword = () => {
     }
     return false;
   };
+
+  function validatePassword(password) {
+    // Regular expressions for each requirement
+    const lengthRegex = /^.{8,}$/;
+    const upperCaseRegex = /[A-Z]/;
+    const lowerCaseRegex = /[a-z]/;
+    const symbolRegex = /[\W_]/;
+    const numberRegex = /\d/;
+
+    // Checking each requirement using regular expressions
+    const hasLength = lengthRegex.test(password);
+    const hasUpperCase = upperCaseRegex.test(password);
+    const hasLowerCase = lowerCaseRegex.test(password);
+    const hasSymbol = symbolRegex.test(password);
+    const hasNumber = numberRegex.test(password);
+
+    // Returning true if all requirements are met, false otherwise
+    return hasLength && hasUpperCase && hasLowerCase && hasSymbol && hasNumber;
+  }
 
   async function handleEmail() {
     if (!validateEmail(emailRef.current.value)) return setEmailWarning(true);
@@ -60,14 +81,12 @@ const ForgotPassword = () => {
       });
   }
   async function handleDone() {
-    if (!passwordRef.current.value || passwordRef.current.value.length < 8)
-      setIsPasswordShort(true);
-    if (passwordRef.current.value !== ConfirmPasswordRef.current.value)
+    if (!validatePassword(passwordRef.current.value)) setIsPasswordInvalid(true);
+    if (passwordRef.current.value !== confirmPasswordRef.current.value)
       setIsPassIndetical(false);
     if (
-      !passwordRef.current.value ||
-      passwordRef.current.value.length < 8 ||
-      passwordRef.current.value !== ConfirmPasswordRef.current.value
+      !validatePassword(passwordRef.current.value) ||
+      passwordRef.current.value !== confirmPasswordRef.current.value
     )
       return null;
     await axios
@@ -137,18 +156,27 @@ const ForgotPassword = () => {
             <p className='otp-text'>
               Please Enter your Email to reset your password
             </p>
-            <input
-              ref={emailRef}
-              type='email'
-              className='otp-input'
-              placeholder='Email'
-              onChange={() => setEmailWarning(false)}
-            />
-            {emailWarning ? (
-              <div className='require-otp'>Email is not valid</div>
-            ) : null}
+            <div class='input-group'>
+              <input
+                type='text'
+                className='input'
+                ref={emailRef}
+                onChange={() => {
+                  setEmailWarning(false);
+                }}
+                required
+                id='email-signin'
+              />
+              <label for='email-signin' className='input-label'>
+                E-mail Address
+              </label>
+              {emailWarning ? (
+                <div className='require-otp'>Email is not valid</div>
+              ) : null}
+            </div>
+
             <button
-              className='opt-btn'
+              className='otp-btn-email'
               onClick={() => {
                 handleEmail();
               }}>
@@ -174,7 +202,7 @@ const ForgotPassword = () => {
               renderInput={(props) => <input {...props} />}
             />
             <button
-              className='opt-btn'
+              className='otp-btn'
               disabled={otp.length < 4}
               onClick={() => {
                 handleOtp();
@@ -186,13 +214,63 @@ const ForgotPassword = () => {
         {step === 3 ? (
           <div className='enter-password-container'>
             <p className='otp-text'>Please Enter your new password</p>
-            <input
+            <div class='input-group'>
+              <input
+                type={isShowPass ? "text" : "password"}
+                className='input'
+                ref={passwordRef}
+                onChange={() => {
+                  setIsPasswordInvalid(false);
+                  setIsPassIndetical(true);
+                }}
+                // required
+                id='password-signin'
+              />
+              <label for='password-signin' className='input-label password-mobile'>
+                Password
+              </label>
+              <span
+                className='password-show'
+                onClick={() => setIsShowPass(!isShowPass)}>
+                {isShowPass ? (
+                  <span class='material-symbols-outlined'>visibility_off</span>
+                ) : (
+                  <span class='material-symbols-outlined'>visibility</span>
+                )}
+              </span>
+            </div>
+            <div class='input-group'>
+              <input
+                type={isShowConfirmPass ? "text" : "password"}
+                className='input'
+                ref={confirmPasswordRef}
+                onChange={() => {
+                  setIsPasswordInvalid(false);
+                  setIsPassIndetical(true);
+                }}
+                // required
+                id='confirmpassword'
+              />
+              <label for='confirmpassword' className='input-label password-mobile'>
+                Confirm Password
+              </label>
+              <span
+                className='password-show'
+                onClick={() => setIsShowConfirmPass(!isShowConfirmPass)}>
+                {isShowConfirmPass ? (
+                  <span class='material-symbols-outlined'>visibility_off</span>
+                ) : (
+                  <span class='material-symbols-outlined'>visibility</span>
+                )}
+              </span>
+            </div>
+            {/* <input
               ref={passwordRef}
               type='password'
               className='otp-input'
               placeholder='New Password'
               onChange={() => {
-                setIsPasswordShort(false);
+                setIsPasswordInvalid(false);
                 setIsPassIndetical(true);
               }}
             />
@@ -202,13 +280,22 @@ const ForgotPassword = () => {
               className='otp-input'
               placeholder='Confirm Password'
               onChange={() => {
-                setIsPasswordShort(false);
+                setIsPasswordInvalid(false);
                 setIsPassIndetical(true);
               }}
-            />
-            {isPasswordShort && isPassIndetical ? (
-              <div className='require-otp'>
-                Password must contain at least 8 characters
+            /> */}
+            {isPasswordInvalid && isPassIndetical ? (
+              <div
+                className='require-otp'
+                style={{
+                  textAlign: "start",
+                  width: "fit-content",
+                  marginLeft: "55px",
+                }}>
+                The password must contain:
+                <p>- Minimum 8 characters</p>
+                <p>- A mix of uppercase and lowercase letters</p>
+                <p>- Symbols (special characters) </p>- At least one number
               </div>
             ) : null}
             {!isPassIndetical ? (
@@ -217,7 +304,7 @@ const ForgotPassword = () => {
               </div>
             ) : null}
             <button
-              className='opt-btn'
+              className='otp-btn-done'
               onClick={() => {
                 handleDone();
               }}>

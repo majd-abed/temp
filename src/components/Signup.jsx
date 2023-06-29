@@ -17,6 +17,11 @@ const Signup = () => {
   const [emailWarning, setEmailWarning] = useState(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
   const [isPassIndetical, setIsPassIndetical] = useState(true);
+  const [isFirstNameEmpty, setIsFirstNameEmpty] = useState(false);
+  const [isLastNameEmpty, setIsLastNameEmpty] = useState(false);
+  const [isBusinessEmpty, setIsBusinessEmpty] = useState(false);
+  const [isShowPass, setIsShowPass] = useState(false);
+  const [isShowConfirmPass, setIsShowConfirmPass] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const [otp, setOtp] = useState("");
@@ -56,6 +61,9 @@ const Signup = () => {
   };
 
   async function handleSignup() {
+    if (!fNameRef.current.value) setIsFirstNameEmpty(true);
+    if (!lNameRef.current.value) setIsLastNameEmpty(true);
+    if (!businessRef.current.value) setIsBusinessEmpty(true);
     if (passwordRef.current.value !== confirmPasswordRef.current.value)
       setIsPassIndetical(false);
     if (!validateEmail(emailRef.current.value)) setEmailWarning(true);
@@ -63,33 +71,32 @@ const Signup = () => {
     if (
       !validateEmail(emailRef.current.value) ||
       !validatePassword(passwordRef.current.value) ||
-      passwordRef.current.value !== confirmPasswordRef.current.value
+      passwordRef.current.value !== confirmPasswordRef.current.value ||
+      !fNameRef.current.value ||
+      !lNameRef.current.value ||
+      !businessRef.current.value
     )
       return null;
-    // console.log(passwordRef.current.value, confirmPasswordRef.current.value);
-    // setStep(2);
-    await http.get("/sanctum/csrf-cookie");
-    await http
-      .post(SIGNUP, {
-        first_name: fNameRef.current.value,
-        last_name: lNameRef.current.value,
-        biz_name: businessRef.current.value,
-        email: emailRef.current.value,
-        country: countryId,
-        password: passwordRef.current.value,
-        password_confirmation: confirmPasswordRef.current.value,
-      })
-      .then((res) => {
-        if (res.status === 201) {
-          window.location = "/signin";
-        }
-        // if (res.status === 200) {
-        //   console.log(res);
-        //   // toast.error(res.data.email);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    console.log(passwordRef.current.value, confirmPasswordRef.current.value);
+    // await http.get("/sanctum/csrf-cookie");
+    // await http
+    //   .post(SIGNUP, {
+    //     first_name: fNameRef.current.value,
+    //     last_name: lNameRef.current.value,
+    //     biz_name: businessRef.current.value,
+    //     email: emailRef.current.value,
+    //     country: countryId,
+    //     password: passwordRef.current.value,
+    //     password_confirmation: confirmPasswordRef.current.value,
+    //   })
+    //   .then((res) => {
+    //     if (res.status === 201) {
+    //       window.location = "/signin";
+    //     }
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
   }
   const submit = (e) => {
     e.preventDefault();
@@ -168,12 +175,18 @@ const Signup = () => {
                       className='input two-cols'
                       ref={fNameRef}
                       maxLength={25}
-                      required
+                      // required
                       id='firstname-signup'
+                      onChange={() => setIsFirstNameEmpty(false)}
                     />
                     <label for='firstname-signup' className='input-label'>
                       First Name
                     </label>
+                    {isFirstNameEmpty ? (
+                      <div className='require-sign-two-cols'>
+                        First Name is required
+                      </div>
+                    ) : null}
                   </div>
                   <div class='input-group two-cols-group'>
                     <input
@@ -181,12 +194,18 @@ const Signup = () => {
                       className='input two-cols'
                       ref={lNameRef}
                       maxLength={25}
-                      required
+                      // required
                       id='lastname-signup'
+                      onChange={() => setIsLastNameEmpty(false)}
                     />
                     <label for='lastname-signup' className='input-label'>
                       Last Name
                     </label>
+                    {isLastNameEmpty ? (
+                      <div className='require-sign-two-cols'>
+                        Last Name is required
+                      </div>
+                    ) : null}
                   </div>
                 </div>
                 {/* ------------ Bussiness --------- */}
@@ -196,12 +215,16 @@ const Signup = () => {
                     className='input'
                     ref={businessRef}
                     maxLength={120}
-                    required
+                    // required
                     id='business'
+                    onChange={() => setIsBusinessEmpty(false)}
                   />
                   <label for='business' className='input-label'>
                     Business Name
                   </label>
+                  {isBusinessEmpty ? (
+                    <div className='require-sign'>Business Name is required</div>
+                  ) : null}
                 </div>
                 {/* ------------ email ----------- */}
                 <div class='input-group'>
@@ -212,7 +235,7 @@ const Signup = () => {
                     onChange={() => {
                       setEmailWarning(false);
                     }}
-                    required
+                    // required
                     id='email-signin'
                   />
                   <label for='email-signin' className='input-label'>
@@ -230,14 +253,14 @@ const Signup = () => {
                 <div className='two-cols-container'>
                   <div class='input-group two-cols-group'>
                     <input
-                      type='password'
+                      type={isShowPass ? "text" : "password"}
                       className='input two-cols'
                       ref={passwordRef}
                       onChange={() => {
                         setIsPasswordInvalid(false);
                         setIsPassIndetical(true);
                       }}
-                      required
+                      // required
                       id='password-signin'
                     />
                     <label
@@ -245,17 +268,26 @@ const Signup = () => {
                       className='input-label password-mobile'>
                       Password
                     </label>
+                    <span
+                      className='password-show'
+                      onClick={() => setIsShowPass(!isShowPass)}>
+                      {isShowPass ? (
+                        <span class='material-symbols-outlined'>visibility_off</span>
+                      ) : (
+                        <span class='material-symbols-outlined'>visibility</span>
+                      )}
+                    </span>
                   </div>
                   <div class='input-group two-cols-group'>
                     <input
-                      type='password'
+                      type={isShowConfirmPass ? "text" : "password"}
                       className='input two-cols'
                       ref={confirmPasswordRef}
                       onChange={() => {
                         setIsPasswordInvalid(false);
                         setIsPassIndetical(true);
                       }}
-                      required
+                      // required
                       id='confirmpassword'
                     />
                     <label
@@ -263,6 +295,15 @@ const Signup = () => {
                       className='input-label password-mobile'>
                       Confirm Password
                     </label>
+                    <span
+                      className='password-show'
+                      onClick={() => setIsShowConfirmPass(!isShowConfirmPass)}>
+                      {isShowConfirmPass ? (
+                        <span class='material-symbols-outlined'>visibility_off</span>
+                      ) : (
+                        <span class='material-symbols-outlined'>visibility</span>
+                      )}
+                    </span>
                   </div>
                 </div>
                 {isPasswordInvalid ? (
@@ -271,7 +312,7 @@ const Signup = () => {
                     style={{
                       textAlign: "start",
                       width: "fit-content",
-                      margin: "auto",
+                      marginLeft: "55px",
                     }}>
                     The password must contain:
                     <p>- Minimum 8 characters</p>
