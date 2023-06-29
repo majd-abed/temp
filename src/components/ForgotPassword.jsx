@@ -98,9 +98,9 @@ const ForgotPassword = () => {
       .then((res) => {
         console.log(res);
         toast.success(res.data.message);
-        setTimeout(() => {
-          window.location = "/signin";
-        }, 3000);
+        // setTimeout(() => {
+        //   window.location = "/signin";
+        // }, 3000);
       })
       .catch((e) => {
         console.log(e);
