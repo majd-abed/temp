@@ -532,7 +532,7 @@ footer{
     background-color: white;
     width: 100%;
     height: 450px;
-    top: calc(50% - 124px);
+    bottom: -1px;
     right: 0;
     border-radius: inherit;
 }
@@ -884,18 +884,10 @@ details[open]{
         margin-left:8px;
     }
     
-    /* .video-container{
-        height:70vh;
-        width: fit-content;
-        background-color: rgb(248, 248, 248);
-        margin:auto;    
-        position: relative;
-        border-radius: 12px;
     }
     .video{
-        height: 70vh;
-        width: fit-content;
-    } */
+        max-width: 300px;
+    }
 
     .subscribed{
         padding:3px;
