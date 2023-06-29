@@ -96,6 +96,7 @@ const ForgotPassword = () => {
         new_password: passwordRef.current.value,
       })
       .then((res) => {
+        console.log(res);
         toast.success(res.data.message);
         setTimeout(() => {
           window.location = "/signin";
