@@ -87,7 +87,9 @@ const Home = () => {
           homeData.map((element) => {
             if (element.is_live === 1) {
               if (categoryName !== "all") {
+                console.log(element, categoryName);
                 if (element.category_name === categoryName) {
+                  console.log(true);
                   if (isCategoryEmpty) {
                     setIsCategoryEmpty(false);
                   }
@@ -132,7 +134,7 @@ const Home = () => {
           </div>
         ) : (
           <div className='no-content'>
-            {/* {isCategoryEmpty ? setIsCategoryEmpty(false) : null} */}
+            {isCategoryEmpty ? setIsCategoryEmpty(false) : null}
             <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
             <div>No Videos to show here</div>
           </div>
