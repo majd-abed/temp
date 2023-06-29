@@ -444,7 +444,7 @@ const Profile = () => {
 
               <select
                 onChange={onSelectHandler}
-                className='profile-input'
+                className='profile-input country-input-extra-width'
                 id='country'
                 ref={locationRef}
                 required>

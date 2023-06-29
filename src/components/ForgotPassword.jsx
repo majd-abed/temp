@@ -153,7 +153,7 @@ const ForgotPassword = () => {
         </div>
         {step === 1 ? (
           <div className='enter-email-container'>
-            <p className='otp-text'>
+            <p className='otp-text opt-text-margin'>
               Please Enter your Email to reset your password
             </p>
             <div class='input-group'>

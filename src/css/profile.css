@@ -112,7 +112,7 @@ div#UpdateImageUpload input {
     border: none;
     outline: 1px solid var(--primary-color);
     padding: 2px;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     padding-left: 5px;
 }
 .profile-input:focus{
@@ -167,12 +167,15 @@ div#UpdateImageUpload input {
     width: 100%;
 }
 .password-input{
-    width: 100%;
+    width: 99%;
     border: none;
     outline: 1px solid var(--primary-color);
     padding: 2px;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     padding-left: 5px;
+}
+.country-input-extra-width{
+    width: 101% !important;
 }
 .cropper-container{
     z-index: 999;
