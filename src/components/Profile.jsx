@@ -517,32 +517,20 @@ const Profile = () => {
                       setEmailWarning(false);
                     }}
                   />
-
                   {emailWarning ? (
                     <div className='require-profile'>Email is not valid </div>
                   ) : null}
-                  <div style={{ position: "relative" }}>
-                    <input
-                      ref={emailPasswordRef}
-                      type={isShowEmailPass ? "text" : "password"}
-                      name='password'
-                      id='password'
-                      className='profile-input extra-margin'
-                      placeholder='Current Password'
-                      onChange={() => {
-                        setIsEmailPassowrdShort(false);
-                      }}
-                    />
-                    <span
-                      className='password-show-profile'
-                      onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
-                      {isShowEmailPass ? (
-                        <span class='material-symbols-outlined'>visibility_off</span>
-                      ) : (
-                        <span class='material-symbols-outlined'>visibility</span>
-                      )}
-                    </span>
-                  </div>
+                  <input
+                    ref={emailPasswordRef}
+                    type='password'
+                    name='password'
+                    id='password'
+                    className='profile-input extra-margin'
+                    placeholder='Current Password'
+                    onChange={() => {
+                      setIsEmailPassowrdShort(false);
+                    }}
+                  />
                   {isEmailPassowrdShort ? (
                     <div className='require-profile'>
                       Password must contain at least 8 characters{" "}
@@ -567,30 +555,19 @@ const Profile = () => {
               )}
 
               <div className='password-container'>
-                <div style={{ position: "relative" }}>
-                  <input
-                    ref={passwordRef}
-                    type='password'
-                    name='password'
-                    id='newPassword'
-                    className='password-input'
-                    placeholder='New Password'
-                    onChange={() => {
-                      setIsPasswordInvalid(false);
-                      // setIsCurrPasswordShort(false);
-                      // setIsPasswordShort(false);
-                    }}
-                  />
-                  <span
-                    className='password-show-profile'
-                    onClick={() => setIsShowPass(!isShowPass)}>
-                    {isShowPass ? (
-                      <span class='material-symbols-outlined'>visibility_off</span>
-                    ) : (
-                      <span class='material-symbols-outlined'>visibility</span>
-                    )}
-                  </span>
-                </div>
+                <input
+                  ref={passwordRef}
+                  type='password'
+                  name='password'
+                  id='newPassword'
+                  className='password-input'
+                  placeholder='New Password'
+                  onChange={() => {
+                    setIsPasswordInvalid(false);
+                    // setIsCurrPasswordShort(false);
+                    // setIsPasswordShort(false);
+                  }}
+                />
                 {isPasswordInvalid ? (
                   <div
                     className='require-sign'
@@ -613,31 +590,18 @@ const Profile = () => {
                       className='change-btn'>
                       Cancel
                     </button>
-                    <div style={{ position: "relative" }}>
-                      <input
-                        ref={currPasswordRef}
-                        type='password'
-                        name='password'
-                        id='currpassword'
-                        className='password-input extra-margin'
-                        placeholder='Current Password'
-                        onChange={() => {
-                          // setIsCurrPasswordShort(false);
-                          // setIsPasswordShort(false);
-                        }}
-                      />
-                      <span
-                        className='password-show-profile'
-                        onClick={() => setIsShowCurrPass(!isShowCurrPass)}>
-                        {isShowCurrPass ? (
-                          <span class='material-symbols-outlined'>
-                            visibility_off
-                          </span>
-                        ) : (
-                          <span class='material-symbols-outlined'>visibility</span>
-                        )}
-                      </span>
-                    </div>
+                    <input
+                      ref={currPasswordRef}
+                      type='password'
+                      name='password'
+                      id='currpassword'
+                      className='password-input extra-margin'
+                      placeholder='Current Password'
+                      onChange={() => {
+                        // setIsCurrPasswordShort(false);
+                        // setIsPasswordShort(false);
+                      }}
+                    />
                   </>
                 ) : null}
               </div>
