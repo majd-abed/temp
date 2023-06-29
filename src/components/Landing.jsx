@@ -11,13 +11,13 @@ const Landing = () => {
               <div class='wow-logo'>
                 <img
                   class='img-responsive img-logo'
-                  src={require("../assets/images/wow_logo.png")}
+                  src={require("../assets/images/olyoli-logo.png")}
                 />
               </div>
-              <div class='font-1 helmet text-center'>
-                <p className='heading-margin'>
-                  A way of <strong>attracting</strong> your consumers.
-                </p>
+              <div class='helmet text-center'>
+                <div className='heading-margin'>
+                  <h4>Short video streaming-based <br/> online marketing platform</h4>
+                </div>
               </div>
               <div class='wow-btn text-center'>
                 <Link to='/signin' class='wow-button' href='#'>
@@ -249,7 +249,7 @@ const Landing = () => {
             <div class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
               <img
                 class='img-responsive foot-img'
-                src={require("../assets/images/footer-logo.png")}
+                src={require("../assets/images/olyoli-icon.png")}
               />
             </div>
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>

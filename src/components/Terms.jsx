@@ -8,7 +8,7 @@ const Terms = () => {
           <Link to='/'>
             <img
               class='img-responsive terms-img-logo'
-              src={require("../assets/images/wow_logo.png")}
+              src={require("../assets/images/olyoli-logo.png")}
             />
           </Link>
         </div>
@@ -79,15 +79,6 @@ const Terms = () => {
           <li>Reproduce, duplicate or copy material from olyoli</li>
           <li>Redistribute content from olyoli</li>
         </ul>
-
-        <p>
-          This Agreement shall begin on the date hereof. Our Terms and Conditions
-          were created with the help of the{" "}
-          <a href='https://www.termsandconditionsgenerator.com/'>
-            Free Terms and Conditions Generator
-          </a>
-          .
-        </p>
 
         <p>
           Parts of this website offer an opportunity for users to post and exchange
@@ -318,24 +309,6 @@ const Terms = () => {
           any nature.
         </p>
       </div>
-
-      {/* <section class='social'>
-        <ul>
-          <li>
-            <a href='#' class='fa fa-facebook fa-2x' aria-hidden='true'></a>
-          </li>
-          <li>
-            <a href='#' class='fa fa-twitter fa-2x' aria-hidden='true'></a>
-          </li>
-          <li>
-            <a href='#' class='fa fa-linkedin fa-2x' aria-hidden='true'></a>
-          </li>
-          <li>
-            <a href='#' class='fa fa-youtube fa-2x' aria-hidden='true'></a>
-          </li>
-        </ul>
-      </section> */}
-
       <section class='footer'>
         <div class='container'>
           <div class='row'>
@@ -347,7 +320,7 @@ const Terms = () => {
             <div class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
               <img
                 class='img-responsive foot-img'
-                src={require("../assets/images/footer-logo.png")}
+                src={require("../assets/images/olyoli-icon.png")}
               />
             </div>
             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>

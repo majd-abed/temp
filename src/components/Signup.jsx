@@ -153,7 +153,7 @@ const Signup = () => {
             style={{ maxWidth: "600px", margin: "auto", textAlign: "center" }}>
             <div className='logo-container' style={{ marginBottom: "20px" }}>
               <img
-                src={require("../assets/images/wow_logo.png")}
+                src={require("../assets/images/olyoli-logo.png")}
                 alt='logo'
                 width='100px'
               />

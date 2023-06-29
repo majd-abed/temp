@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Pacifico&display=swap');
 .terms-body{
     box-sizing: border-box;
     min-height: 100%;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'DM Serif Text', serif;
 }
 .terms-body{
     box-sizing: border-box;
@@ -45,16 +46,18 @@
 }
 .helmet{
     box-sizing: border-box;
-    max-height: 5vh;
+    max-height: 20vh;
 }
 .heading-margin{
     margin-bottom: 20px;
+    font-size: large;
 }
 .wow-button{
     box-sizing: border-box;
-    padding: 16px 60px;
+    padding: 12px 40px;
     border: solid 1px black;
-    color: black;
+    color: #ffffff;
+    background-color: #2d2d2d;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -63,13 +66,7 @@
     letter-spacing: 2px;
     text-decoration: none;
 }
-.wow-button:hover{
-    box-sizing: border-box;
-    color: #ffffff;
-    background-color: #2d2d2d;
-    transition: .5s;
-    text-decoration: none;
-}
+
 .img-responsive{
     box-sizing: border-box;
     display: block;
@@ -80,15 +77,15 @@
 .head{
     box-sizing: border-box;
     min-height: 110vh;
-    background-image: url('../assets/images/olyoli-banner-image.png');
+    background-image: url('../assets/images/olyoli-banner-image.jpg');
     position: relative;
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size:80vh;
+    background-size:60vh;
 }
 .font-1{
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'DM Serif Text', serif;
     /* font-style: italic; */
     font-size: 21px;
 }
@@ -118,7 +115,7 @@ hr{
 }
 /* h1,h2,h4,h3,h5,a,button{
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'DM Serif Text', serif;
 }
 h1{
     box-sizing: border-box;
@@ -203,8 +200,8 @@ i{
 }
 .font-2{
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-family: 'DM Serif Text', serif;
+    font-size: 16px;
     line-height: 30px;
 }
 .round-img{
@@ -475,7 +472,7 @@ i.fa-heart{
     padding-top: 40px;
     }*/
     .wow-btn{
-        box-sizing: border-box;
+     box-sizing: border-box;
      padding-top:20px;
      padding-bottom:5px;
     }
@@ -532,7 +529,7 @@ i.fa-heart{
         box-sizing: border-box;
     padding-top: 10px;
     }
-    /* h1{
+    h1{
         box-sizing: border-box;
     font-size: 38px;
     }
@@ -555,7 +552,7 @@ i.fa-heart{
     h6{
         box-sizing: border-box;
         font-size: 100%;
-    } */
+    }
 }
 
 /*This section for small height device*/
@@ -590,10 +587,10 @@ i.fa-heart{
         min-height: 150vh;
         background-size:60vh;
     }
-        .wow-btn{
-            box-sizing: border-box;
-         padding-top:10vh;
-         padding-bottom:4vh;
+    .wow-btn{
+        box-sizing: border-box;
+        padding-top:10vh;
+        padding-bottom:4vh;
     }
     
 }

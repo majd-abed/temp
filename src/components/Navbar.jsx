@@ -144,7 +144,7 @@ const Navbar = () => {
             handlehome();
           }}>
           <img
-            src={require("../assets/images/footer-logo.png")}
+            src={require("../assets/images/olyoli-icon.png")}
             height={40}
             alt='logo'
           />

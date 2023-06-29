@@ -130,7 +130,7 @@ const ForgotPassword = () => {
       </div>
       <div style={{ maxWidth: "600px", margin: "auto" }}>
         <div className='logo-container'>
-          <img src={require("../assets/images/wow_logo.png")} alt='logo' />
+          <img src={require("../assets/images/olyoli-logo.png")} alt='logo' />
         </div>
         {step === 1 ? (
           <div className='enter-email-container'>
