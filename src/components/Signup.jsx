@@ -63,7 +63,7 @@ const Signup = () => {
   async function handleSignup() {
     if (!fNameRef.current.value) setIsFirstNameEmpty(true);
     if (!lNameRef.current.value) setIsLastNameEmpty(true);
-    if (!businessRef.current.value) setIsBusinessEmpty(true);
+    // if (!businessRef.current.value) setIsBusinessEmpty(true);
     if (passwordRef.current.value !== confirmPasswordRef.current.value)
       setIsPassIndetical(false);
     if (!validateEmail(emailRef.current.value)) setEmailWarning(true);
@@ -73,8 +73,8 @@ const Signup = () => {
       !validatePassword(passwordRef.current.value) ||
       passwordRef.current.value !== confirmPasswordRef.current.value ||
       !fNameRef.current.value ||
-      !lNameRef.current.value ||
-      !businessRef.current.value
+      !lNameRef.current.value
+      // || !businessRef.current.value
     )
       return null;
     // console.log(passwordRef.current.value, confirmPasswordRef.current.value);

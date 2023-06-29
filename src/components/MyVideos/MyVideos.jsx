@@ -186,7 +186,7 @@ const MyVideos = () => {
             </span>
             <div>Your Videos live here</div>
             <div>
-              <Link to='/video-post' className='upload-btn'>
+              <Link to='/video-post' className=''>
                 Upload Video
               </Link>
             </div>
