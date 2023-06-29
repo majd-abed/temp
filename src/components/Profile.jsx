@@ -18,12 +18,11 @@ const Profile = () => {
   const emailPasswordRef = useRef(null);
 
   const [isUsernameEmpty, setIsUsernameEmpty] = useState(false);
-  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
   const [emailWarning, setEmailWarning] = useState(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
-  // const [isPassIndetical, setIsPassIndetical] = useState(true);
-  // const [isPasswordShort, setIsPasswordShort] = useState(false);
-  // const [isCurrPasswordShort, setIsCurrPasswordShort] = useState(false);
+  const [isShowPass, setIsShowPass] = useState(false);
+  const [isShowEmailPass, setIsShowEmailPass] = useState(false);
+  const [isShowCurrPass, setIsShowCurrPass] = useState(false);
   const [isEmailPassowrdShort, setIsEmailPassowrdShort] = useState(false);
   const [isLocationEmpty, setIsLocationEmpty] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);
@@ -100,8 +99,13 @@ const Profile = () => {
   const changeEmail = async (id) => {
     if (!emailPasswordRef.current.value || emailPasswordRef.current.value.length < 8)
       setIsEmailPassowrdShort(true);
-    if (!emailRef.current.value) return setIsEmailEmpty(true);
-    if (!validateEmail(emailRef.current.value)) return setEmailWarning(true);
+    if (!validateEmail(emailRef.current.value)) setEmailWarning(true);
+    if (
+      !emailPasswordRef.current.value ||
+      emailPasswordRef.current.value.length < 8 ||
+      !validateEmail(emailRef.current.value)
+    )
+      return null;
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     await http
@@ -496,7 +500,7 @@ const Profile = () => {
                 className='profile-input'
               />
               {isEmailSubmit ? (
-                <div>
+                <div style={{ position: "relative" }}>
                   <button
                     onClick={() => window.location.reload()}
                     className='change-btn'>
@@ -510,19 +514,24 @@ const Profile = () => {
                     placeholder='New Email'
                     className='profile-input'
                     onChange={() => {
-                      setIsEmailEmpty(false);
                       setEmailWarning(false);
                     }}
                   />
-                  {isEmailEmpty ? (
-                    <div className='require-profile'>Email cannot be empty </div>
-                  ) : null}
+                  <span
+                    className='password-show'
+                    onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
+                    {isShowEmailPass ? (
+                      <span class='material-symbols-outlined'>visibility_off</span>
+                    ) : (
+                      <span class='material-symbols-outlined'>visibility</span>
+                    )}
+                  </span>
                   {emailWarning ? (
                     <div className='require-profile'>Email is not valid </div>
                   ) : null}
                   <input
                     ref={emailPasswordRef}
-                    type='password'
+                    type={isShowEmailPass ? "text" : "password"}
                     name='password'
                     id='password'
                     className='profile-input extra-margin'
