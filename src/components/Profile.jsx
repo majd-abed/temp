@@ -152,6 +152,7 @@ const Profile = () => {
         }
       )
       .then((res) => {
+        console.log(res);
         if (res.data.message === "Your Password updated successfully") {
           toast.success(res.data.message);
           setTimeout(() => {
