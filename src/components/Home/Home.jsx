@@ -139,7 +139,7 @@ const Home = () => {
         )}
         {isCategoryEmpty && !isHomeLoading && !isSubLoading ? (
           <div className='no-content'>
-            {/* {isCategoryEmpty ? setIsCategoryEmpty(false) : null} */}
+            {isSearch ? setIsCategoryEmpty(false) : null}
             <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
             <div>No Videos to show here</div>
           </div>
