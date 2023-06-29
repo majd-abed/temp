@@ -758,6 +758,24 @@ details[open]{
     right: 5px;
 }
 
+
+@media (max-height:700px) and (max-width:880px) {
+    .faqs-modal{
+        height: 330px;
+    }
+    .faqs-container{
+        height: 163px;
+    }
+}
+@media (max-height:700px) and (min-width:880px) {
+    .faqs-modal{
+        height: 350px;
+    }
+    .faqs-container{
+        height: 211px;
+    }
+}
+
 @media only screen and (max-width: 880px) {
 
     a{
