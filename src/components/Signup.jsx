@@ -77,26 +77,26 @@ const Signup = () => {
       !businessRef.current.value
     )
       return null;
-    console.log(passwordRef.current.value, confirmPasswordRef.current.value);
-    // await http.get("/sanctum/csrf-cookie");
-    // await http
-    //   .post(SIGNUP, {
-    //     first_name: fNameRef.current.value,
-    //     last_name: lNameRef.current.value,
-    //     biz_name: businessRef.current.value,
-    //     email: emailRef.current.value,
-    //     country: countryId,
-    //     password: passwordRef.current.value,
-    //     password_confirmation: confirmPasswordRef.current.value,
-    //   })
-    //   .then((res) => {
-    //     if (res.status === 201) {
-    //       window.location = "/signin";
-    //     }
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
+    // console.log(passwordRef.current.value, confirmPasswordRef.current.value);
+    await http.get("/sanctum/csrf-cookie");
+    await http
+      .post(SIGNUP, {
+        first_name: fNameRef.current.value,
+        last_name: lNameRef.current.value,
+        biz_name: businessRef.current.value,
+        email: emailRef.current.value,
+        country: countryId,
+        password: passwordRef.current.value,
+        password_confirmation: confirmPasswordRef.current.value,
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          window.location = "/signin";
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
   const submit = (e) => {
     e.preventDefault();
