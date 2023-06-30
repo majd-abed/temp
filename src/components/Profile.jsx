@@ -20,9 +20,9 @@ const Profile = () => {
   const [isUsernameEmpty, setIsUsernameEmpty] = useState(false);
   const [emailWarning, setEmailWarning] = useState(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
-  // const [isShowPass, setIsShowPass] = useState(false);
-  // const [isShowEmailPass, setIsShowEmailPass] = useState(false);
-  // const [isShowCurrPass, setIsShowCurrPass] = useState(false);
+  const [isShowPass, setIsShowPass] = useState(false);
+  const [isShowEmailPass, setIsShowEmailPass] = useState(false);
+  const [isShowCurrPass, setIsShowCurrPass] = useState(false);
   const [isEmailPassowrdShort, setIsEmailPassowrdShort] = useState(false);
   const [isLocationEmpty, setIsLocationEmpty] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);
@@ -599,15 +599,26 @@ const Profile = () => {
                       <p>- Symbols (special characters) </p>- At least one number
                     </div>
                   ) : null}
-                  <input
-                    ref={currPasswordRef}
-                    type='password'
-                    name='password'
-                    id='currpassword'
-                    className='password-input extra-margin'
-                    placeholder='Current Password'
-                    onChange={() => {}}
-                  />
+                  <div style={{position:"relative"}}>
+                    <input
+                      ref={currPasswordRef}
+                      type='password'
+                      name='password'
+                      id='currpassword'
+                      className='password-input extra-margin'
+                      placeholder='Current Password'
+                      onChange={() => {}}
+                    />
+                    <span
+                      className='password-show-profile'
+                      onClick={() => setIsShowPass(!isShowPass)}>
+                      {isShowPass ? (
+                        <span class='material-symbols-outlined'>visibility_off</span>
+                      ) : (
+                        <span class='material-symbols-outlined'>visibility</span>
+                      )}
+                    </span>
+                  </div>
                   <div className='submit-btns'>
                     <button
                       onClick={() => {
