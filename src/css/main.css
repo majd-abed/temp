@@ -231,7 +231,8 @@ header{
 }
 
 .video-container{
-
+    display: flex;
+    justify-content: center;
     height: 70vh;
     max-height: 700px;
     width: 100%;
