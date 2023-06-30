@@ -205,22 +205,22 @@ font-weight: bold;
 }
 @media (max-width:400px) {
   .sign-btn{
-    width: 244px;
+    width: 90vw;
   }
   .input{
-    width: 230px;
+    width: 86vw;
   }
   .options{
     width: 260px;
   }
   .sign-countries{
-    width: 240px;
+    width: 90vw;
   }
   .two-cols-container{
     gap: 5px;
   }
   .two-cols{
-    width:107px;
+    width:41vw;
   }
   .password-mobile{
     font-size: 11px;

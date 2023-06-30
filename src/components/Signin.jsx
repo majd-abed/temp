@@ -112,7 +112,8 @@ const Signin = () => {
               onChange={() => {
                 setEmailWarning(false);
               }}
-              required
+              // required
+              placeholder='.'
               id='email-signin'
             />
             <label for='email-signin' className='input-label'>
@@ -135,7 +136,8 @@ const Signin = () => {
               onChange={() => {
                 setIsPasswordShort(false);
               }}
-              required
+              // required
+              placeholder='.'
               id='password-signin'
             />
             <label for='password-signin' className='input-label'>
@@ -148,7 +150,6 @@ const Signin = () => {
             ) : null}
           </div>
 
-
           <div>
             <button
               className='sign-btn'
@@ -156,7 +157,7 @@ const Signin = () => {
               Login
             </button>
           </div>
-          <div className="options-container">
+          <div className='options-container'>
             <div className='options'>
               <div className='remember-form'>
                 <input type='checkbox' onChange={handlecheckbox} />

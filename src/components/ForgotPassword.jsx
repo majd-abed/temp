@@ -165,7 +165,8 @@ const ForgotPassword = () => {
                 onChange={() => {
                   setEmailWarning(false);
                 }}
-                required
+                // required
+                placeholder='.'
                 id='email-signin'
               />
               <label for='email-signin' className='input-label'>
@@ -225,6 +226,7 @@ const ForgotPassword = () => {
                   setIsPassIndetical(true);
                 }}
                 // required
+                placeholder='.'
                 id='password-signin'
               />
               <label for='password-signin' className='input-label password-mobile'>
@@ -250,6 +252,7 @@ const ForgotPassword = () => {
                   setIsPassIndetical(true);
                 }}
                 // required
+                placeholder='.'
                 id='confirmpassword'
               />
               <label for='confirmpassword' className='input-label password-mobile'>
