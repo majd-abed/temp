@@ -387,7 +387,7 @@ const Profile = () => {
         }}
       />
       {isLoading ? (
-        <div className='home-spinner'>
+        <div className='profile-spinner'>
           <Spinner />
         </div>
       ) : (
