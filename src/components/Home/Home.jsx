@@ -122,7 +122,7 @@ const Home = () => {
         ) : isSearch ? (
           <div className='no-content'>
             <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
-            <div>
+            <div className='no-content'>
               your search -{" "}
               <span style={{ color: "black", fontWeight: "bold" }}>
                 {noVideoPhrase}
