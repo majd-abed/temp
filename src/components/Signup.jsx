@@ -12,6 +12,8 @@ const Signup = () => {
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
   const emailRef = useRef(null);
+  const countryRef = useRef(null);
+
   const [countries, setCountries] = useState([]);
   const [countryId, setCountryId] = useState(1);
   const [emailWarning, setEmailWarning] = useState(false);
@@ -20,6 +22,7 @@ const Signup = () => {
   const [isFirstNameEmpty, setIsFirstNameEmpty] = useState(false);
   const [isLastNameEmpty, setIsLastNameEmpty] = useState(false);
   const [isBusinessEmpty, setIsBusinessEmpty] = useState(false);
+  const [isCountryEmpty, setIsCountryEmpty] = useState(true);
   const [isShowPass, setIsShowPass] = useState(false);
   const [isShowConfirmPass, setIsShowConfirmPass] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +60,8 @@ const Signup = () => {
     const index = e.target.selectedIndex;
     const el = e.target.childNodes[index];
     const option = el.getAttribute("id");
+    if (option === 9999) return setIsCountryEmpty(true);
+    setIsCountryEmpty(false);
     setCountryId(option);
   };
 
@@ -179,7 +184,7 @@ const Signup = () => {
                       ref={fNameRef}
                       maxLength={25}
                       // required
-                      placeholder="."
+                      placeholder='.'
                       id='firstname-signup'
                       onChange={() => setIsFirstNameEmpty(false)}
                     />
@@ -199,7 +204,7 @@ const Signup = () => {
                       ref={lNameRef}
                       maxLength={25}
                       // required
-                      placeholder="."
+                      placeholder='.'
                       id='lastname-signup'
                       onChange={() => setIsLastNameEmpty(false)}
                     />
@@ -222,7 +227,7 @@ const Signup = () => {
                     maxLength={120}
                     // required
                     id='business'
-                    placeholder="."
+                    placeholder='.'
                     // onChange={() => setIsBusinessEmpty(false)}
                   />
                   <label for='business' className='input-label'>
@@ -242,7 +247,7 @@ const Signup = () => {
                       setEmailWarning(false);
                     }}
                     // required
-                    placeholder="."
+                    placeholder='.'
                     id='email-signin'
                   />
                   <label for='email-signin' className='input-label'>
@@ -268,7 +273,7 @@ const Signup = () => {
                         setIsPassIndetical(true);
                       }}
                       // required
-                      placeholder="."
+                      placeholder='.'
                       id='password-signin'
                     />
                     <label
@@ -296,7 +301,7 @@ const Signup = () => {
                         setIsPassIndetical(true);
                       }}
                       // required
-                      placeholder="."
+                      placeholder='.'
                       id='confirmpassword'
                     />
                     <label
@@ -340,6 +345,9 @@ const Signup = () => {
                   className='sign-countries'
                   id='country'
                   required>
+                  <option id={9999} key={9999} hidden>
+                    Choose Your Country
+                  </option>
                   {countries.map((c) => {
                     return (
                       <option id={c.id} key={c.id}>
@@ -348,6 +356,13 @@ const Signup = () => {
                     );
                   })}
                 </select>
+                {isCountryEmpty ? (
+                  <div
+                    className='require-sign'
+                    style={{ textAlign: "center", paddingBottom: "15px" }}>
+                    Country Field is required
+                  </div>
+                ) : null}
                 <div className='agree-text'>
                   <p>
                     By Signing Up, you agree to our{" "}
