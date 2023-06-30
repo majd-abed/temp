@@ -526,7 +526,7 @@ const Profile = () => {
                   ) : null}
                   <input
                     ref={emailPasswordRef}
-                    type='password'
+                    type={isShowEmailPass ? "text" : "password"}
                     name='password'
                     id='password'
                     className='profile-input extra-margin'
@@ -535,6 +535,15 @@ const Profile = () => {
                       setIsEmailPassowrdShort(false);
                     }}
                   />
+                  <span
+                    className='password-show-profile'
+                    onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
+                    {isShowEmailPass ? (
+                      <span class='material-symbols-outlined'>visibility_off</span>
+                    ) : (
+                      <span class='material-symbols-outlined'>visibility</span>
+                    )}
+                  </span>
                   {isEmailPassowrdShort ? (
                     <div className='require-profile'>
                       Password must contain at least 8 characters{" "}
@@ -573,17 +582,28 @@ const Profile = () => {
                     className='change-btn'>
                     Cancel
                   </button>
-                  <input
-                    ref={passwordRef}
-                    type='password'
-                    name='password'
-                    id='newPassword'
-                    className='password-input'
-                    placeholder='New Password'
-                    onChange={() => {
-                      setIsPasswordInvalid(false);
-                    }}
-                  />
+                  <div style={{ position: "relative" }}>
+                    <input
+                      ref={passwordRef}
+                      type={isShowPass ? "text" : "password"}
+                      name='password'
+                      id='newPassword'
+                      className='password-input'
+                      placeholder='New Password'
+                      onChange={() => {
+                        setIsPasswordInvalid(false);
+                      }}
+                    />
+                    <span
+                      className='password-show-profile'
+                      onClick={() => setIsShowPass(!isShowPass)}>
+                      {isShowPass ? (
+                        <span class='material-symbols-outlined'>visibility_off</span>
+                      ) : (
+                        <span class='material-symbols-outlined'>visibility</span>
+                      )}
+                    </span>
+                  </div>
                   {isPasswordInvalid ? (
                     <div
                       className='require-sign'
@@ -599,10 +619,10 @@ const Profile = () => {
                       <p>- Symbols (special characters) </p>- At least one number
                     </div>
                   ) : null}
-                  <div style={{position:"relative"}}>
+                  <div style={{ position: "relative" }}>
                     <input
                       ref={currPasswordRef}
-                      type='password'
+                      type={isShowCurrPass ? "text" : "password"}
                       name='password'
                       id='currpassword'
                       className='password-input extra-margin'
@@ -611,8 +631,8 @@ const Profile = () => {
                     />
                     <span
                       className='password-show-profile'
-                      onClick={() => setIsShowPass(!isShowPass)}>
-                      {isShowPass ? (
+                      onClick={() => setIsShowCurrPass(!isShowCurrPass)}>
+                      {isShowCurrPass ? (
                         <span class='material-symbols-outlined'>visibility_off</span>
                       ) : (
                         <span class='material-symbols-outlined'>visibility</span>
