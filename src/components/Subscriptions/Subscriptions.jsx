@@ -126,7 +126,7 @@ const Subscriptions = () => {
           <div className='angel-top-sub-nav-divider-right'>
             {subData ? (
               <select className='select-filter-option' onChange={handleChange}>
-                <option defaultValue={"filter"} disabled value='filter'>
+                <option id={9999} key={9999} hidden>
                   Filter
                 </option>
                 <option value='newest'>Newest to Oldest</option>

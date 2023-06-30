@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { http, MY_VIDEOS } from "../../api";
 import { useGlobal } from "../../context";
@@ -119,7 +119,6 @@ const MyVideos = () => {
               <select
                 className='select-filter-option'
                 onChange={handleChange}
-                // ref={categoryRef}
                 >
                 <option id={9999} key={9999} hidden>
                   Filter
