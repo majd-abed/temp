@@ -560,7 +560,7 @@ const Profile = () => {
               <br />
               {/* -------------- change password ------------ */}
               <input
-                value={"**********"}
+                value={"••••••••••"}
                 disabled
                 type='email'
                 name='email'
@@ -625,7 +625,7 @@ const Profile = () => {
                       setIsPasswordSubmit(true);
                     }}
                     className='change-btn'>
-                    Change Email
+                    Change Password
                   </button>
                 </>
               )}
