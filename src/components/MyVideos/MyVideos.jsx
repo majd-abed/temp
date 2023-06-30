@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { http, MY_VIDEOS } from "../../api";
 import { useGlobal } from "../../context";
@@ -17,6 +17,9 @@ const MyVideos = () => {
     setIsCategoryEmpty,
     setSelectedCategory,
   } = useGlobal();
+
+  // const categoryRef = useRef(null);
+
   const [isLoading, setIsLoading] = useState(true);
   const [likeData, setLikeData] = useState([]);
   const [trigger, setTrigger] = useState(false);
@@ -113,8 +116,12 @@ const MyVideos = () => {
           </div>
           <div className='angel-top-sub-nav-divider-right'>
             {vidData ? (
-              <select className='select-filter-option' onChange={handleChange}>
-                <option defaultValue={"filter"} disabled value='filter'>
+              <select
+                className='select-filter-option'
+                onChange={handleChange}
+                // ref={categoryRef}
+                >
+                <option id={9999} key={9999} hidden>
                   Filter
                 </option>
                 <option value='newest'>Newest to Oldest</option>
