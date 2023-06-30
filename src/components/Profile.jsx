@@ -558,14 +558,15 @@ const Profile = () => {
                 </>
               )}
               <br />
+              {/* -------------- change password ------------ */}
               <input
-                value={userInfo ? userInfo.email : "Email"}
+                value={"**********"}
                 disabled
                 type='email'
                 name='email'
                 className='profile-input'
               />
-              {isEmailSubmit ? (
+              {isPasswordSubmit ? (
                 <div>
                   <button
                     onClick={() => window.location.reload()}
@@ -573,54 +574,63 @@ const Profile = () => {
                     Cancel
                   </button>
                   <input
-                    ref={emailRef}
-                    type='email'
-                    name='email'
-                    id='email'
-                    placeholder='New Email'
-                    className='profile-input'
-                    onChange={() => {
-                      setEmailWarning(false);
-                    }}
-                  />
-                  {emailWarning ? (
-                    <div className='require-profile'>Email is not valid </div>
-                  ) : null}
-                  <input
-                    ref={emailPasswordRef}
+                    ref={passwordRef}
                     type='password'
                     name='password'
-                    id='password'
-                    className='profile-input extra-margin'
-                    placeholder='Current Password'
+                    id='newPassword'
+                    className='password-input'
+                    placeholder='New Password'
                     onChange={() => {
-                      setIsEmailPassowrdShort(false);
+                      setIsPasswordInvalid(false);
                     }}
                   />
-                  {isEmailPassowrdShort ? (
-                    <div className='require-profile'>
-                      Password must contain at least 8 characters{" "}
+                  {isPasswordInvalid ? (
+                    <div
+                      className='require-sign'
+                      style={{
+                        textAlign: "start",
+                        width: "fit-content",
+                        paddingBottom: "0px",
+                      }}>
+                      <br />
+                      The password must contain:
+                      <p>- Minimum 8 characters</p>
+                      <p>- A mix of uppercase and lowercase letters</p>
+                      <p>- Symbols (special characters) </p>- At least one number
                     </div>
                   ) : null}
+                  <input
+                    ref={currPasswordRef}
+                    type='password'
+                    name='password'
+                    id='currpassword'
+                    className='password-input extra-margin'
+                    placeholder='Current Password'
+                    onChange={() => {}}
+                  />
                   <div className='submit-btns'>
                     <button
-                      onClick={() => changeEmail(userInfo.user_id)}
+                      onClick={() => {
+                        changePassword(userInfo.user_id);
+                      }}
                       className='change-btn'>
-                      Submit email change
+                      Submit password change
                     </button>
                   </div>
                 </div>
               ) : (
                 <>
                   <button
-                    onClick={() => setIsEmailSubmit(true)}
+                    onClick={() => {
+                      setIsPasswordSubmit(true);
+                    }}
                     className='change-btn'>
                     Change Email
                   </button>
                 </>
               )}
-              {/* -------------- change password ------------ */}
-              <div className='password-container'>
+
+              {/* <div className='password-container'>
                 <input
                   ref={passwordRef}
                   type='password'
@@ -670,7 +680,7 @@ const Profile = () => {
                     />
                   </>
                 ) : null}
-              </div>
+              </div> */}
 
               {/* {!isPasswordInvalid && !isPassIndetical ? (
                 <div className='require-sign'>
@@ -694,7 +704,6 @@ const Profile = () => {
                 <button
                   onClick={() => {
                     setIsPasswordSubmit(true);
-                    // changePassword(userInfo.user_id);
                   }}
                   className='change-password-btn'>
                   Change Password
