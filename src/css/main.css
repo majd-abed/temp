@@ -192,13 +192,13 @@ header{
 }
 
 .user-details{
-    width:350px;
+    /* width:350px; */
     height:60px;
     margin:auto;
     margin-top:12px;
     padding:8px 0px 8px 0px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .user-propic{
@@ -887,7 +887,7 @@ details[open]{
     }
 
     .user-details{
-        width:240px;
+        /* width:240px; */
         height:60px;
         margin:auto;
         margin-top:12px;
