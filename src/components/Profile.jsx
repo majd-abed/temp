@@ -391,7 +391,7 @@ const Profile = () => {
           <Spinner />
         </div>
       ) : (
-        <div className='angel-container'>
+        <div className='angel-container-alt'>
           {imageSrc ? (
             <div className='cropper-container'>
               <div className='cropper'>

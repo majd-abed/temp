@@ -204,7 +204,7 @@ const VideoPost = () => {
           },
         }}
       />
-      <div className='angel-container-post'>
+      <div className='angel-container-alt'>
         <div className='video-post-container'>
           <button className='btn-file'>
             <span className='material-symbols-outlined'>video_call</span>
