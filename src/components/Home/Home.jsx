@@ -122,9 +122,11 @@ const Home = () => {
         ) : isSearch ? (
           <div className='no-content'>
             <span class='material-symbols-outlined no-video-icon'>videocam_off</span>
-            <div className='no-content'>
+            <div className='serif-font'>
               your search -{" "}
-              <span style={{ color: "black", fontWeight: "bold" }}>
+              <span
+                className='serif-font'
+                style={{ color: "black", fontWeight: "bold" }}>
                 {noVideoPhrase}
               </span>{" "}
               - didn't match any videos

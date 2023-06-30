@@ -424,6 +424,9 @@ footer{
     background-color: transparent;
     border: none;
 }
+.serif-font{
+    font-family: 'DM Serif Text', serif;
+}
 
 .no-content{
     font-family: 'DM Serif Text', serif;
