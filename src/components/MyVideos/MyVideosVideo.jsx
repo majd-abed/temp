@@ -444,7 +444,7 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
                 ) : isLiked ? (
                   <span
                     className='material-symbols-rounded'
-                    style={{ paddingTop: "15px", color: "white" }}>
+                    style={{ paddingTop: "15px", color: "#f04c68" }}>
                     favorite
                   </span>
                 ) : (

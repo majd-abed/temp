@@ -379,7 +379,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
               ) : isLiked ? (
                 <span
                   className='material-symbols-rounded'
-                  style={{ paddingTop: "15px", color: "white" }}>
+                  style={{ paddingTop: "15px", color: "#f04c68" }}>
                   favorite
                 </span>
               ) : (
