@@ -692,7 +692,7 @@ const Profile = () => {
                   both Fields must contain at least 8 characters
                 </div>
               ) : null} */}
-              {isPasswordSubmit ? (
+              {/* {isPasswordSubmit ? (
                 <button
                   onClick={() => {
                     changePassword(userInfo.user_id);
@@ -708,7 +708,7 @@ const Profile = () => {
                   className='change-password-btn'>
                   Change Password
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </div>
