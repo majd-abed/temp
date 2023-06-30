@@ -510,7 +510,7 @@ const Profile = () => {
                     className='change-btn'>
                     Cancel
                   </button>
-                  <div className="empty-holder"></div>
+                  <div className='empty-holder'></div>
                   <input
                     ref={emailRef}
                     type='email'
@@ -525,26 +525,28 @@ const Profile = () => {
                   {emailWarning ? (
                     <div className='require-profile'>Email is not valid </div>
                   ) : null}
-                  <input
-                    ref={emailPasswordRef}
-                    type={isShowEmailPass ? "text" : "password"}
-                    name='password'
-                    id='password'
-                    className='profile-input extra-margin'
-                    placeholder='Current Password'
-                    onChange={() => {
-                      setIsEmailPassowrdShort(false);
-                    }}
-                  />
-                  <span
-                    className='password-show-profile'
-                    onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
-                    {isShowEmailPass ? (
-                      <span class='material-symbols-outlined'>visibility_off</span>
-                    ) : (
-                      <span class='material-symbols-outlined'>visibility</span>
-                    )}
-                  </span>
+                  <div style={{ position: "relative" }}>
+                    <input
+                      ref={emailPasswordRef}
+                      type={isShowEmailPass ? "text" : "password"}
+                      name='password'
+                      id='password'
+                      className='profile-input extra-margin'
+                      placeholder='Current Password'
+                      onChange={() => {
+                        setIsEmailPassowrdShort(false);
+                      }}
+                    />
+                    <span
+                      className='password-show-profile'
+                      onClick={() => setIsShowEmailPass(!isShowEmailPass)}>
+                      {isShowEmailPass ? (
+                        <span class='material-symbols-outlined'>visibility_off</span>
+                      ) : (
+                        <span class='material-symbols-outlined'>visibility</span>
+                      )}
+                    </span>
+                  </div>
                   {isEmailPassowrdShort ? (
                     <div className='require-profile'>
                       Password must contain at least 8 characters{" "}
@@ -583,7 +585,7 @@ const Profile = () => {
                     className='change-btn'>
                     Cancel
                   </button>
-                  <div className="empty-holder"></div>
+                  <div className='empty-holder'></div>
                   <div style={{ position: "relative" }}>
                     <input
                       ref={passwordRef}
