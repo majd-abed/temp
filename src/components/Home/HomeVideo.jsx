@@ -169,7 +169,9 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
       });
   }, [faqsTrigger]);
   return (
-    <div key={data.user_id} style={{ width: "400px", margin: "auto" }}>
+    <div
+      key={data.user_id}
+      style={{ width: "400px", margin: "auto", maxWidth: "100%" }}>
       <Toaster
         position='bottom-right'
         reverseOrder={false}
