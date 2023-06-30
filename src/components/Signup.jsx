@@ -15,14 +15,14 @@ const Signup = () => {
   const countryRef = useRef(null);
 
   const [countries, setCountries] = useState([]);
-  const [countryId, setCountryId] = useState(1);
+  const [countryId, setCountryId] = useState(0);
   const [emailWarning, setEmailWarning] = useState(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
   const [isPassIndetical, setIsPassIndetical] = useState(true);
   const [isFirstNameEmpty, setIsFirstNameEmpty] = useState(false);
   const [isLastNameEmpty, setIsLastNameEmpty] = useState(false);
-  const [isBusinessEmpty, setIsBusinessEmpty] = useState(false);
-  const [isCountryEmpty, setIsCountryEmpty] = useState(true);
+  // const [isBusinessEmpty, setIsBusinessEmpty] = useState(false);
+  const [isCountryEmpty, setIsCountryEmpty] = useState(false);
   const [isShowPass, setIsShowPass] = useState(false);
   const [isShowConfirmPass, setIsShowConfirmPass] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -66,6 +66,7 @@ const Signup = () => {
   };
 
   async function handleSignup() {
+    if (!countryId) setIsCountryEmpty(true);
     if (!fNameRef.current.value) setIsFirstNameEmpty(true);
     if (!lNameRef.current.value) setIsLastNameEmpty(true);
     // if (!businessRef.current.value) setIsBusinessEmpty(true);
@@ -78,7 +79,8 @@ const Signup = () => {
       !validatePassword(passwordRef.current.value) ||
       passwordRef.current.value !== confirmPasswordRef.current.value ||
       !fNameRef.current.value ||
-      !lNameRef.current.value
+      !lNameRef.current.value ||
+      !countryId
       // || !businessRef.current.value
     )
       return null;
