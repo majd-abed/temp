@@ -6,10 +6,12 @@ Version:Beta
 */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Pacifico&display=swap');
 *{
     margin:0;
     padding: 0;
     /* background-color: var(--angel-color); */
+
     font-family: 'Poppins', sans-serif;
     /* border:1px dashed rgb(211, 99, 117); */
 }
@@ -424,6 +426,7 @@ footer{
 }
 
 .no-content{
+    font-family: 'DM Serif Text', serif;
     text-align: center;
     color: #aaaaaa;
     margin-top: 150px;
@@ -431,6 +434,7 @@ footer{
     font-weight: 600;
 }
 .no-content-text{
+    font-family: 'DM Serif Text', serif;
     width: 300px;
     margin: auto;
     font-size: 18px;
@@ -960,6 +964,7 @@ details[open]{
     }    
 
     .secondary-btn{
+        font-family: 'DM Serif Text', serif;
         padding:4px 8px 4px 8px;
         background-color:var(--secondary-btn-color);
         color:var(--primary-text-color);
@@ -971,6 +976,7 @@ details[open]{
     }
     
     .primary-btn{
+        font-family: 'DM Serif Text', serif;
         padding:4px 8px 4px 8px;
         background-color: var(--primary-btn-color);
         color:var(--secondary-text-color);
