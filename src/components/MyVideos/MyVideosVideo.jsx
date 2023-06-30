@@ -260,109 +260,114 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
           },
         }}
       />
-      <div className='user-details'>
-        <div className='user-info no-img-video'>
-          <h5>{data.category_name}</h5>
-          <span style={{ fontWeight: "400", fontSize: "11px" }}>
-            Created at {data.created_at}
-          </span>
-        </div>
-      </div>
-      <div className='video-container'>
-        <video
-          ref={videoRef}
-          src={data.video}
-          className='video'
-          onClick={() => handlePause()}
-          onEnded={() => setIsReplay(true)}
-        />
-        {/* -------------- delete modal ------------- */}
-        <div
-          className='confirmation-modal'
-          style={{ display: `${deleteModal ? "flex" : "none"}` }}>
-          <p className='modal-text'>Are you sure?</p>
-          <div className='modal-btns'>
-            <button className='modal-cancel' onClick={() => setDeleteModal(false)}>
-              Cancel
-            </button>
-            <button
-              className='modal-delete'
-              onClick={() => {
-                handleDelete(data.video_id);
-              }}>
-              Delete
-            </button>
+      <div style={{ width: "400px", margin: "auto", maxWidth: "100%" }}>
+        <div className='user-details'>
+          <div className='user-info no-img-video'>
+            <h5>{data.category_name}</h5>
+            <span style={{ fontWeight: "400", fontSize: "11px" }}>
+              Created at {data.created_at}
+            </span>
           </div>
         </div>
-        {/* ------------ FAQs modal ----------- */}
-        <div
-          className='faqs-modal'
-          style={{ display: `${isFaqsOpen ? "block" : "none"}` }}>
-          <div className='faqs-header'>
-            <h4 className='faqs-header-text'>FAQs</h4>
-            <button
-              className='faqs-close-btn'
-              onClick={() => setIsFaqsOpen(!isFaqsOpen)}>
-              <span className='material-symbols-outlined'>close</span>
-            </button>
+        <div className='video-container'>
+          <video
+            ref={videoRef}
+            src={data.video}
+            className='video'
+            onClick={() => handlePause()}
+            onEnded={() => setIsReplay(true)}
+          />
+          {/* -------------- delete modal ------------- */}
+          <div
+            className='confirmation-modal'
+            style={{ display: `${deleteModal ? "flex" : "none"}` }}>
+            <p className='modal-text'>Are you sure?</p>
+            <div className='modal-btns'>
+              <button className='modal-cancel' onClick={() => setDeleteModal(false)}>
+                Cancel
+              </button>
+              <button
+                className='modal-delete'
+                onClick={() => {
+                  handleDelete(data.video_id);
+                }}>
+                Delete
+              </button>
+            </div>
           </div>
-          <div className='faqs-container' ref={faqsRef}>
-            {faqData.map((f) => {
-              return f.user_id !== null ? (
-                <>
-                  <div className='' key={f.question_id}>
-                    <details>
-                      <summary>
-                        <div className='question-container'>
-                          <div>
-                            <div className='profile-pic-container'>
-                              <img
-                                src={
-                                  f.profile_pic === null
-                                    ? require("../../assets/images/propic.png")
-                                    : f.profile_pic
-                                }
-                                className='profile-pic'></img>
+          {/* ------------ FAQs modal ----------- */}
+          <div
+            className='faqs-modal'
+            style={{ display: `${isFaqsOpen ? "block" : "none"}` }}>
+            <div className='faqs-header'>
+              <h4 className='faqs-header-text'>FAQs</h4>
+              <button
+                className='faqs-close-btn'
+                onClick={() => setIsFaqsOpen(!isFaqsOpen)}>
+                <span className='material-symbols-outlined'>close</span>
+              </button>
+            </div>
+            <div className='faqs-container' ref={faqsRef}>
+              {faqData.map((f) => {
+                return f.user_id !== null ? (
+                  <>
+                    <div className='' key={f.question_id}>
+                      <details>
+                        <summary>
+                          <div className='question-container'>
+                            <div>
+                              <div className='profile-pic-container'>
+                                <img
+                                  src={
+                                    f.profile_pic === null
+                                      ? require("../../assets/images/propic.png")
+                                      : f.profile_pic
+                                  }
+                                  className='profile-pic'></img>
+                              </div>
+                            </div>
+                            <div className='question-info'>
+                              <div className='question-username'>
+                                {f["Asked By"]}
+                              </div>
+                              <div className='question-country'>
+                                {f.country_name}
+                              </div>
+                              <div className='question-faq'>{f.question}</div>
                             </div>
                           </div>
-                          <div className='question-info'>
-                            <div className='question-username'>{f["Asked By"]}</div>
-                            <div className='question-country'>{f.country_name}</div>
-                            <div className='question-faq'>{f.question}</div>
-                          </div>
+                        </summary>
+                        <div>
+                          {f.answer ? (
+                            <div className='answer'>
+                              <p>{f.answer}</p>
+                            </div>
+                          ) : (
+                            <div className='reply'>
+                              <textarea
+                                maxLength={50}
+                                onChange={handleReplyChange}
+                                name=''
+                                id=''
+                                rows='3'
+                                placeholder='Your Reply...'></textarea>
+                              <div className='reply-container'>
+                                <button
+                                  className='submit-reply'
+                                  onClick={() => handleReply(f.question_id)}>
+                                  Reply
+                                </button>
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      </summary>
-                      <div>
-                        {f.answer ? (
-                          <div className='answer'>
-                            <p>{f.answer}</p>
-                          </div>
-                        ) : (
-                          <div className='reply'>
-                            <textarea
-                              maxLength={50}
-                              onChange={handleReplyChange}
-                              name=''
-                              id=''
-                              rows='3'
-                              placeholder='Your Reply...'></textarea>
-                            <div className='reply-container'>
-                              <button
-                                className='submit-reply'
-                                onClick={() => handleReply(f.question_id)}>
-                                Reply
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </details>
-                  </div>
-                </>
-              ) : null;
-            })}
-          </div>
-          {/* <div className='comment-section'>
+                      </details>
+                    </div>
+                  </>
+                ) : null;
+              })}
+            </div>
+            {/* <div className='comment-section'>
             <div className='comment'>
               <textarea
                 value={Comment}
@@ -383,68 +388,81 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
               </div>
             </div>
           </div> */}
-        </div>
-        {/* ------------ control buttons -------- */}
-        <div className='control-btns'>
-          <button
-            className='material-symbols-rounded control-btn-style'
-            style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
-            onClick={handlePlay}>
-            play_arrow
-          </button>
-          <button
-            className='material-symbols-rounded control-btn-style'
-            style={{ display: `${isReplay ? "block" : "none"}` }}
-            onClick={handleReplay}>
-            replay
-          </button>
-        </div>
-        {/* ------------ mute button -------- */}
-        <div className='mute-container'>
-          <button
-            className='material-symbols-rounded mute-btn-style'
-            style={{ display: `${isMuted ? "block" : "none"}` }}
-            onClick={handleUnMute}>
-            volume_off
-          </button>
-          <button
-            className='material-symbols-rounded mute-btn-style'
-            style={{ display: `${isMuted ? "none" : "block"}` }}
-            onClick={handleMute}>
-            volume_up
-          </button>
-        </div>
-        {/* ------------ video buttons -------- */}
-        <div className='video-btns'>
-          {data.is_live !== 1 ? (
-            <div className='publish-now-btn' onClick={() => handlePublish()}>
-              Publish now
-            </div>
-          ) : (
-            <div className='published-btn' onClick={() => handleUnPublish()}>
-              Published
-            </div>
-          )}
-          <div className='video-info'>
-            {likeData ? (
-              likeData.find(
-                (e) => e.video_id === data.video_id && e.user_id === userInfo.user_id
-              ) ? (
-                <span
-                  className='material-symbols-rounded'
-                  style={{ paddingTop: "15px", color: "white" }}>
-                  favorite
-                </span>
-              ) : isLiked ? (
-                <span
-                  className='material-symbols-rounded'
-                  style={{ paddingTop: "15px", color: "white" }}>
-                  favorite
-                </span>
+          </div>
+          {/* ------------ control buttons -------- */}
+          <div className='control-btns'>
+            <button
+              className='material-symbols-rounded control-btn-style'
+              style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
+              onClick={handlePlay}>
+              play_arrow
+            </button>
+            <button
+              className='material-symbols-rounded control-btn-style'
+              style={{ display: `${isReplay ? "block" : "none"}` }}
+              onClick={handleReplay}>
+              replay
+            </button>
+          </div>
+          {/* ------------ mute button -------- */}
+          <div className='mute-container'>
+            <button
+              className='material-symbols-rounded mute-btn-style'
+              style={{ display: `${isMuted ? "block" : "none"}` }}
+              onClick={handleUnMute}>
+              volume_off
+            </button>
+            <button
+              className='material-symbols-rounded mute-btn-style'
+              style={{ display: `${isMuted ? "none" : "block"}` }}
+              onClick={handleMute}>
+              volume_up
+            </button>
+          </div>
+          {/* ------------ video buttons -------- */}
+          <div className='video-btns'>
+            {data.is_live !== 1 ? (
+              <div className='publish-now-btn' onClick={() => handlePublish()}>
+                Publish now
+              </div>
+            ) : (
+              <div className='published-btn' onClick={() => handleUnPublish()}>
+                Published
+              </div>
+            )}
+            <div className='video-info'>
+              {likeData ? (
+                likeData.find(
+                  (e) =>
+                    e.video_id === data.video_id && e.user_id === userInfo.user_id
+                ) ? (
+                  <span
+                    className='material-symbols-rounded'
+                    style={{ paddingTop: "15px", color: "white" }}>
+                    favorite
+                  </span>
+                ) : isLiked ? (
+                  <span
+                    className='material-symbols-rounded'
+                    style={{ paddingTop: "15px", color: "white" }}>
+                    favorite
+                  </span>
+                ) : (
+                  <button
+                    className='vid-btn'
+                    //onClick={() => handleLike(data.video_id)}
+                    disabled>
+                    <span
+                      className='material-symbols-outlined'
+                      style={{ paddingTop: "15px", color: "white" }}>
+                      favorite
+                    </span>
+                  </button>
+                )
               ) : (
                 <button
                   className='vid-btn'
-                  //onClick={() => handleLike(data.video_id)}
+                  // onClick={() => handleLike(data.video_id)}
                   disabled>
                   <span
                     className='material-symbols-outlined'
@@ -452,40 +470,28 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
                     favorite
                   </span>
                 </button>
-              )
-            ) : (
+              )}
+              <br />
+              {data.likes
+                ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
+                : isLiked
+                ? 1
+                : 0}
+              <br />
               <button
                 className='vid-btn'
-                // onClick={() => handleLike(data.video_id)}
-                disabled>
+                onClick={() => {
+                  setIsFaqsOpen(!isFaqsOpen);
+                }}>
                 <span
                   className='material-symbols-outlined'
                   style={{ paddingTop: "15px", color: "white" }}>
-                  favorite
+                  chat
                 </span>
               </button>
-            )}
-            <br />
-            {data.likes
-              ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
-              : isLiked
-              ? 1
-              : 0}
-            <br />
-            <button
-              className='vid-btn'
-              onClick={() => {
-                setIsFaqsOpen(!isFaqsOpen);
-              }}>
-              <span
-                className='material-symbols-outlined'
-                style={{ paddingTop: "15px", color: "white" }}>
-                chat
-              </span>
-            </button>
-            {/* <br /> */}
-            {/* {data.comments ? data.comments : 0} */}
-            {/* <br />
+              {/* <br /> */}
+              {/* {data.comments ? data.comments : 0} */}
+              {/* <br />
             <span
               className='material-symbols-outlined'
               style={{ paddingTop: "15px", color: "white" }}>
@@ -493,18 +499,19 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
             </span>
             <br />
             {data.shares ? data.shares : 0} */}
-            <br />
-            <button
-              className='vid-btn'
-              onClick={() => {
-                setDeleteModal(!deleteModal);
-              }}>
-              <span
-                className='material-symbols-outlined'
-                style={{ paddingTop: "15px", color: "white" }}>
-                delete
-              </span>
-            </button>
+              <br />
+              <button
+                className='vid-btn'
+                onClick={() => {
+                  setDeleteModal(!deleteModal);
+                }}>
+                <span
+                  className='material-symbols-outlined'
+                  style={{ paddingTop: "15px", color: "white" }}>
+                  delete
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
