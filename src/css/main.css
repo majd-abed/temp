@@ -183,6 +183,15 @@ header{
     overflow: hidden;
     margin-top: 120px;
 }
+.angel-container-post{
+    max-width: 1800px;
+    width:98%;
+    height: auto;
+    margin:auto;
+    padding-bottom: 10%;
+    background-color: var(--base-color);
+    overflow: hidden;
+}
 
 .angel-container-fluid{
     width:100%;
