@@ -20,9 +20,9 @@ const Profile = () => {
   const [isUsernameEmpty, setIsUsernameEmpty] = useState(false);
   const [emailWarning, setEmailWarning] = useState(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
-  const [isShowPass, setIsShowPass] = useState(false);
-  const [isShowEmailPass, setIsShowEmailPass] = useState(false);
-  const [isShowCurrPass, setIsShowCurrPass] = useState(false);
+  // const [isShowPass, setIsShowPass] = useState(false);
+  // const [isShowEmailPass, setIsShowEmailPass] = useState(false);
+  // const [isShowCurrPass, setIsShowCurrPass] = useState(false);
   const [isEmailPassowrdShort, setIsEmailPassowrdShort] = useState(false);
   const [isLocationEmpty, setIsLocationEmpty] = useState(false);
   const [imageSrc, setImageSrc] = useState(null);
@@ -423,7 +423,7 @@ const Profile = () => {
           <div
             className='profile-container'
             style={{ filter: `${imageSrc ? "blur(5px)" : null}` }}>
-            {/* ---Image----*/}
+            {/* -----------Image ----------------*/}
             <div id='ImagePreview' style={{ display: "block" }}>
               <div>
                 <img
@@ -437,7 +437,7 @@ const Profile = () => {
                 />
               </div>
             </div>
-            <div className='change-img-btn'>
+            <div className='change-img-btn serif-font'>
               <input
                 type='file'
                 ref={imageRef}
@@ -466,6 +466,8 @@ const Profile = () => {
                 Change username
               </button>
 
+              {/* -------------- change location ------------ */}
+
               <select
                 onChange={onSelectHandler}
                 className='profile-input country-input-extra-width'
@@ -491,6 +493,8 @@ const Profile = () => {
               <button onClick={changeLocation} className='change-btn'>
                 Change Location
               </button>
+
+              {/* -------------- change email ------------ */}
               <br />
               <input
                 value={userInfo ? userInfo.email : "Email"}
@@ -553,7 +557,69 @@ const Profile = () => {
                   </button>
                 </>
               )}
-
+              <br />
+              <input
+                value={userInfo ? userInfo.email : "Email"}
+                disabled
+                type='email'
+                name='email'
+                className='profile-input'
+              />
+              {isEmailSubmit ? (
+                <div>
+                  <button
+                    onClick={() => window.location.reload()}
+                    className='change-btn'>
+                    Cancel
+                  </button>
+                  <input
+                    ref={emailRef}
+                    type='email'
+                    name='email'
+                    id='email'
+                    placeholder='New Email'
+                    className='profile-input'
+                    onChange={() => {
+                      setEmailWarning(false);
+                    }}
+                  />
+                  {emailWarning ? (
+                    <div className='require-profile'>Email is not valid </div>
+                  ) : null}
+                  <input
+                    ref={emailPasswordRef}
+                    type='password'
+                    name='password'
+                    id='password'
+                    className='profile-input extra-margin'
+                    placeholder='Current Password'
+                    onChange={() => {
+                      setIsEmailPassowrdShort(false);
+                    }}
+                  />
+                  {isEmailPassowrdShort ? (
+                    <div className='require-profile'>
+                      Password must contain at least 8 characters{" "}
+                    </div>
+                  ) : null}
+                  <div className='submit-btns'>
+                    <button
+                      onClick={() => changeEmail(userInfo.user_id)}
+                      className='change-btn'>
+                      Submit email change
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setIsEmailSubmit(true)}
+                    className='change-btn'>
+                    Change Email
+                  </button>
+                </>
+              )}
+              {/* -------------- change password ------------ */}
               <div className='password-container'>
                 <input
                   ref={passwordRef}
