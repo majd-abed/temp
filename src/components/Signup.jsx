@@ -90,7 +90,6 @@ const Signup = () => {
         password_confirmation: confirmPasswordRef.current.value,
       })
       .then((res) => {
-        console.log(res);
         if (res.status === 201) {
           window.location = "/signin";
         }

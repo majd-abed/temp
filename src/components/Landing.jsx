@@ -16,7 +16,7 @@ const Landing = () => {
               </div>
               <div class='helmet text-center'>
                 <div className='heading-margin'>
-                  <h4>Short video streaming-based <br/> online marketing platform</h4>
+                  <h2>Short video streaming-based <br/> online marketing platform</h2>
                 </div>
               </div>
               <div class='wow-btn text-center'>
@@ -52,7 +52,7 @@ const Landing = () => {
                 </div>
                 <h4>Anywhere</h4>
                 <p class='font-2'>
-                  Reach out for your products or services from <strong>anywhere</strong>{" "} to anywhere in the world.
+                  Reach out for your products or services from anywhere{" "} to anywhere in the world.
                 </p>
               </div>
             </div>
@@ -63,7 +63,7 @@ const Landing = () => {
                 </div>
                 <h4>Anyone</h4>
                 <p class='font-2'>
-                  Your customers can be <strong>anyone</strong> either from a local or any place. Let them be aware of you.
+                  Your customers can be anyone either from a local or any place. Let them be aware of you.
                 </p>
               </div>
             </div>
@@ -77,7 +77,7 @@ const Landing = () => {
                 </div>
                 <h4>Anytime</h4>
                 <p class='font-2'>
-                  At <strong>anytime</strong> reach consumers. they may become your
+                  At anytime reach consumers. they may become your
                   customers at anytime.
                 </p>
               </div>
@@ -89,7 +89,7 @@ const Landing = () => {
                 </div>
                 <h4>Anything</h4>
                 <p class='font-2'>
-                  Any kind of consumer product or service, You can promote <strong>anything</strong> for free.                  
+                  Any kind of consumer product or service, You can promote anything for free.                  
                 </p>
               </div>
             </div>

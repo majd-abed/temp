@@ -13,7 +13,7 @@ const Terms = () => {
           </Link>
         </div>
         <h2>
-          <strong>Terms and Conditions</strong>
+          Terms and Conditions
         </h2>
 
         <p>Welcome to olyoli!</p>
@@ -46,7 +46,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>Cookies</strong>
+          Cookies
         </h3>
 
         <p>
@@ -62,7 +62,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>License</strong>
+          License
         </h3>
 
         <p>
@@ -126,7 +126,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>Hyperlinking to our Content</strong>
+          Hyperlinking to our Content
         </h3>
 
         <p>
@@ -215,7 +215,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>iFrames</strong>
+          iFrames
         </h3>
 
         <p>
@@ -225,7 +225,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>Content Liability</strong>
+          Content Liability
         </h3>
 
         <p>
@@ -238,7 +238,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>Reservation of Rights</strong>
+          Reservation of Rights
         </h3>
 
         <p>
@@ -251,7 +251,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>Removal of links from our website</strong>
+          Removal of links from our website
         </h3>
 
         <p>
@@ -269,7 +269,7 @@ const Terms = () => {
         </p>
 
         <h3>
-          <strong>Disclaimer</strong>
+          Disclaimer
         </h3>
 
         <p>
