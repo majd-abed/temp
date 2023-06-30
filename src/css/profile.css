@@ -252,6 +252,12 @@ div#UpdateImageUpload input {
 
 }
 
+.empty-holder{
+    height: 39px;
+    position: relative;
+    z-index: -999;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 480px) {
 

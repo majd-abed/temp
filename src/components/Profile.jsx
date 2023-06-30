@@ -510,6 +510,7 @@ const Profile = () => {
                     className='change-btn'>
                     Cancel
                   </button>
+                  <div className="empty-holder"></div>
                   <input
                     ref={emailRef}
                     type='email'
@@ -582,6 +583,7 @@ const Profile = () => {
                     className='change-btn'>
                     Cancel
                   </button>
+                  <div className="empty-holder"></div>
                   <div style={{ position: "relative" }}>
                     <input
                       ref={passwordRef}
