@@ -5,7 +5,14 @@ import toast, { Toaster } from "react-hot-toast";
 import { http } from "../../api";
 import { useGlobal } from "../../context";
 
-const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
+const HomeVideo = ({
+  data,
+  subData,
+  likeData,
+  trigger,
+  setTrigger,
+  previousVideoRef,
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -64,6 +71,11 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
   };
 
   const handlePlay = () => {
+    if (previousVideoRef.current) {
+      previousVideoRef.current.pause();
+    }
+    // setCurrentVideo(videoRef.current);
+    previousVideoRef.current = videoRef.current;
     videoRef.current.play();
     setIsPlaying(true);
   };

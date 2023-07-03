@@ -18,14 +18,16 @@ const Home = () => {
     isCategoryEmpty,
     setIsCategoryEmpty,
     isSearch,
-    searchValue,
     noVideoPhrase,
   } = useGlobal();
-  const searchPhrase = searchValue;
   const [subData, setSubData] = useState([]);
   const [likeData, setLikeData] = useState([]);
   const [isSubLoading, setIsSubLoading] = useState(true);
   const [trigger, setTrigger] = useState(false);
+
+  // const [currentVideo, setCurrentVideo] = useState(null);
+  const previousVideoRef = useRef(null);
+
   useEffect(() => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
@@ -99,6 +101,7 @@ const Home = () => {
                       setTrigger={setTrigger}
                       data={element}
                       key={element.video_id}
+                      previousVideoRef={previousVideoRef}
                     />
                   );
                 }
@@ -114,6 +117,7 @@ const Home = () => {
                     setTrigger={setTrigger}
                     data={element}
                     key={element.video_id}
+                    previousVideoRef={previousVideoRef}
                   />
                 );
               }
