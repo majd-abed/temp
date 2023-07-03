@@ -23,6 +23,7 @@
 .notification-video{
   height: 200px;
   border-radius: 10px;
+  max-width:400px;
 }
 .notification-reply-container{
   text-align: end;
