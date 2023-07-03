@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { http, MY_VIDEOS } from "../../api";
 import { useGlobal } from "../../context";
@@ -23,6 +23,9 @@ const MyVideos = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [likeData, setLikeData] = useState([]);
   const [trigger, setTrigger] = useState(false);
+
+  const previousVideoVidRef = useRef(null);
+
   const handleChange = (e) => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
@@ -116,10 +119,7 @@ const MyVideos = () => {
           </div>
           <div className='angel-top-sub-nav-divider-right'>
             {vidData ? (
-              <select
-                className='select-filter-option'
-                onChange={handleChange}
-                >
+              <select className='select-filter-option' onChange={handleChange}>
                 <option id={9999} key={9999} hidden>
                   Filter
                 </option>
@@ -149,6 +149,7 @@ const MyVideos = () => {
                     setTrigger={setTrigger}
                     data={element}
                     key={element.video_id}
+                    previousVideoVidRef={previousVideoVidRef}
                   />
                 );
               }
@@ -163,6 +164,7 @@ const MyVideos = () => {
                   setTrigger={setTrigger}
                   data={element}
                   key={element.video_id}
+                  previousVideoVidRef={previousVideoVidRef}
                 />
               );
             }

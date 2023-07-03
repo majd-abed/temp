@@ -74,7 +74,6 @@ const HomeVideo = ({
     if (previousVideoRef.current) {
       previousVideoRef.current.pause();
     }
-    // setCurrentVideo(videoRef.current);
     previousVideoRef.current = videoRef.current;
     videoRef.current.play();
     setIsPlaying(true);

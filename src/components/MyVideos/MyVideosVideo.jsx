@@ -5,7 +5,13 @@ import toast, { Toaster } from "react-hot-toast";
 import { http } from "../../api";
 import { useGlobal } from "../../context";
 
-const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
+const MyVideosVideo = ({
+  data,
+  setTrigger,
+  trigger,
+  likeData,
+  previousVideoVidRef,
+}) => {
   const videoRef = useRef();
   const faqsRef = useRef();
 
@@ -62,6 +68,11 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
   };
 
   const handlePlay = () => {
+    if (previousVideoVidRef.current) {
+      previousVideoVidRef.current.pause();
+    }
+    previousVideoVidRef.current = videoRef.current;
+
     videoRef.current.play();
     setIsPlaying(true);
   };
@@ -159,33 +170,33 @@ const MyVideosVideo = ({ data, setTrigger, trigger, likeData }) => {
       });
     setInvisible(true);
   }
-  async function handleLike(id) {
-    let token = localStorage.getItem("token");
-    if (token === null) token = sessionStorage.getItem("token");
-    await http.get("/sanctum/csrf-cookie");
-    await axios
-      .post(
-        `https://beta-api-test.s360.cloud/api/videos/like/${id}`,
-        {
-          video_id: data.video_id,
-          status: 0,
-        },
-        {
-          headers: {
-            Authorization: token ? `Bearer ${token}` : "",
-          },
-        }
-      )
-      .then((res) => {
-        if (res.status === 201) {
-          toast.success("Video is Liked!");
-          setIsLiked(true);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
+  // async function handleLike(id) {
+  //   let token = localStorage.getItem("token");
+  //   if (token === null) token = sessionStorage.getItem("token");
+  //   await http.get("/sanctum/csrf-cookie");
+  //   await axios
+  //     .post(
+  //       `https://beta-api-test.s360.cloud/api/videos/like/${id}`,
+  //       {
+  //         video_id: data.video_id,
+  //         status: 0,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: token ? `Bearer ${token}` : "",
+  //         },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       if (res.status === 201) {
+  //         toast.success("Video is Liked!");
+  //         setIsLiked(true);
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // }
   const handleReply = (id) => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");

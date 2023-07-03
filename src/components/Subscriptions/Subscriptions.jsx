@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { http, MY_SUBSCRIPTIONS } from "../../api";
 import { useGlobal } from "../../context";
@@ -21,6 +21,8 @@ const Subscriptions = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [likeData, setLikeData] = useState([]);
   const [trigger, setTrigger] = useState(false);
+
+  const previousVideoSubRef = useRef(null);
 
   // const filterSearch = (element, homeData) => {
   //   if (!homeData) return null;
@@ -155,6 +157,7 @@ const Subscriptions = () => {
                     setTrigger={setTrigger}
                     data={element}
                     key={element.video_id}
+                    previousVideoSubRef={previousVideoSubRef}
                   />
                 );
               }
@@ -169,6 +172,7 @@ const Subscriptions = () => {
                   setTrigger={setTrigger}
                   data={element}
                   key={element.video_id}
+                  previousVideoSubRef={previousVideoSubRef}
                 />
               );
             }

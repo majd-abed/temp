@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { http } from "../../api";
 import { useGlobal } from "../../context";
 
-const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
+const SubVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRef }) => {
   const [sub, setSub] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
@@ -25,6 +25,11 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
     setComment(event.target.value);
   };
   const handlePlay = () => {
+    if (previousVideoSubRef.current) {
+      previousVideoSubRef.current.pause();
+    }
+    previousVideoSubRef.current = videoRef.current;
+
     videoRef.current.play();
     setIsPlaying(true);
   };
