@@ -23,6 +23,9 @@ const MyVideos = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [likeData, setLikeData] = useState([]);
   const [trigger, setTrigger] = useState(false);
+
+  const previousVideoVidRef = useRef(null);
+
   const handleChange = (e) => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
