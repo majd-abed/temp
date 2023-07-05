@@ -514,7 +514,6 @@ const MyVideosVideo = ({
             </span>
             <br />
             {data.shares ? data.shares : 0} */}
-              <br />
               <button
                 className='vid-btn'
                 onClick={() => {

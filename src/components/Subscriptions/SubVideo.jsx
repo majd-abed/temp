@@ -142,6 +142,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRef }) 
       )
       .then((success) => {
         setFaqsTrigger(!faqsTrigger);
+        setTrigger(!trigger);
         setComment("");
         toast.success("Comment submitted successfully");
         setTimeout(() => {
