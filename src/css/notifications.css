@@ -175,6 +175,10 @@ padding-right: 15px;
   .vid-topic{
     font-size: 12px;
   }
+  .notification-video{
+    height: 150px;
+    max-width:200px;
+  }
 }
 /* @media (max-width: 770px) {
   .notification-name{

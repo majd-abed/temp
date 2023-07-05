@@ -126,7 +126,7 @@ const LikesNotifications = () => {
                       <div className='notification-video-section'>
                         <div className='notification-video-info'>
                           <p style={{ fontWeight: "bold" }}>{e.category_name}</p>
-                          <p>{e.keywords}</p>
+                          <p className='vid-topic'>{e.keywords}</p>
                         </div>
                         <div className='like-video'>
                           <video src={e.video} className='notification-video' />
