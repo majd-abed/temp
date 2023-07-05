@@ -76,7 +76,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
             <p style={{ fontWeight: "bold" }}>{data.category_name}</p>
             <p className='vid-topic'>{data.keywords}</p>
           </div>
-          <div>
+          <div className='notification-video-container'>
             <video src={data.video} className='notification-video' />
           </div>
         </div>
