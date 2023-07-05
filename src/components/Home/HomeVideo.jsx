@@ -240,6 +240,7 @@ const HomeVideo = ({
           </span>
         </div>
       </div>
+      <p className="video-topic">{data.keywords}</p>
       <div className='video-container'>
         <video
           ref={videoRef}

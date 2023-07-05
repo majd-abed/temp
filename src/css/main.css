@@ -236,6 +236,10 @@ header{
     font-weight: 400;
     margin-left:8px;
 }
+.video-topic{
+    font-size: 12px;
+    padding: 0 5px 15px 5px;
+}
 
 .no-img-video{
     width:350px !important;
