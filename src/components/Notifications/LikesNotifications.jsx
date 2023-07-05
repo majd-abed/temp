@@ -152,7 +152,7 @@ const LikesNotifications = () => {
                           </p>
                           <span
                             className='material-symbols-rounded'
-                            style={{ fontSize: "50px", color: "#f04c68" }}>
+                            style={{ fontSize: "50px", color: "#bd136b" }}>
                             favorite
                           </span>
                         </div>
