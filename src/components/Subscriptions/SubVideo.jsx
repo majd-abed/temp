@@ -428,6 +428,9 @@ const SubVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRef }) 
                   chat
                 </span>
               </button>
+              <br />
+              {data.comments ? millify(data.comments) : 0}
+              <br />
               {/* <br />
             {data.comments ? data.comments : 0}
             <br />

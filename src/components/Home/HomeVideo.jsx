@@ -240,7 +240,7 @@ const HomeVideo = ({
           </span>
         </div>
       </div>
-      <p className="video-topic">{data.keywords}</p>
+      <p className='video-topic'>{data.keywords}</p>
       <div className='video-container'>
         <video
           ref={videoRef}
@@ -432,6 +432,9 @@ const HomeVideo = ({
                 chat
               </span>
             </button>
+            <br />
+            {data.comments ? millify(data.comments) : 0}
+            <br />
             {/* <br />
             {data.comments ? data.comments : 0}
             <br />

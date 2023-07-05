@@ -501,6 +501,9 @@ const MyVideosVideo = ({
                   chat
                 </span>
               </button>
+              <br />
+              {data.comments ? millify(data.comments) : 0}
+              <br />
               {/* <br /> */}
               {/* {data.comments ? data.comments : 0} */}
               {/* <br />
