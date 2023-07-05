@@ -9,7 +9,6 @@ import Signin from './components/Signin'
 import Signup from './components/Signup'
 import Invalid from './components/Invalid'
 import Terms from './components/Terms'
-import Test from './Test'
 import Privacy from './components/Privacy'
 import ForgotPassword from './components/ForgotPassword'
 
