@@ -151,8 +151,8 @@ const LikesNotifications = () => {
                             you got a Like!
                           </p>
                           <span
-                            className='material-symbols-outlined'
-                            style={{ fontSize: "50px" }}>
+                            className='material-symbols-rounded'
+                            style={{ fontSize: "50px", color: "#f04c68" }}>
                             favorite
                           </span>
                         </div>
