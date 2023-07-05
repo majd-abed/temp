@@ -10,7 +10,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
     setComment(event.target.value);
   };
   const handleReply = (id) => {
-    if (!Comment) return toast.error("Comment reply Cannot be Empty");
+    if (!Comment) return toast.error("Comment reply ؤannot be empty");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     axios
