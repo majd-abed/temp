@@ -10,7 +10,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
     setComment(event.target.value);
   };
   const handleReply = (id) => {
-    if (!Comment) return toast.error("Comment reply ؤannot be empty");
+    if (!Comment) return toast.error("Comment reply cannot be empty");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     axios
@@ -95,8 +95,8 @@ const Faq = ({ data, setTrigger, trigger }) => {
               }
               className='notification-pic'></img>
           </div>
-          <p className='question'>{data.question}</p>
           <div className='notification-content'>
+          <p className='question'>{data.question}</p>
             <div className='notification-reply-container'>
               {data.answer ? (
                 <>

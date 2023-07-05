@@ -168,7 +168,7 @@ const LikesNotifications = () => {
                   style={{ fontSize: "100px", color: "#aaaaaa" }}>
                   notifications
                 </span>
-                <h4>Your notifications live here</h4>
+                <div className='no-content-text'>Your notifications live here</div>
               </div>
             )}
           </>

@@ -226,7 +226,7 @@ const Signup = () => {
                     type='text'
                     className='input'
                     ref={businessRef}
-                    maxLength={120}
+                    maxLength={75}
                     // required
                     id='business'
                     placeholder='.'
@@ -245,6 +245,7 @@ const Signup = () => {
                     type='text'
                     className='input'
                     ref={emailRef}
+                    maxLength={75}
                     onChange={() => {
                       setEmailWarning(false);
                     }}
@@ -258,7 +259,7 @@ const Signup = () => {
                   {emailWarning ? (
                     <div
                       className='require-sign'
-                      style={{ textAlign: "center", paddingBottom: "15px" }}>
+                      style={{ textAlign: "left", paddingBottom: "15px" }}>
                       Email is not valid{" "}
                     </div>
                   ) : null}
@@ -361,7 +362,7 @@ const Signup = () => {
                 {isCountryEmpty ? (
                   <div
                     className='require-sign'
-                    style={{ textAlign: "center", paddingBottom: "15px" }}>
+                    style={{ paddingBottom: "15px" }}>
                     Country Field is required
                   </div>
                 ) : null}

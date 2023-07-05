@@ -109,6 +109,7 @@ const Signin = () => {
               type='text'
               className='input'
               ref={emailRef}
+              maxLength={75}
               onChange={() => {
                 setEmailWarning(false);
               }}
@@ -122,7 +123,7 @@ const Signin = () => {
             {emailWarning ? (
               <div
                 className='require-sign'
-                style={{ textAlign: "center", paddingBottom: "10px" }}>
+                style={{ textAlign: "start", paddingBottom: "10px" }}>
                 Email is not valid{" "}
               </div>
             ) : null}
@@ -144,7 +145,7 @@ const Signin = () => {
               Password
             </label>
             {isPasswordShort ? (
-              <div className='require-sign' style={{ textAlign: "center" }}>
+              <div className='require-sign' style={{ textAlign: "start" }}>
                 Password must contain at least 8 characters
               </div>
             ) : null}

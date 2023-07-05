@@ -4,8 +4,6 @@
   border: 1px solid #eeeeee;
   width: 50%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 }
 .notification-header{
   display: flex;
@@ -117,7 +115,6 @@
 .notification-country{
 font-size: 11px;
 padding-right: 15px;
-
 }
 .notification-pic{
   width: 50px;
