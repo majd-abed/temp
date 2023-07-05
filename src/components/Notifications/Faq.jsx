@@ -74,7 +74,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
         <div className='notification-video-section'>
           <div className='notification-video-info'>
             <p style={{ fontWeight: "bold" }}>{data.category_name}</p>
-            <p>{data.keywords}</p>
+            <p className='vid-topic'>{data.keywords}</p>
           </div>
           <div>
             <video src={data.video} className='notification-video' />
@@ -94,8 +94,8 @@ const Faq = ({ data, setTrigger, trigger }) => {
               }
               className='notification-pic'></img>
           </div>
+          <p className='question'>{data.question}</p>
           <div className='notification-content'>
-            <p className='question'>{data.question}</p>
             <div className='notification-reply-container'>
               {data.answer ? (
                 <>

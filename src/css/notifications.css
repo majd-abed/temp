@@ -89,7 +89,9 @@
 }
 
 .notification-info{
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .notification-info-profile{
   display: flex;
@@ -97,12 +99,12 @@
   align-items: flex-start;
 }
 .notification-content{
-  padding: 50px 0 0 0;
+  /* padding: 20px 0 0 0; */
   text-align: center;
 }
 .question{
   font-style: italic;
-  padding-bottom: 20px;
+  padding: 20px 5px;
   text-align: center;
   
 }
@@ -149,7 +151,32 @@ padding-right: 15px;
 .center-text{
   text-align: center;
 }
-@media (max-width: 770px) {
+
+@media (max-width:770px){
+  .notification-info-profile{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .notification-country{
+      padding-right: 0;
+  }
+  .notification-info{
+    padding-left: 5px;
+  }
+  .question{
+    font-size: 12px;
+  }
+  .notification-container{
+    width: 95%;
+    padding: 20px 0 0 0 !important;
+  }
+  .vid-topic{
+    font-size: 12px;
+  }
+}
+/* @media (max-width: 770px) {
   .notification-name{
     padding-top: 0px;
 
@@ -218,7 +245,7 @@ padding-right: 15px;
     width: 80px;
     font-size: 14px;
   }
-}
+} */
 @media (max-width: 1050px) {
   .notification-reply textarea{
     max-width: 150px;
@@ -231,7 +258,14 @@ padding-right: 15px;
   }
 }
 @media (max-width: 420px) {
-  .notification-container{
-    width: 95%;
-  }
+
+  .notification-reply textarea {
+    max-width: 100px;
+    min-width: 100px;
+    max-height: 60px;
+    min-height: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
 }
