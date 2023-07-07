@@ -119,10 +119,7 @@ const MyVideos = () => {
           </div>
           <div className='angel-top-sub-nav-divider-right'>
             {vidData ? (
-              <select
-                className='select-filter-option'
-                onChange={handleChange}
-                >
+              <select className='select-filter-option' onChange={handleChange}>
                 <option id={9999} key={9999} hidden>
                   Filter
                 </option>
@@ -152,6 +149,7 @@ const MyVideos = () => {
                     setTrigger={setTrigger}
                     data={element}
                     key={element.video_id}
+                    previousVideoVidRef={previousVideoVidRef}
                   />
                 );
               }
@@ -166,6 +164,7 @@ const MyVideos = () => {
                   setTrigger={setTrigger}
                   data={element}
                   key={element.video_id}
+                  previousVideoVidRef={previousVideoVidRef}
                 />
               );
             }
@@ -178,7 +177,9 @@ const MyVideos = () => {
               style={{ fontSize: "100px", color: "#aaaaaa" }}>
               notifications
             </span>
-            <div style={{ marginBottom: "20px" }} className='no-content-text'>Your Videos live here</div>
+            <div style={{ marginBottom: "20px" }} className='no-content-text'>
+              Your Videos live here
+            </div>
             <div>
               <Link to='/video-post' className='upload-btn'>
                 Upload Video
