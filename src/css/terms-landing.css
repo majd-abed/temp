@@ -93,6 +93,7 @@
     background-position: bottom;
     background-repeat: no-repeat;
     background-size:75vh;
+    padding-bottom: 60vh;
 }
 .font-1{
     box-sizing: border-box;
@@ -620,6 +621,7 @@ i.fa-heart{
         position: relative;
         background-position: bottom;
         background-repeat: no-repeat;
+        padding-bottom: 60vh !important;
         background-size:60vh;
     }
 
@@ -648,4 +650,91 @@ i.fa-heart{
         font-size: 100%;
     }
     
+}
+
+.landing-videos-container{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+}
+@media (max-width:1200px) {
+    .landing-videos-container{
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 20px auto;
+    }
+}
+@media (max-width:990px) {
+    .landing-videos-container{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 20px auto 0px;
+    }
+}
+@media (max-width:700px) {
+    .landing-videos-container{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin: 20px auto;
+    }
+}
+@media (max-width:470px) {
+    .landing-videos-container{
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        margin: 20px auto;
+    }
+}
+
+.landing-user-info{
+    width:180px;
+    height:50px;
+    font-weight: 400;
+    margin-left:8px;
+}
+
+.landing-video-container{
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    max-height: 300px;
+    width: 100%;
+    max-width: 400px;
+    margin:auto;    
+    position: relative;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    background-color:rgb(8, 8, 8);
+    overflow:hidden;
+}
+.landing-user-propic{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    border:1px solid rgb(255, 255, 255);
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;  
+}
+.landing-user-propic img{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+}
+.landing-user-info{
+    flex: 1;
+}
+
+.landing-video-topic{
+    max-width: 220px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space:nowrap;
+    padding: 0 5px 15px 5px;
 }

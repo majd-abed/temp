@@ -1,7 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
+import LandingVideo from "./LandingVideo";
 const Landing = () => {
+  const [landingVideos, setLandingVideos] = useState([]);
+
+  const previousLandingVideoRef = useRef(null);
+
+  useEffect(() => {
+    axios
+      .get("https://beta-api-live.s360.cloud/api/landingvideos")
+      .then((response) => {
+        console.log(response?.data.video);
+        setLandingVideos(response?.data.video);
+      });
+  }, []);
   return (
     <div>
       <section class='head index-part-1'>
@@ -16,9 +29,13 @@ const Landing = () => {
               </div>
               <div class='helmet text-center'>
                 <div className='heading-margin'>
-                  <h2>Marketing Video <br/> Streaming Service Platform</h2>
-                  <br/>
-                  <h6>Reach your consumers by publishing marketing videos on OLYOLI</h6>
+                  <h2>
+                    Marketing Video <br /> Streaming Service Platform
+                  </h2>
+                  <br />
+                  <h6>
+                    Reach your consumers by publishing marketing videos on OLYOLI
+                  </h6>
                 </div>
               </div>
               <div class='wow-btn text-center'>
@@ -26,12 +43,44 @@ const Landing = () => {
                   Sign In
                 </Link>
               </div>
+              <div className='landing-videos-container'>
+                {landingVideos
+                  ? landingVideos.map((element) => {
+                      if (element.is_live === 1) {
+                        return (
+                          <LandingVideo
+                            data={element}
+                            key={element.video_id}
+                            previousLandingVideoRef={previousLandingVideoRef}
+                          />
+                        );
+                      }
+                    })
+                  : null}
+                {landingVideos
+                  ? landingVideos.map((element) => {
+                      if (element.is_live === 1) {
+                        return (
+                          <LandingVideo
+                            data={element}
+                            key={element.video_id}
+                            previousLandingVideoRef={previousLandingVideoRef}
+                          />
+                        );
+                      }
+                    })
+                  : null}
+              </div>
+              <div class='wow-btn text-center'>
+                <Link to='/signin' class='wow-button' href='#'>
+                  VIEW MORE
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      
       <section class='index-part-2'>
         <div class='container'>
           <div class='row'>
@@ -41,7 +90,7 @@ const Landing = () => {
             <hr class='hr-mid' />
             <div class='sub-text text-center'>
               <p class='font-1'>
-                 Reach your consumers by publishing marketing videos on OLYOLI.
+                Reach your consumers by publishing marketing videos on OLYOLI.
               </p>
             </div>
           </div>
@@ -54,7 +103,8 @@ const Landing = () => {
                 </div>
                 <h4>Anywhere</h4>
                 <p class='font-2'>
-                  Reach out for your products or services from anywhere{" "} to anywhere in the world.
+                  Reach out for your products or services from anywhere to anywhere
+                  in the world.
                 </p>
               </div>
             </div>
@@ -65,7 +115,8 @@ const Landing = () => {
                 </div>
                 <h4>Anyone</h4>
                 <p class='font-2'>
-                  Your customers can be anyone either from a local or any place. Let them be aware of you.
+                  Your customers can be anyone either from a local or any place. Let
+                  them be aware of you.
                 </p>
               </div>
             </div>
@@ -79,8 +130,8 @@ const Landing = () => {
                 </div>
                 <h4>Anytime</h4>
                 <p class='font-2'>
-                  At anytime reach consumers. they may become your
-                  customers at anytime.
+                  At anytime reach consumers. they may become your customers at
+                  anytime.
                 </p>
               </div>
             </div>
@@ -91,116 +142,14 @@ const Landing = () => {
                 </div>
                 <h4>Anything</h4>
                 <p class='font-2'>
-                  Any kind of consumer product or service, You can promote anything for free.                  
+                  Any kind of consumer product or service, You can promote anything
+                  for free.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* <section class='index-part-3'>
-        <div class='container'>
-          <div class='row why-div'>
-            <div class='text-center'>
-              <h2>About OLY OLI</h2>
-            </div>
-            <hr class='hr-mid' />
-            <div class='sub-text text-center'>
-              <p class='font-1'>
-                Its a digital platform to promote your products and services by
-                creating short promo videos.
-              </p>
-            </div>
-          </div>
-
-          <div class='row'>
-            <div class='col-lg-9 col-sm-12 col-md-9 col-xs-12'>
-              <div class='holder-para'>
-                <h3>Short videos</h3>
-                <hr class='hr-short' />
-                <p class='font-2'>
-                  It is a long established fact that a reader will be distracted by
-                  the readable content of a page when looking at its layout. The
-                  point of using Lorem Ipsum is that it has a more-or-less normal
-                  distribution of letters, as opposed to using 'Content here, content
-                  here', making it look like readable English. Many desktop
-                  publishing packages and web page editors now use Lorem Ipsum as
-                  their default model text, and a search for 'lorem ipsum' will
-                  uncover many web sites still in their infancy.
-                </p>
-              </div>
-            </div>
-            <div class='col-lg-3 col-xs-12 col-sm-12 col-md-3'>
-              <div class='holder-img'>
-                <img
-                  class='round-img img-responsive center-block'
-                  src={require("../assets/images/short.jpeg")}
-                />
-              </div>
-            </div>
-          </div>
-
-          <hr class='line-full' />
-
-          <div class='row'>
-            <div class='col-lg-9 col-xs-12 col-sm-12 col-md-9 col-md-push-3'>
-              <div class='holder-para'>
-                <h3>Reach out</h3>
-                <hr class='hr-short' />
-                <p class='font-2'>
-                  It is a long established fact that a reader will be distracted by
-                  the readable content of a page when looking at its layout. The
-                  point of using Lorem Ipsum is that it has a more-or-less normal
-                  distribution of letters, as opposed to using 'Content here, content
-                  here', making it look like readable English. Many desktop
-                  publishing packages and web page editors now use Lorem Ipsum as
-                  their default model text, and a search for 'lorem ipsum' will
-                  uncover many web sites still in their infancy.
-                </p>
-              </div>
-            </div>
-            <div class='col-lg-3 col-xs-12 col-sm-12 col-md-3 col-md-pull-9'>
-              <div class='holder-img'>
-                <img
-                  class='round-img img-responsive center-block'
-                  src={require("../assets/images/network.jpeg")}
-                />
-              </div>
-            </div>
-          </div>
-
-          <hr class='line-full' />
-
-          <div class='row'>
-            <div class='col-lg-9 col-xs-12 col-sm-12 col-md-9'>
-              <div class='holder-para'>
-                <h3>Get interact</h3>
-                <hr class='hr-short' />
-                <p class='font-2'>
-                  It is a long established fact that a reader will be distracted by
-                  the readable content of a page when looking at its layout. The
-                  point of using Lorem Ipsum is that it has a more-or-less normal
-                  distribution of letters, as opposed to using 'Content here, content
-                  here', making it look like readable English. Many desktop
-                  publishing packages and web page editors now use Lorem Ipsum as
-                  their default model text, and a search for 'lorem ipsum' will
-                  uncover many web sites still in their infancy.
-                </p>
-              </div>
-            </div>
-            <div class='col-lg-3 col-xs-12 col-sm-12 col-md-3'>
-              <div class='holder-img'>
-                <img
-                  class='round-img img-responsive center-block'
-                  src={require("../assets/images/social.jpeg")}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       <section class='index-part-4'>
         <div class='container'>
           <div class='row'>
@@ -209,9 +158,7 @@ const Landing = () => {
             </div>
             <hr class='hr-mid' />
             <div class='sub-text text-center'>
-              <p class='font-1'>
-                 Let's promote your products or services for free.
-              </p>
+              <p class='font-1'>Let's promote your products or services for free.</p>
             </div>
           </div>
 
@@ -222,24 +169,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
-      {/* <section class='social'>
-        <ul>
-          <li>
-            <a href='#' class='fa fa-facebook fa-2x' aria-hidden='true'></a>
-          </li>
-          <li>
-            <a href='#' class='fa fa-twitter fa-2x' aria-hidden='true'></a>
-          </li>
-          <li>
-            <a href='#' class='fa fa-linkedin fa-2x' aria-hidden='true'></a>
-          </li>
-          <li>
-            <a href='#' class='fa fa-youtube fa-2x' aria-hidden='true'></a>
-          </li>
-        </ul>
-      </section> */}
-
       <section class='footer'>
         <div class='container'>
           <div class='row'>

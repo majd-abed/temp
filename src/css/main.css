@@ -470,6 +470,7 @@ footer{
     background-color: transparent;
     border: none;
     cursor: pointer;
+    z-index: 999;
 }
 .control-btn-style{
     font-size: 80px;
