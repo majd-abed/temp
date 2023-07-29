@@ -15,7 +15,7 @@ const Faq = ({ data, setTrigger, trigger }) => {
     if (token === null) token = sessionStorage.getItem("token");
     axios
       .post(
-        `https://beta-api-test.s360.cloud/api/videos/answer/${id}`,
+        `https://beta-api-live.s360.cloud/api/videos/answer/${id}`,
         { comment_reply: Comment },
         {
           headers: {

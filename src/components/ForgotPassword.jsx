@@ -46,7 +46,7 @@ const ForgotPassword = () => {
   async function handleEmail() {
     if (!validateEmail(emailRef.current.value)) return setEmailWarning(true);
     await axios
-      .post("https://beta-api-test.s360.cloud/api/forget/password", {
+      .post("https://beta-api-live.s360.cloud/api/forget/password", {
         form_id: 1,
         email: emailRef.current.value,
       })
@@ -63,7 +63,7 @@ const ForgotPassword = () => {
   }
   async function handleOtp() {
     await axios
-      .post("https://beta-api-test.s360.cloud/api/forget/password", {
+      .post("https://beta-api-live.s360.cloud/api/forget/password", {
         form_id: 2,
         otp: otp,
       })
@@ -90,7 +90,7 @@ const ForgotPassword = () => {
     )
       return null;
     await axios
-      .post("https://beta-api-test.s360.cloud/api/forget/password", {
+      .post("https://beta-api-live.s360.cloud/api/forget/password", {
         form_id: 3,
         credential: credential,
         new_password: passwordRef.current.value,

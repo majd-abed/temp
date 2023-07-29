@@ -46,7 +46,7 @@ const HomeVideo = ({
     if (Comment === "") return;
     axios
       .post(
-        `https://beta-api-test.s360.cloud/api/videos/question/${id}`,
+        `https://beta-api-live.s360.cloud/api/videos/question/${id}`,
         { comments: Comment },
         {
           headers: {
@@ -101,7 +101,7 @@ const HomeVideo = ({
     if (token === null) token = sessionStorage.getItem("token");
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .post(`https://beta-api-test.s360.cloud/api/subscribe/${id}`, {
+      .post(`https://beta-api-live.s360.cloud/api/subscribe/${id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -121,7 +121,7 @@ const HomeVideo = ({
     if (token === null) token = sessionStorage.getItem("token");
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .delete(`https://beta-api-test.s360.cloud/api/mysubscriptions/remove/${id}`, {
+      .delete(`https://beta-api-live.s360.cloud/api/mysubscriptions/remove/${id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -142,7 +142,7 @@ const HomeVideo = ({
     await http.get("/sanctum/csrf-cookie");
     await axios
       .post(
-        `https://beta-api-test.s360.cloud/api/videos/like/${id}`,
+        `https://beta-api-live.s360.cloud/api/videos/like/${id}`,
         {
           video_id: data.video_id,
           status: 0,
@@ -167,7 +167,7 @@ const HomeVideo = ({
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
-      .get(`https://beta-api-test.s360.cloud/api/videos/faqs/${data.video_id}`, {
+      .get(`https://beta-api-live.s360.cloud/api/videos/faqs/${data.video_id}`, {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },

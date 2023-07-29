@@ -74,7 +74,7 @@ const Profile = () => {
     await http.get("/sanctum/csrf-cookie");
     await axios
       .patch(
-        `https://beta-api-test.s360.cloud/api/myprofile/username/update/${id}`,
+        `https://beta-api-live.s360.cloud/api/myprofile/username/update/${id}`,
         {
           name: usernameRef.current.value,
         }
@@ -138,7 +138,7 @@ const Profile = () => {
   async function handleChangeLocation(id) {
     await http.get("/sanctum/csrf-cookie");
     await axios
-      .patch(`https://beta-api-test.s360.cloud/api/myprofile/country/update/${id}`, {
+      .patch(`https://beta-api-live.s360.cloud/api/myprofile/country/update/${id}`, {
         country: locationId,
       })
       .then((res) => {
@@ -210,7 +210,7 @@ const Profile = () => {
         console.log(e);
       });
     axios
-      .get("https://beta-api-test.s360.cloud/api/propic/view", {
+      .get("https://beta-api-live.s360.cloud/api/propic/view", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
@@ -333,7 +333,7 @@ const Profile = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
-      .post("https://beta-api-test.s360.cloud/api/propic/upload", formData, {
+      .post("https://beta-api-live.s360.cloud/api/propic/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: token ? `Bearer ${token}` : "",

@@ -48,7 +48,7 @@ const VideoPost = () => {
     formData.append("keywords", inputRef.current.value);
     if (vidHeight > 1920 || vidWidth > 1080)
       return toast.error("Video Resolution is bigger than 1920×1080.");
-    if (videoFile.size > 20000000) return toast.error("Video Size is too big.");
+    if (videoFile.size > 25000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
@@ -92,7 +92,7 @@ const VideoPost = () => {
     formData.append("keywords", inputRef.current.value);
     if (vidHeight > 1920 || vidWidth > 1080)
       return toast.error("Video Resolution is bigger than 1920×1080.");
-    if (videoFile.size > 20000000) return toast.error("Video Size is too big.");
+    if (videoFile.size > 25000000) return toast.error("Video Size is too big.");
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     http
@@ -272,7 +272,7 @@ const VideoPost = () => {
               }}>
               *
             </span>
-            The video Size sould be less than 20MB and it's resolution should be less
+            The video Size sould be less than 25MB and it's resolution should be less
             than 1920×1080
           </p>
           <br />

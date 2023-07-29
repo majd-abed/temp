@@ -16,7 +16,9 @@ const Landing = () => {
               </div>
               <div class='helmet text-center'>
                 <div className='heading-margin'>
-                  <h2>Short video streaming-based <br/> online marketing platform</h2>
+                  <h2>Marketing Video <br/> Streaming Service Platform</h2>
+                  <br/>
+                  <h6>Reach your consumers by publishing marketing videos on OLYOLI</h6>
                 </div>
               </div>
               <div class='wow-btn text-center'>
@@ -34,12 +36,12 @@ const Landing = () => {
         <div class='container'>
           <div class='row'>
             <div class='text-center'>
-              <h2>About Oly Oli</h2>
+              <h2>About OLYOLI</h2>
             </div>
             <hr class='hr-mid' />
             <div class='sub-text text-center'>
               <p class='font-1'>
-                 Reach your consumers by creating and publishing videos on OLY OLI.
+                 Reach your consumers by publishing marketing videos on OLYOLI.
               </p>
             </div>
           </div>
@@ -203,7 +205,7 @@ const Landing = () => {
         <div class='container'>
           <div class='row'>
             <div class='text-center'>
-              <h2>Step in OLY OLI</h2>
+              <h2>Step in OLYOLI</h2>
             </div>
             <hr class='hr-mid' />
             <div class='sub-text text-center'>

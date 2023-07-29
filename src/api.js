@@ -1,6 +1,6 @@
 import axios from "axios";
 export const http = axios.create({
-  baseURL: 'https://beta-api-test.s360.cloud',
+  baseURL: 'https://beta-api-live.s360.cloud',
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
@@ -47,4 +47,4 @@ export const PHOTO_UPLOAD = "/api/propic/upload"; //POST
 
 export const CATEGORIES = "/api/categories"; //GET
 
-export const COUNTRIES = "https://beta-api-test.s360.cloud/api/countries"; //GET
+export const COUNTRIES = "https://beta-api-live.s360.cloud/api/countries"; //GET

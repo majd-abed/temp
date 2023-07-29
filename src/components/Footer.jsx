@@ -42,7 +42,7 @@ const Footer = () => {
     let token = localStorage.getItem("token");
     if (token === null) token = sessionStorage.getItem("token");
     await axios
-      .post("https://beta-api-test.s360.cloud/api/logout", {
+      .post("https://beta-api-live.s360.cloud/api/logout", {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },

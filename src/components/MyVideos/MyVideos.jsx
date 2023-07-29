@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { http, MY_VIDEOS } from "../../api";
 import { useGlobal } from "../../context";
@@ -23,6 +23,7 @@ const MyVideos = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [likeData, setLikeData] = useState([]);
   const [trigger, setTrigger] = useState(false);
+
 
   const previousVideoVidRef = useRef(null);
 
@@ -119,7 +120,10 @@ const MyVideos = () => {
           </div>
           <div className='angel-top-sub-nav-divider-right'>
             {vidData ? (
-              <select className='select-filter-option' onChange={handleChange}>
+              <select
+                className='select-filter-option'
+                onChange={handleChange}
+                >
                 <option id={9999} key={9999} hidden>
                   Filter
                 </option>
@@ -177,9 +181,7 @@ const MyVideos = () => {
               style={{ fontSize: "100px", color: "#aaaaaa" }}>
               notifications
             </span>
-            <div style={{ marginBottom: "20px" }} className='no-content-text'>
-              Your Videos live here
-            </div>
+            <div style={{ marginBottom: "20px" }} className='no-content-text'>Your Videos live here</div>
             <div>
               <Link to='/video-post' className='upload-btn'>
                 Upload Video
