@@ -24,7 +24,7 @@
   max-width:400px;
 }
 .notification-reply-container{
-  text-align: end;
+  text-align: flex-end;
 }
 .notification-answer{
   font-style: italic;
@@ -93,7 +93,7 @@
 }
 .notification-info-profile{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 .notification-content{
@@ -125,7 +125,7 @@ padding-right: 15px;
   margin-bottom: 10px;
   width: 95%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .notification-reply {
   margin-top: 10px;
