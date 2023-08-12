@@ -652,14 +652,14 @@ i.fa-heart{
     
 }
 
-.landing-videos-container{
+.About-videos-container{
     display:grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     margin: 20px auto;
 }
 @media (max-width:1200px) {
-    .landing-videos-container{
+    .About-videos-container{
         display:grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
@@ -667,7 +667,7 @@ i.fa-heart{
     }
 }
 @media (max-width:990px) {
-    .landing-videos-container{
+    .About-videos-container{
         display:grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
@@ -675,7 +675,7 @@ i.fa-heart{
     }
 }
 @media (max-width:700px) {
-    .landing-videos-container{
+    .About-videos-container{
         display:grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -683,7 +683,7 @@ i.fa-heart{
     }
 }
 @media (max-width:470px) {
-    .landing-videos-container{
+    .About-videos-container{
         display:grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
@@ -691,14 +691,14 @@ i.fa-heart{
     }
 }
 
-.landing-user-info{
+.About-user-info{
     width:180px;
     height:50px;
     font-weight: 400;
     margin-left:8px;
 }
 
-.landing-video-container{
+.About-video-container{
     display: flex;
     justify-content: center;
     height: 60vh;
@@ -712,7 +712,7 @@ i.fa-heart{
     background-color:rgb(8, 8, 8);
     overflow:hidden;
 }
-.landing-user-propic{
+.About-user-propic{
     width:30px;
     height:30px;
     border-radius:50%;
@@ -721,16 +721,16 @@ i.fa-heart{
     overflow: hidden;
     text-align: center;  
 }
-.landing-user-propic img{
+.About-user-propic img{
     width:30px;
     height:30px;
     border-radius:50%;
 }
-.landing-user-info{
+.About-user-info{
     flex: 1;
 }
 
-.landing-video-topic{
+.About-video-topic{
     max-width: 220px;
     font-size: 13px;
     text-overflow: ellipsis;

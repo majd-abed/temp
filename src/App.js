@@ -10,6 +10,7 @@ import Signup from './components/Signup'
 import Invalid from './components/Invalid'
 import Terms from './components/Terms'
 import Privacy from './components/Privacy'
+import About from './components/About'
 import ForgotPassword from './components/ForgotPassword'
 
 
@@ -22,7 +23,8 @@ import './css/spinner.css';
 import './css/notifications.css';
 import './css/profile.css';
 import "./css/videopost.css";
-import './css/terms-landing.css';
+import "./css/landing.css";
+import './css/terms-about.css';
 import './css/forgotpassword.css';
 import './js/canvasUtils.js';
 import axios from 'axios';
@@ -48,6 +50,7 @@ function App() {
         <Route path='/' element={<IsAuth />} />
         {/* <Route path='/welcome' element={<Landing />} /> */}
         <Route path='/terms' element={<Terms />} />
+        <Route path='/about' element={<About />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/home' element={<Home />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />

@@ -1,7 +1,7 @@
 import millify from "millify";
 import React, { useRef, useState } from "react";
 
-const LandingVideo = ({ data, previousLandingVideoRef }) => {
+const AboutVideo = ({ data, previousAboutVideoRef }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -9,10 +9,10 @@ const LandingVideo = ({ data, previousLandingVideoRef }) => {
   const videoRef = useRef(null);
 
   const handlePlay = () => {
-    if (previousLandingVideoRef.current) {
-      previousLandingVideoRef.current.pause();
+    if (previousAboutVideoRef.current) {
+      previousAboutVideoRef.current.pause();
     }
-    previousLandingVideoRef.current = videoRef.current;
+    previousAboutVideoRef.current = videoRef.current;
     videoRef.current.play();
     setIsPlaying(true);
   };
@@ -35,7 +35,7 @@ const LandingVideo = ({ data, previousLandingVideoRef }) => {
   return (
     <div style={{ width: "210px", margin: "auto", maxWidth: "100%" }}>
       <div className='user-details'>
-        <div className='landing-user-propic'>
+        <div className='About-user-propic'>
           <img
             src={
               data.profile_pic === null
@@ -46,7 +46,7 @@ const LandingVideo = ({ data, previousLandingVideoRef }) => {
             className='propic'
           />
         </div>
-        <div className='landing-user-info'>
+        <div className='About-user-info'>
           <h5>{data.name}</h5>
           <span style={{ fontWeight: "400", fontSize: "11px" }}>
             {data.country_name}
@@ -60,8 +60,8 @@ const LandingVideo = ({ data, previousLandingVideoRef }) => {
           </span>
         </div>
       </div>
-      <p className='landing-video-topic'>{data.keywords}</p>
-      <div className='landing-video-container'>
+      <p className='About-video-topic'>{data.keywords}</p>
+      <div className='About-video-container'>
         <video
           ref={videoRef}
           src={data.video}
@@ -154,4 +154,4 @@ const LandingVideo = ({ data, previousLandingVideoRef }) => {
   );
 };
 
-export default LandingVideo;
+export default AboutVideo;
