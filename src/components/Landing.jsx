@@ -5,10 +5,12 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Landing = () => {
   const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const passwordRef = useRef();
 
   const [emailWarning, setEmailWarning] = useState(false);
   const [isPasswordShort, setIsPasswordShort] = useState(false);
+  const [isShowPass, setIsShowPass] = useState(false);
+  const [showPassBtn, setShowPassBtn] = useState(false);
   const validateEmail = (mail) => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
       return true;
@@ -118,11 +120,13 @@ const Landing = () => {
             </div>
             <div className='input-group'>
               <input
-                type='password'
+                type={isShowPass ? "text" : "password"}
                 className='landing-right-input'
                 ref={passwordRef}
                 onChange={() => {
                   setIsPasswordShort(false);
+                  if (passwordRef.current.value.length) setShowPassBtn(true);
+                  else setShowPassBtn(false);
                 }}
                 // required
                 placeholder='.'
@@ -131,6 +135,14 @@ const Landing = () => {
               <label htmlFor='password-login' className='landing-input-label'>
                 Password
               </label>
+              {showPassBtn ? (
+                <div
+                  className='show-pass'
+                  onClick={() => setIsShowPass(!isShowPass)}>
+                  {!isShowPass ? "Show" : "Hide"}
+                </div>
+              ) : null}
+
               {isPasswordShort ? (
                 <div className='require-sign' style={{ textAlign: "start" }}>
                   Password must contain at least 8 characters
