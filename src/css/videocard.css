@@ -26,7 +26,7 @@
 }
 .video-card-bottom{
   position:absolute;
-  bottom:0;
+  bottom:5px;
   left: 10px;
   right: 10px;
   color: white;
