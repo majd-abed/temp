@@ -481,6 +481,16 @@ footer{
     border: none;
     cursor: pointer;
 }
+.video-play-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 60px;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.182);
+    border: none;
+    cursor: pointer;
+}
 .mute-container{
     position: absolute;
     bottom: 10px;

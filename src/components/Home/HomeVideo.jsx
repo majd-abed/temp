@@ -32,6 +32,10 @@ const HomeVideo = ({
           // onClick={() => handlePause()}
           // onEnded={() => setIsReplay(true)}
         />
+        <button
+            className='material-symbols-rounded control-btn-style'>
+            play_arrow
+          </button>
       </div>
 
       <div className='video-card-bottom'>
