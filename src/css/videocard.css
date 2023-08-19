@@ -18,9 +18,11 @@
 .video-card-top{
   display: flex;
   justify-content: space-between;
-  align-items: top;
   padding-bottom: 9px;
-  position:absolute
+  width: calc(100% - 40px);
+  padding: 20px;
+  position: absolute;
+  z-index: 9;
 }
 .video-card-bottom{
   position:absolute;

@@ -228,6 +228,7 @@ header{
     background-position: center center;
     background-size: cover;
     display: inline-block; 
+    border-radius: 50%;
 }
 
 .user-info{
