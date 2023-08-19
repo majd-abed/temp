@@ -330,7 +330,7 @@ const HomeVideo = ({
         {/* ------------ control buttons -------- */}
         <div className='control-btns'>
           <button
-            className='material-symbols-rounded control-btn-style'
+            className='material-symbols-rounded video-play-btn'
             style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
             onClick={handlePlay}>
             play_arrow
