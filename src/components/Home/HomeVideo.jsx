@@ -1,19 +1,36 @@
 import React from "react";
 
-const HomeVideo = () => {
+const HomeVideo = ({
+  data,
+  subData,
+  likeData,
+  trigger,
+  setTrigger,
+  previousVideoRef,
+}) => {
   return (
     <div className='video-card'>
       <div className='video-card-top'>
         <div className='video-card-img'>
-          <img src='' alt='' />
+          <img
+            src={
+              data.profile_pic === null
+                ? require("../../assets/images/propic.png")
+                : data.profile_pic
+            }
+            alt='prop'
+            className='propic'
+          />
         </div>
         <div className='video-card-interact'></div>
       </div>
       <div className='video-card-video'>
-        <img
-          src={require("../../assets/images/logo.png")}
-          alt=''
-          className='w-100'
+        <video
+          // ref={videoRef}
+          src={data.video}
+          className='video'
+          // onClick={() => handlePause()}
+          // onEnded={() => setIsReplay(true)}
         />
       </div>
 
