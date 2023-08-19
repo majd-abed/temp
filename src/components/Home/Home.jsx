@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { HOME, http, MY_SUBSCRIPTIONS } from "../../api";
 
 import Footer from "../Footer";
-import HomeVideo from "./HomeVideo";
+import HomeVideo from "./HomeVideo2";
 import Spinner from "../Spinner";
 import { useGlobal } from "../../context";
 import { Navigate } from "react-router-dom";

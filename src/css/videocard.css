@@ -1,0 +1,60 @@
+.video-card{
+  background-color: #F8F5F5;
+  border: 1px solid #F8F5F5;
+  border-radius: 16px;
+  width: 343px;
+  height: 325px;
+  padding: 20px 22px 0;
+}
+
+.video-card-img{
+  width: 55px;
+  height: 55px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.video-card-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  padding-bottom: 9px;
+}
+
+.video-card-interact{
+  border: 1px solid #ccc;
+  border-radius: 22px;
+  width: 33px;
+  height: 82px;
+}
+
+.video-card-video{
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.video-card-category{
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+}
+.video-card-date{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.video-card-description{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  
+}
+
+.video-card-user{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}

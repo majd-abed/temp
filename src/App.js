@@ -23,6 +23,7 @@ import './css/spinner.css';
 import './css/notifications.css';
 import './css/profile.css';
 import "./css/videopost.css";
+import "./css/videocard.css";
 import "./css/landing.css";
 import './css/terms-about.css';
 import './css/forgotpassword.css';
