@@ -4,7 +4,7 @@
   border-radius: 16px;
   width: 343px;
   height: 325px;
-  padding: 20px 22px 0;
+  /* padding: 20px 22px 0; */
   position:relative;
 }
 
@@ -27,6 +27,17 @@
   bottom:0;
 }
 
+.video:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background: -webkit-linear-gradient(transparent, #2226e0) left repeat;
+    background: linear-gradient(transparent, #f10808) bottom repeat; 
+  }
+
 
 .video-card-interact{
   border: 1px solid #ccc;
@@ -37,10 +48,8 @@
 .video-card-container{
   display: flex;
   justify-content: center;
-  height: 60vh;
-  max-height: 700px;
+  height: 100%;
   width: 100%;
-  max-width: 400px;
   margin:auto;    
   position: relative;
   border-radius: 12px;
