@@ -24,7 +24,7 @@ const HomeVideo = ({
         </div>
         <div className='video-card-interact'></div>
       </div>
-      <div className='video-card-video'>
+      <div className='video-card-container'>
         <video
           // ref={videoRef}
           src={data.video}

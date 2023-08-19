@@ -34,7 +34,21 @@
   width: 33px;
   height: 82px;
 }
-
+.video-card-container{
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  max-height: 700px;
+  width: 100%;
+  max-width: 400px;
+  margin:auto;    
+  position: relative;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  background-color:rgb(8, 8, 8);
+  overflow:hidden;
+  
+}
 .video-card-video{
   width: 60px;
   height: 60px;
