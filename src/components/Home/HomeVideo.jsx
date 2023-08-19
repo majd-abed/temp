@@ -40,11 +40,9 @@ const HomeVideo = ({
       <div className='video-card-bottom'>
         <p className='video-card-category'>{data.category_name}</p>
         <p className='video-card-date'>Starts on: 5th August 2023 @ 4:00PM IST</p>
-        <p className='video-card-description'>
-        {data.keywords}
-        </p>
+        <p className='video-card-description'>{data.keywords}</p>
         <p className='video-card-user'>
-          {data.name},{data.country_name}
+          {data.name}, {data.country_name}
         </p>
       </div>
     </div>
