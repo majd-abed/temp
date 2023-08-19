@@ -98,9 +98,8 @@
     align-items: center;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    margin: 150px 50px;
+    margin: 150px auto;
     max-width: 1800px;
-    margin: auto;
 }
 @media (max-width:1800px) {
     .home-container{
