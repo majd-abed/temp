@@ -32,19 +32,20 @@ const HomeVideo = ({
           // onClick={() => handlePause()}
           // onEnded={() => setIsReplay(true)}
         />
-        <button
-            className='material-symbols-rounded video-play-btn'>
-            play_arrow
-          </button>
+        <button className='material-symbols-rounded video-play-btn'>
+          play_arrow
+        </button>
       </div>
 
       <div className='video-card-bottom'>
         <p className='video-card-category'>Electronics</p>
         <p className='video-card-date'>Starts on: 5th August 2023 @ 4:00PM IST</p>
         <p className='video-card-description'>
-          Popular belief, Lorem is simply random text.
+        {data.keywords}
         </p>
-        <p className='video-card-user'>Gluetron eBusiness, India.</p>
+        <p className='video-card-user'>
+          {data.name},{data.country_name}
+        </p>
       </div>
     </div>
   );
