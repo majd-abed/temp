@@ -1,6 +1,6 @@
 import React from "react";
 
-const videoCard = () => {
+const HomeVideo = () => {
   return (
     <div className='video-card'>
       <div className='video-card-top'>
@@ -29,4 +29,4 @@ const videoCard = () => {
   );
 };
 
-export default videoCard;
+export default HomeVideo;
