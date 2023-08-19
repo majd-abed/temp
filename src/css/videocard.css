@@ -4,7 +4,7 @@
   border-radius: 16px;
   width: 343px;
   height: 325px;
-  /* padding: 20px 22px 0; */
+  margin: auto;
   position:relative;
 }
 
@@ -90,28 +90,6 @@
   line-height: 21px;
 }
 
-/* .home-container{
-  max-width: 1800px;
-  width:98%;
-  height: auto;
-  margin:auto;
-  padding-bottom: 12%;
-  background-color: var(--base-color);
-  overflow: hidden;
-  margin-top: 120px;
-}
-
-@media only screen and (max-width: 880px) {
-  .home-container{
-  width:95%;
-  height: auto;
-  margin:auto;
-  margin-top: 120px;
-  padding-bottom: 25%;
-  background-color: var(--angel-color);
-  overflow: hidden;
-}
-  } */
 
 
   .home-container{
@@ -122,6 +100,7 @@
     gap: 10px;
     margin: 150px 50px;
     max-width: 1800px;
+    margin: auto;
 }
 @media (max-width:1800px) {
     .home-container{
