@@ -80,12 +80,13 @@ const Home = () => {
     return <Navigate to='/' replace={true} />;
   return (
     <>
+      {isHomeLoading || isSubLoading ? (
+        <div className='home-spinner '>
+          <Spinner />
+        </div>
+      ) : null}
       <div className='home-container'>
-        {isHomeLoading || isSubLoading ? (
-          <div className='home-spinner '>
-            <Spinner />
-          </div>
-        ) : homeData ? (
+        {isHomeLoading || isSubLoading ? null : homeData ? (
           homeData.map((element) => {
             if (element.is_live === 1) {
               if (categoryName !== "all") {
