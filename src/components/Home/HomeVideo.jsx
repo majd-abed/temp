@@ -33,7 +33,7 @@ const HomeVideo = ({
           // onEnded={() => setIsReplay(true)}
         />
         <button
-            className='material-symbols-rounded control-btn-style'>
+            className='material-symbols-rounded video-play-btn'>
             play_arrow
           </button>
       </div>
