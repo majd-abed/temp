@@ -11,7 +11,7 @@ const HomeVideo = () => {
       </div>
       <div className='video-card-video'>
         <img
-          src={require("../../../assets/images/video-button.png")}
+          src={require("../../assets/images/logo.png")}
           alt=''
           className='w-100'
         />
