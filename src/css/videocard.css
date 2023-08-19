@@ -73,10 +73,6 @@
   font-size: 14px;
   font-weight: 300;
   line-height: 21px;
-  width: 320px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .video-card-date{
@@ -89,6 +85,10 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
+  width: 320px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   
 }
 
