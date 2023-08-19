@@ -5,6 +5,7 @@
   width: 343px;
   height: 325px;
   padding: 20px 22px 0;
+  position:relative;
 }
 
 .video-card-img{
@@ -19,7 +20,13 @@
   justify-content: space-between;
   align-items: top;
   padding-bottom: 9px;
+  position:absolute
 }
+.video-card-bottom{
+  position:absolute;
+  bottom:0;
+}
+
 
 .video-card-interact{
   border: 1px solid #ccc;
