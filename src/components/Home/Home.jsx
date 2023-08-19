@@ -80,7 +80,7 @@ const Home = () => {
     return <Navigate to='/' replace={true} />;
   return (
     <>
-      <div className='angel-container'>
+      <div className='home-container'>
         {isHomeLoading || isSubLoading ? (
           <div className='home-spinner '>
             <Spinner />
