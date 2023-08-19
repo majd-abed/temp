@@ -229,6 +229,8 @@ header{
     background-size: cover;
     display: inline-block; 
     border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px
 }
 
 .user-info{
@@ -488,6 +490,7 @@ footer{
     font-size: 80px;
     color: white;
     background-color: rgba(128, 128, 128, 0.182);
+    border-radius: 50%;
     border: none;
     cursor: pointer;
 }
