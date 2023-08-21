@@ -1042,13 +1042,11 @@ details[open]{
 @media (max-width:1800px) {
     .home-container{
         grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
     }
 }
 @media (max-width:1500px) {
     .home-container{
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
 
     }
 }
