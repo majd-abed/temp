@@ -36,13 +36,13 @@ const HomeVideo = ({
               ) ? (
                 <span
                   className='material-symbols-rounded'
-                  style={{ paddingTop: "10px", color: "#f04c68" }}>
+                  style={{ paddingTop: "10px", color: "#f04c68",fontSize:'18px' }}>
                   favorite
                 </span>
               ) : isLiked ? (
                 <span
                   className='material-symbols-rounded'
-                  style={{ paddingTop: "10px", color: "#f04c68" }}>
+                  style={{ paddingTop: "10px", color: "#f04c68",fontSize:'18px' }}>
                   favorite
                 </span>
               ) : (
@@ -50,7 +50,7 @@ const HomeVideo = ({
                   className='vid-btn'>
                   <span
                     className='material-symbols-outlined'
-                    style={{ paddingTop: "10px", color: "white" }}>
+                    style={{ paddingTop: "10px", color: "white",fontSize:'18px' }}>
                     favorite
                   </span>
                 </button>
@@ -59,26 +59,26 @@ const HomeVideo = ({
               <button className='vid-btn'>
                 <span
                   className='material-symbols-outlined'
-                  style={{ paddingTop: "10px", color: "white" }}>
+                  style={{ paddingTop: "15px", color: "white",fontSize:'18px' }}>
                   favorite
                 </span>
               </button>
             )}
-            {/* <br /> */}
+            <br />
             {data.likes
               ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
               : isLiked
               ? 1
               : 0}
-            {/* <br /> */}
+            <br />
             <button
               className='vid-btn'
               onClick={() => {
-
+              
               }}>
               <span
                 className='material-symbols-outlined'
-                style={{ paddingTop: "15px", color: "white" }}>
+                style={{ paddingTop: "15px", color: "white",fontSize:'18px' }}>
                 chat
               </span>
             </button>
