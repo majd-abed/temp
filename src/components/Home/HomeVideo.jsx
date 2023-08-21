@@ -63,11 +63,13 @@ const HomeVideo = ({
               </button>
             )}
             <br />
+            <span style={{ color: "white" }}>
               {data.likes
                 ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
                 : isLiked
                 ? 1
                 : 0}
+            </span>
             <br />
             <button className='vid-btn' onClick={() => {}}>
               <span
@@ -77,7 +79,9 @@ const HomeVideo = ({
               </span>
             </button>
             <br />
+            <span style={{ color: "white" }}>
               {data.comments ? millify(data.comments) : 0}
+            </span>
             <br />
           </div>
         </div>
@@ -97,7 +101,7 @@ const HomeVideo = ({
 
       <div className='video-card-bottom'>
         <p className='video-card-category'>{data.category_name}</p>
-        <p className='video-card-date'>Starts on: 5th August 2023 @ 4:00PM IST</p>
+        <p className='video-card-date'>Uploaded on: {data.created_at}</p>
         <p className='video-card-description'>{data.keywords}</p>
         <p className='video-card-user'>
           {data.name}, {data.country_name}
