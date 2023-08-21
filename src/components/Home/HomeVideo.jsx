@@ -1,5 +1,6 @@
-import React from "react";
-
+import React, { useState} from "react";
+import millify from "millify";
+import { useGlobal } from "../../context";
 const HomeVideo = ({
   data,
   subData,
@@ -8,6 +9,11 @@ const HomeVideo = ({
   setTrigger,
   previousVideoRef,
 }) => {
+
+  const [isLiked, setIsLiked] = useState(false);
+
+  const { userInfo } = useGlobal();
+
   return (
     <div className='video-card'>
       <div className='video-card-top'>
@@ -41,8 +47,7 @@ const HomeVideo = ({
                 </span>
               ) : (
                 <button
-                  className='vid-btn'
-                  onClick={() => handleLike(data.video_id)}>
+                  className='vid-btn'>
                   <span
                     className='material-symbols-outlined'
                     style={{ paddingTop: "15px", color: "white" }}>
@@ -51,7 +56,7 @@ const HomeVideo = ({
                 </button>
               )
             ) : (
-              <button className='vid-btn' onClick={() => handleLike(data.video_id)}>
+              <button className='vid-btn'>
                 <span
                   className='material-symbols-outlined'
                   style={{ paddingTop: "15px", color: "white" }}>
@@ -69,7 +74,7 @@ const HomeVideo = ({
             <button
               className='vid-btn'
               onClick={() => {
-                setIsFaqsOpen(!isFaqsOpen);
+              
               }}>
               <span
                 className='material-symbols-outlined'
