@@ -22,7 +22,66 @@ const HomeVideo = ({
             className='propic'
           />
         </div>
-        <div className='video-card-interact'></div>
+        <div className='video-card-interact'>
+          <div className='video-info'>
+            {likeData ? (
+              likeData.find(
+                (e) => e.video_id === data.video_id && e.user_id === userInfo.user_id
+              ) ? (
+                <span
+                  className='material-symbols-rounded'
+                  style={{ paddingTop: "15px", color: "#f04c68" }}>
+                  favorite
+                </span>
+              ) : isLiked ? (
+                <span
+                  className='material-symbols-rounded'
+                  style={{ paddingTop: "15px", color: "#f04c68" }}>
+                  favorite
+                </span>
+              ) : (
+                <button
+                  className='vid-btn'
+                  onClick={() => handleLike(data.video_id)}>
+                  <span
+                    className='material-symbols-outlined'
+                    style={{ paddingTop: "15px", color: "white" }}>
+                    favorite
+                  </span>
+                </button>
+              )
+            ) : (
+              <button className='vid-btn' onClick={() => handleLike(data.video_id)}>
+                <span
+                  className='material-symbols-outlined'
+                  style={{ paddingTop: "15px", color: "white" }}>
+                  favorite
+                </span>
+              </button>
+            )}
+            <br />
+            {data.likes
+              ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
+              : isLiked
+              ? 1
+              : 0}
+            <br />
+            <button
+              className='vid-btn'
+              onClick={() => {
+                setIsFaqsOpen(!isFaqsOpen);
+              }}>
+              <span
+                className='material-symbols-outlined'
+                style={{ paddingTop: "15px", color: "white" }}>
+                chat
+              </span>
+            </button>
+            <br />
+            {data.comments ? millify(data.comments) : 0}
+            <br />
+          </div>
+        </div>
       </div>
       <div className='video-card-container'>
         <video

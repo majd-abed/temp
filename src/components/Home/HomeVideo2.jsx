@@ -436,16 +436,6 @@ const HomeVideo = ({
             <br />
             {data.comments ? millify(data.comments) : 0}
             <br />
-            {/* <br />
-            {data.comments ? data.comments : 0}
-            <br />
-            <span
-              className='material-symbols-outlined'
-              style={{ paddingTop: "15px", color: "white" }}>
-              share
-            </span>
-            <br />
-            {data.shares ? data.shares : 0} */}
           </div>
         </div>
       </div>
