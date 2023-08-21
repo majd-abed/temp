@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import millify from "millify";
 import { useGlobal } from "../../context";
 const HomeVideo = ({
@@ -9,7 +9,6 @@ const HomeVideo = ({
   setTrigger,
   previousVideoRef,
 }) => {
-
   const [isLiked, setIsLiked] = useState(false);
 
   const { userInfo } = useGlobal();
@@ -36,21 +35,20 @@ const HomeVideo = ({
               ) ? (
                 <span
                   className='material-symbols-rounded'
-                  style={{ paddingTop: "10px", color: "#f04c68",fontSize:'18px' }}>
+                  style={{ paddingTop: "10px", color: "#f04c68", fontSize: "18px" }}>
                   favorite
                 </span>
               ) : isLiked ? (
                 <span
                   className='material-symbols-rounded'
-                  style={{ paddingTop: "10px", color: "#f04c68",fontSize:'18px' }}>
+                  style={{ paddingTop: "10px", color: "#f04c68", fontSize: "18px" }}>
                   favorite
                 </span>
               ) : (
-                <button
-                  className='vid-btn'>
+                <button className='vid-btn'>
                   <span
                     className='material-symbols-outlined'
-                    style={{ paddingTop: "10px", color: "white",fontSize:'18px' }}>
+                    style={{ paddingTop: "10px", color: "white", fontSize: "18px" }}>
                     favorite
                   </span>
                 </button>
@@ -59,31 +57,31 @@ const HomeVideo = ({
               <button className='vid-btn'>
                 <span
                   className='material-symbols-outlined'
-                  style={{ paddingTop: "15px", color: "white",fontSize:'18px' }}>
+                  style={{ paddingTop: "15px", color: "white", fontSize: "18px" }}>
                   favorite
                 </span>
               </button>
             )}
             <br />
-            {data.likes
-              ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
-              : isLiked
-              ? 1
-              : 0}
+            <span style={{ fontSize: "12px", margin: "0", padding: "0" }}>
+              {data.likes
+                ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
+                : isLiked
+                ? 1
+                : 0}
+            </span>
             <br />
-            <button
-              className='vid-btn'
-              onClick={() => {
-              
-              }}>
+            <button className='vid-btn' onClick={() => {}}>
               <span
                 className='material-symbols-outlined'
-                style={{ paddingTop: "15px", color: "white",fontSize:'18px' }}>
+                style={{ paddingTop: "15px", color: "white", fontSize: "18px" }}>
                 chat
               </span>
             </button>
             <br />
-            {data.comments ? millify(data.comments) : 0}
+            <span style={{ fontSize: "12px", margin: "0", padding: "0" }}>
+              {data.comments ? millify(data.comments) : 0}
+            </span>
             <br />
           </div>
         </div>
