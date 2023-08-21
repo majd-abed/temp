@@ -1035,20 +1035,18 @@ details[open]{
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 30px;
     margin: 150px auto;
     max-width: 1800px;
 }
 @media (max-width:1800px) {
     .home-container{
-        display:grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
 }
 @media (max-width:1500px) {
     .home-container{
-        display:grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
 
@@ -1056,17 +1054,13 @@ details[open]{
 }
 @media (max-width:1200px) {
     .home-container{
-        display:grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
 
     }
 }
 @media (max-width:770px) {
     .home-container{
-        display:grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
         margin: 150px auto;
     }
 }
