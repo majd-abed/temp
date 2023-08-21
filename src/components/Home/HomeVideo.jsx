@@ -57,31 +57,27 @@ const HomeVideo = ({
               <button className='vid-btn'>
                 <span
                   className='material-symbols-outlined'
-                  style={{ paddingTop: "15px", color: "white", fontSize: "18px" }}>
+                  style={{ paddingTop: "10px", color: "white", fontSize: "18px" }}>
                   favorite
                 </span>
               </button>
             )}
             <br />
-            <span style={{ fontSize: "12px", margin: "0", padding: "0" }}>
               {data.likes
                 ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
                 : isLiked
                 ? 1
                 : 0}
-            </span>
             <br />
             <button className='vid-btn' onClick={() => {}}>
               <span
                 className='material-symbols-outlined'
-                style={{ paddingTop: "15px", color: "white", fontSize: "18px" }}>
+                style={{ paddingTop: "5px", color: "white", fontSize: "18px" }}>
                 chat
               </span>
             </button>
             <br />
-            <span style={{ fontSize: "12px", margin: "0", padding: "0" }}>
               {data.comments ? millify(data.comments) : 0}
-            </span>
             <br />
           </div>
         </div>
