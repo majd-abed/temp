@@ -10,8 +10,6 @@ const HomeVideo = ({
   setTrigger,
   previousVideoRef,
 }) => {
-  const [isLiked, setIsLiked] = useState(false);
-
   const { userInfo } = useGlobal();
 
   return (
@@ -39,12 +37,6 @@ const HomeVideo = ({
                   style={{ paddingTop: "10px", color: "#f04c68", fontSize: "18px" }}>
                   favorite
                 </span>
-              ) : isLiked ? (
-                <span
-                  className='material-symbols-rounded'
-                  style={{ paddingTop: "10px", color: "#f04c68", fontSize: "18px" }}>
-                  favorite
-                </span>
               ) : (
                 <button className='vid-btn'>
                   <span
@@ -65,11 +57,7 @@ const HomeVideo = ({
             )}
             <br />
             <span style={{ color: "white" }}>
-              {data.likes
-                ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
-                : isLiked
-                ? 1
-                : 0}
+              {data.likes ? millify(parseInt(data.likes)) : 0}
             </span>
             <br />
             <button className='vid-btn' onClick={() => {}}>
