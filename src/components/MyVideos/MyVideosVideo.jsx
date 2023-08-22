@@ -6,8 +6,13 @@ import { http } from "../../api";
 import { useGlobal } from "../../context";
 import { Link } from "react-router-dom";
 
-const MyVideosVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRef }) => {
-
+const MyVideosVideo = ({
+  data,
+  trigger,
+  setTrigger,
+  likeData,
+  previousVideoSubRef,
+}) => {
   const { userInfo } = useGlobal();
 
   return (
@@ -15,17 +20,7 @@ const MyVideosVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRe
       {console.log(userInfo)}
       {console.log(data)}
       <div className='video-card-top'>
-        <div className='video-card-img'>
-          <img
-            src={
-              data.profile_pic === null
-                ? require("../../assets/images/propic.png")
-                : data.profile_pic
-            }
-            alt='prop'
-            className='propic'
-          />
-        </div>
+        <div></div>
         <div className='video-card-interact'>
           <div className='video-card-info'>
             {likeData ? (
@@ -92,9 +87,6 @@ const MyVideosVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRe
         <p className='video-card-category'>{data.category_name}</p>
         <p className='video-card-date'>Uploaded on: {data.created_at}</p>
         <p className='video-card-description'>{data.keywords}</p>
-        <p className='video-card-user'>
-          {data.name}, {data.country_name}
-        </p>
       </div>
     </Link>
   );
