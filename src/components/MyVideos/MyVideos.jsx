@@ -24,7 +24,6 @@ const MyVideos = () => {
   const [likeData, setLikeData] = useState([]);
   const [trigger, setTrigger] = useState(false);
 
-
   const previousVideoVidRef = useRef(null);
 
   const handleChange = (e) => {
@@ -120,10 +119,7 @@ const MyVideos = () => {
           </div>
           <div className='angel-top-sub-nav-divider-right'>
             {vidData ? (
-              <select
-                className='select-filter-option'
-                onChange={handleChange}
-                >
+              <select className='select-filter-option' onChange={handleChange}>
                 <option id={9999} key={9999} hidden>
                   Filter
                 </option>
@@ -134,12 +130,13 @@ const MyVideos = () => {
           </div>
         </div>
       </div>
+      {isLoading ? (
+        <div className='videos-spinner'>
+          <Spinner />
+        </div>
+      ) : null}
       <div className='videos-container'>
-        {isLoading ? (
-          <div className='videos-spinner'>
-            <Spinner />
-          </div>
-        ) : vidData ? (
+        {isLoading ? null : vidData ? (
           vidData.map((element) => {
             if (categoryName !== "all") {
               if (element.category_name === categoryName) {
@@ -181,7 +178,9 @@ const MyVideos = () => {
               style={{ fontSize: "100px", color: "#aaaaaa" }}>
               notifications
             </span>
-            <div style={{ marginBottom: "20px" }} className='no-content-text'>Your Videos live here</div>
+            <div style={{ marginBottom: "20px" }} className='no-content-text'>
+              Your Videos live here
+            </div>
             <div>
               <Link to='/video-post' className='upload-btn'>
                 Upload Video
