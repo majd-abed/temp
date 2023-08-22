@@ -12,6 +12,8 @@ const MyVideosVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRe
 
   return (
     <Link to='' className='video-card'>
+      {console.log(userInfo)}
+      {console.log(data)}
       <div className='video-card-top'>
         <div className='video-card-img'>
           <img
