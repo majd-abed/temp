@@ -138,12 +138,13 @@ const Subscriptions = () => {
           </div>
         </div>
       </div>
+      {isLoading ? (
+        <div className='videos-spinner'>
+          <Spinner />
+        </div>
+      ) : null}
       <div className='videos-container'>
-        {isLoading ? (
-          <div className='videos-spinner'>
-            <Spinner />
-          </div>
-        ) : subData ? (
+        {isLoading ? null : subData ? (
           subData.map((element) => {
             if (categoryName !== "all") {
               if (element.category_name === categoryName) {

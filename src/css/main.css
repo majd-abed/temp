@@ -1030,7 +1030,7 @@ details[open]{
 
 
 
-.home-container{
+.videos-container{
     display:grid;
     justify-content: center;
     align-items: center;
@@ -1040,24 +1040,24 @@ details[open]{
     max-width: 1800px;
 }
 @media (max-width:1800px) {
-    .home-container{
+    .videos-container{
         grid-template-columns: repeat(4, 1fr);
     }
 }
 @media (max-width:1500px) {
-    .home-container{
+    .videos-container{
         grid-template-columns: repeat(3, 1fr);
 
     }
 }
 @media (max-width:1200px) {
-    .home-container{
+    .videos-container{
         grid-template-columns: repeat(2, 1fr);
 
     }
 }
 @media (max-width:770px) {
-    .home-container{
+    .videos-container{
         grid-template-columns: repeat(1, 1fr);
         margin: 150px auto;
     }
