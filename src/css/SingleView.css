@@ -1,0 +1,35 @@
+.single-view-container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-view-nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.single-view-home-btn{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: black;
+  border: 2px solid white;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+@media (max-width:450px){
+  .single-view-home-btn{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
+    border: 2px solid white;
+    font-size: 8px;
+    font-weight: 700;
+    color: white;
+  }
+}

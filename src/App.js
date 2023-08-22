@@ -12,6 +12,7 @@ import Terms from './components/Terms'
 import Privacy from './components/Privacy'
 import About from './components/About'
 import ForgotPassword from './components/ForgotPassword'
+import SingleView from './components/SingleVideo/SingleView'
 
 
 import Subscriptions from './components/Subscriptions/Subscriptions'
@@ -63,6 +64,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/subscriptions' element={<Subscriptions />} />
         <Route path='/my-videos' element={<MyVideos />} />
+        <Route path='/vid' element={<SingleView />} />
         <Route path='*' element={<Invalid />} />
       </Routes>
     </>
