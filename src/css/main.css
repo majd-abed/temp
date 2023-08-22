@@ -1030,13 +1030,47 @@ details[open]{
 
 
 
-.videos-container{
+.home-videos-container{
     display:grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     margin: 150px auto;
+    max-width: 1800px;
+}
+
+@media (max-width:1800px) {
+    .home-videos-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width:1500px) {
+    .home-videos-container{
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+@media (max-width:1200px) {
+    .home-videos-container{
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+@media (max-width:770px) {
+    .home-videos-container{
+        grid-template-columns: repeat(1, 1fr);
+        margin: 150px auto;
+    }
+}
+
+.videos-container{
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin: 50px auto 150px;
     max-width: 1800px;
 }
 @media (max-width:1800px) {

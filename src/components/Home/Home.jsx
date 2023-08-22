@@ -85,7 +85,7 @@ const Home = () => {
           <Spinner />
         </div>
       ) : null}
-      <div className='videos-container'>
+      <div className='home-videos-container'>
         {isHomeLoading || isSubLoading ? null : homeData ? (
           homeData.map((element) => {
             if (element.is_live === 1) {
