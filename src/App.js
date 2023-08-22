@@ -27,7 +27,6 @@ import "./css/videopost.css";
 import "./css/videocard.css";
 import "./css/landing.css";
 import "./css/faqs.css";
-import "./css/faqs.css";
 import "./css/singleView.css";
 import "./css/singleViewVideo.css";
 import './css/terms-about.css';
