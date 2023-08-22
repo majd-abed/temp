@@ -1145,3 +1145,23 @@ details[open]{
       filter: invert(0);
     }
   }
+
+  /* ----------------------------------------------------------------- */
+/* Scrollbar */ 
+::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 5px;
+    
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: rgb(242, 242, 242);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #ccc;
+  }
+  
+  /* ----------------------------------------------------------------- */

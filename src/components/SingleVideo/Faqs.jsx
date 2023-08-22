@@ -8,7 +8,7 @@ const Faqs = ({ setToggleFaqs }) => {
       </button>
       <div className='faq-info'>
         <div className='faq-ask'>
-          <div className='d-flex'>
+          <div style={{ display: "flex" }}>
             <div className='faq-image'>
               <img src='' alt='' />
             </div>
@@ -25,7 +25,7 @@ const Faqs = ({ setToggleFaqs }) => {
           />
           <button className='faq-question-submit'>SUBMIT</button>
           <div className='faq-question-asked'>
-            <div className='d-flex'>
+            <div style={{ display: "flex" }}>
               <div className='faq-image'>
                 <img src='' alt='' />
               </div>
@@ -40,7 +40,7 @@ const Faqs = ({ setToggleFaqs }) => {
             </p>
           </div>
           <div className='faq-question-answered'>
-            <div className='d-flex'>
+            <div style={{ display: "flex" }}>
               <div className='faq-image'>
                 <img src='' alt='' />
               </div>
@@ -55,7 +55,7 @@ const Faqs = ({ setToggleFaqs }) => {
             </p>
           </div>
           <div className='faq-question-asked'>
-            <div className='d-flex'>
+            <div style={{ display: "flex" }}>
               <div className='faq-image'>
                 <img src='' alt='' />
               </div>
@@ -70,7 +70,7 @@ const Faqs = ({ setToggleFaqs }) => {
             </p>
           </div>
           <div className='faq-question-answered'>
-            <div className='d-flex'>
+            <div style={{ display: "flex" }}>
               <div className='faq-image'>
                 <img src='' alt='' />
               </div>
@@ -85,7 +85,7 @@ const Faqs = ({ setToggleFaqs }) => {
             </p>
           </div>
           <div className='faq-question-asked'>
-            <div className='d-flex'>
+            <div style={{ display: "flex" }}>
               <div className='faq-image'>
                 <img src='' alt='' />
               </div>
@@ -100,7 +100,7 @@ const Faqs = ({ setToggleFaqs }) => {
             </p>
           </div>
           <div className='faq-question-answered'>
-            <div className='d-flex'>
+            <div style={{ display: "flex" }}>
               <div className='faq-image'>
                 <img src='' alt='' />
               </div>
