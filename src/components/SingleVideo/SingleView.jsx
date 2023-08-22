@@ -6,7 +6,7 @@ const SingleView = () => {
   return (
     <div className='single-view-container'>
       <SingleViewVideo />
-      <div className='single-view-nav'>
+      {/* <div className='single-view-nav'>
         <div className='d-flex flex-column justify-content-center'>
           <BackArrow />
         </div>
@@ -14,7 +14,7 @@ const SingleView = () => {
         <div className='d-flex flex-column justify-content-center'>
           <NextArrow />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
