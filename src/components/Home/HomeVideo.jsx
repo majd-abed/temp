@@ -15,7 +15,7 @@ const HomeVideo = ({
   const { userInfo } = useGlobal();
 
   return (
-    <Link to="" className='video-card'>
+    <Link to='' className='video-card'>
       <div className='video-card-top'>
         <div className='video-card-img'>
           <img
