@@ -200,3 +200,13 @@
   position: absolute;
   z-index: 7;
 }
+
+@media (max-height : 660px) {
+  .single-view-container {
+    height: 500px;
+  }
+  .single-view-video {
+    height: 470px;
+    width: 311px;
+}
+}
