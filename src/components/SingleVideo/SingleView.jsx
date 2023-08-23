@@ -271,7 +271,7 @@ const SingleView = () => {
           </div> */}
           <div className='single-container'>
             <video
-              // ref={videoRef}
+              ref={videoRef}
               src={data.video}
               className='single-video'
               onClick={() => handlePause()}
