@@ -39,11 +39,11 @@ const SingleView = () => {
             className='w-100'
           />
           </div> */}
-          <div className='video-container'>
+          <div className='single-container'>
             <video
               // ref={videoRef}
               src={data.video}
-              className='video'
+              className='single-video'
               // onClick={() => handlePause()}
               // onEnded={() => setIsReplay(true)}
             />
