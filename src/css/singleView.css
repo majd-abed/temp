@@ -1,5 +1,5 @@
 .single-view-container{
-  height: calc(100vh - 106px);
+  height: calc(100vh - 158px);
   display: flex;
   flex-direction: column;
   margin-top:100px
@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px 0 10px 0;
-  height: calc(100vh - 106px);
+  height: calc(100vh - 158px);
   margin: auto;
   flex: 1;
 }
