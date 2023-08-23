@@ -66,7 +66,9 @@ function App() {
         <Route path='/video-post' element={<VideoPost />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/subscriptions' element={<Subscriptions />} />
-        <Route path='/my-videos' element={<MyVideos />} />
+        <Route path='/my-videos' element={<MyVideos />}>
+          <Route path="/:vidId" element={<SingleView />} />
+        </Route>
         <Route path='/vid' element={<SingleView />} />
         <Route path='*' element={<Invalid />} />
       </Routes>
