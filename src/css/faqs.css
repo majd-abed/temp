@@ -62,7 +62,7 @@
   width:90%;
 }
 .faq-question-input{
-  width:90%;
+  width:87%;
   margin-left: 44px;
   border: 1px solid #ccc;
   background-color: #f2f2f2;
@@ -75,7 +75,7 @@
 @media (max-height:860px) and (min-width:450px) {
   .faq-question-input{
     margin-left: 25px;
-    width:90%;
+    width:86%;
   }
 }
 .faq-question-input:focus{
@@ -95,6 +95,7 @@
 @media (max-height:860px) and (min-width:450px) {
   .faq-question-submit{
     width:90%;
+    margin-left: 25px;
   }
 }
 .faq-date{
