@@ -206,6 +206,7 @@ const SingleView = () => {
   useEffect(() => {}, [homeData, subData, likeData]);
   return (
     <div className='single-view-container'>
+      {console.log(data)}
       <Toaster
         position='bottom-right'
         reverseOrder={false}
