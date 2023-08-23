@@ -6,6 +6,7 @@ import { HOME, MY_SUBSCRIPTIONS, http } from "../../api";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { useGlobal } from "../../context";
+import Footer from "../Footer";
 const SingleView = () => {
   const [toggleFaqs, setToggleFaqs] = useState(true);
   const location = useLocation();
@@ -205,119 +206,132 @@ const SingleView = () => {
   }, [faqsTrigger, trigger]);
   useEffect(() => {}, [homeData, subData, likeData]);
   return (
-    <div className='single-view-container'>
-      {console.log(data)}
-      <Toaster
-        position='bottom-right'
-        reverseOrder={false}
-        gutter={8}
-        containerClassName=''
-        containerStyle={{}}
-        toastOptions={{
-          // Define default options
-          className: "",
-          duration: 5000,
-          style: {
-            background: "white",
-            color: "black",
-          },
-          // Default options for specific types
-          success: {
-            duration: 5000,
-            theme: {
-              primary: "#B9F9C7",
-              secondary: "black",
-            },
-          },
-          error: {
+    <>
+      <div className='single-view-container'>
+        {console.log(data)}
+        <Toaster
+          position='bottom-right'
+          reverseOrder={false}
+          gutter={8}
+          containerClassName=''
+          containerStyle={{}}
+          toastOptions={{
+            // Define default options
+            className: "",
             duration: 5000,
             style: {
-              background: "#FEB8B8",
+              background: "white",
               color: "black",
             },
-          },
-        }}
-      />
-      <div className='single-view-video-container'>
-        <div className='single-view-video'>
-          {toggleFaqs ? <Faqs setToggleFaqs={setToggleFaqs} /> : null}
-          <div className='single-view-top'>
-            <div className='single-view-img'>
-              <img
-                src={
-                  data.profile_pic === null
-                    ? require("../../assets/images/propic.png")
-                    : data.profile_pic
-                }
-                alt='prop'
-                className='propic'
-              />
+            // Default options for specific types
+            success: {
+              duration: 5000,
+              theme: {
+                primary: "#B9F9C7",
+                secondary: "black",
+              },
+            },
+            error: {
+              duration: 5000,
+              style: {
+                background: "#FEB8B8",
+                color: "black",
+              },
+            },
+          }}
+        />
+        <div className='single-view-video-container'>
+          <div className='single-view-video'>
+            {toggleFaqs ? <Faqs setToggleFaqs={setToggleFaqs} /> : null}
+            <div className='single-view-top'>
+              <div className='single-view-img'>
+                <img
+                  src={
+                    data.profile_pic === null
+                      ? require("../../assets/images/propic.png")
+                      : data.profile_pic
+                  }
+                  alt='prop'
+                  className='propic'
+                />
+              </div>
             </div>
-          </div>
-          {/* <div className='single-view-video-icon'>
+            {/* <div className='single-view-video-icon'>
             <img
             src={require("../../../assets/images/video-button.png")}
             alt=''
             className='w-100'
           />
           </div> */}
-          <div className='single-container'>
-            <video
-              ref={videoRef}
-              src={data.video}
-              className='single-video'
-              onClick={() => handlePause()}
-              onEnded={() => setIsReplay(true)}
-            />
-            {/* ------------ control buttons -------- */}
-            <div className='control-btns'>
-              <button
-                className='material-symbols-rounded control-btn-style'
-                style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
-                onClick={handlePlay}>
-                play_arrow
-              </button>
-              <button
-                className='material-symbols-rounded control-btn-style'
-                style={{ display: `${isReplay ? "block" : "none"}` }}
-                onClick={handleReplay}>
-                replay
-              </button>
-            </div>
-            {/* ------------ mute button -------- */}
-            <div className='single-mute-container'>
-              <button
-                className='material-symbols-rounded mute-btn-style'
-                style={{ display: `${isMuted ? "block" : "none"}` }}
-                onClick={handleUnMute}>
-                volume_off
-              </button>
-              <button
-                className='material-symbols-rounded mute-btn-style'
-                style={{ display: `${isMuted ? "none" : "block"}` }}
-                onClick={handleMute}>
-                volume_up
-              </button>
-            </div>
-            {/* ------------ video buttons -------- */}
-            <div className='single-video-btns'>
-              <div className='video-info'>
-                {likeData ? (
-                  likeData.find(
-                    (e) =>
-                      e.video_id === data.video_id && e.user_id === userInfo.user_id
-                  ) ? (
-                    <span
-                      className='material-symbols-rounded'
-                      style={{ paddingTop: "15px", color: "#f04c68" }}>
-                      favorite
-                    </span>
-                  ) : isLiked ? (
-                    <span
-                      className='material-symbols-rounded'
-                      style={{ paddingTop: "15px", color: "#f04c68" }}>
-                      favorite
-                    </span>
+            <div className='single-container'>
+              <video
+                ref={videoRef}
+                src={data.video}
+                className='single-video'
+                onClick={() => handlePause()}
+                onEnded={() => setIsReplay(true)}
+              />
+              {/* ------------ control buttons -------- */}
+              <div className='control-btns'>
+                <button
+                  className='material-symbols-rounded control-btn-style'
+                  style={{ display: `${isPlaying || isReplay ? "none" : "block"}` }}
+                  onClick={handlePlay}>
+                  play_arrow
+                </button>
+                <button
+                  className='material-symbols-rounded control-btn-style'
+                  style={{ display: `${isReplay ? "block" : "none"}` }}
+                  onClick={handleReplay}>
+                  replay
+                </button>
+              </div>
+              {/* ------------ mute button -------- */}
+              <div className='single-mute-container'>
+                <button
+                  className='material-symbols-rounded mute-btn-style'
+                  style={{ display: `${isMuted ? "block" : "none"}` }}
+                  onClick={handleUnMute}>
+                  volume_off
+                </button>
+                <button
+                  className='material-symbols-rounded mute-btn-style'
+                  style={{ display: `${isMuted ? "none" : "block"}` }}
+                  onClick={handleMute}>
+                  volume_up
+                </button>
+              </div>
+              {/* ------------ video buttons -------- */}
+              <div className='single-video-btns'>
+                <div className='video-info'>
+                  {likeData ? (
+                    likeData.find(
+                      (e) =>
+                        e.video_id === data.video_id &&
+                        e.user_id === userInfo.user_id
+                    ) ? (
+                      <span
+                        className='material-symbols-rounded'
+                        style={{ paddingTop: "15px", color: "#f04c68" }}>
+                        favorite
+                      </span>
+                    ) : isLiked ? (
+                      <span
+                        className='material-symbols-rounded'
+                        style={{ paddingTop: "15px", color: "#f04c68" }}>
+                        favorite
+                      </span>
+                    ) : (
+                      <button
+                        className='vid-btn'
+                        onClick={() => handleLike(data.video_id)}>
+                        <span
+                          className='material-symbols-outlined'
+                          style={{ paddingTop: "15px", color: "white" }}>
+                          favorite
+                        </span>
+                      </button>
+                    )
                   ) : (
                     <button
                       className='vid-btn'
@@ -328,76 +342,67 @@ const SingleView = () => {
                         favorite
                       </span>
                     </button>
-                  )
-                ) : (
+                  )}
+                  <br />
+                  {data.likes
+                    ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
+                    : isLiked
+                    ? 1
+                    : 0}
+                  <br />
                   <button
                     className='vid-btn'
-                    onClick={() => handleLike(data.video_id)}>
+                    onClick={() => {
+                      setIsFaqsOpen(!isFaqsOpen);
+                    }}>
                     <span
                       className='material-symbols-outlined'
                       style={{ paddingTop: "15px", color: "white" }}>
-                      favorite
+                      chat
                     </span>
                   </button>
-                )}
-                <br />
-                {data.likes
-                  ? millify(isLiked ? parseInt(data.likes) + 1 : data.likes)
-                  : isLiked
-                  ? 1
-                  : 0}
-                <br />
-                <button
-                  className='vid-btn'
-                  onClick={() => {
-                    setIsFaqsOpen(!isFaqsOpen);
-                  }}>
-                  <span
-                    className='material-symbols-outlined'
-                    style={{ paddingTop: "15px", color: "white" }}>
-                    chat
-                  </span>
-                </button>
-                <br />
-                {data.comments ? millify(data.comments) : 0}
-                <br />
+                  <br />
+                  {data.comments ? millify(data.comments) : 0}
+                  <br />
+                </div>
               </div>
             </div>
-          </div>
-          <div className='single-view-bottom'>
-            {subData ? (
-              subData.find((e) => e.user_id === data.user_id) ? (
-                <button
-                  className='single-subscribed'
-                  onClick={() => {
-                    handleUnSub(filterSubdata(subData, data.user_id));
-                    // filterSubdata(subData, data.user_id);
-                  }}>
-                  Subscribed
-                </button>
+            <div className='single-view-bottom'>
+              {subData ? (
+                subData.find((e) => e.user_id === data.user_id) ? (
+                  <button
+                    className='single-subscribed'
+                    onClick={() => {
+                      handleUnSub(filterSubdata(subData, data.user_id));
+                      // filterSubdata(subData, data.user_id);
+                    }}>
+                    Subscribed
+                  </button>
+                ) : (
+                  <button
+                    className='single-subscribe'
+                    onClick={() => handleSub(data.user_id)}>
+                    Subscribe
+                  </button>
+                )
               ) : (
                 <button
                   className='single-subscribe'
                   onClick={() => handleSub(data.user_id)}>
                   Subscribe
                 </button>
-              )
-            ) : (
-              <button
-                className='single-subscribe'
-                onClick={() => handleSub(data.user_id)}>
-                Subscribe
-              </button>
-            )}
-            <p className='single-view-category'>{data.category_name}</p>
-            <p className='single-view-description'>{data.keywords}</p>
-            <p className='single-view-user'>
-              {data.name}, {data.country_name}
-            </p>
+              )}
+              <p className='single-view-category'>{data.category_name}</p>
+              <p className='single-view-description'>{data.keywords}</p>
+              <p className='single-view-user'>
+                {data.name}, {data.country_name}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
