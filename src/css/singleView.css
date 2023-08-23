@@ -31,6 +31,7 @@
   border-radius: 16px;
   border: 1px solid #ccc;
   background-color: white;
+  overflow:hidden;
 }
 @media (max-height:860px) and (min-width:450px) {
   .single-view-video{
@@ -66,9 +67,14 @@
   top: 21px;
 }
 .single-view-bottom{
+  bottom: 0;
+  padding-left: 25px;
+  padding-bottom: 25px;
   position: absolute;
-  bottom: 25px;
-  left: 25px;
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(transparent,#00000087) bottom;
+  color: white;
 }
 .single-view-follow{
   background-color: black;
