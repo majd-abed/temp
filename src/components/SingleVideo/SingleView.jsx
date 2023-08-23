@@ -18,6 +18,7 @@ const SingleView = () => {
   const [isFaqsOpen, setIsFaqsOpen] = useState(false);
   const [faqData, setFaqData] = useState([]);
   const [faqsTrigger, setFaqsTrigger] = useState(false);
+  const [trigger, setTrigger] = useState(false);
   const [Comment, setComment] = useState("");
   const [subData, setSubData] = useState([]);
   const [likeData, setLikeData] = useState([]);
@@ -25,11 +26,7 @@ const SingleView = () => {
   const videoRef = useRef(null);
   const faqsRef = useRef();
 
-  const {
-    homeData,
-    isHomeLoading,
-    userInfo
-  } = useGlobal();
+  const { homeData, isHomeLoading, userInfo } = useGlobal();
 
   const filterSubdata = (data, id) => {
     let tem = data.filter((e) => e.user_id === id);
@@ -108,6 +105,7 @@ const SingleView = () => {
       .then((res) => {
         if (res.status === 201) {
           toast.success("Subscribed!");
+          setTrigger(!trigger);
         }
       })
       .catch((e) => {
@@ -127,6 +125,7 @@ const SingleView = () => {
       .then((res) => {
         if (res.status === 201) {
           toast.success("Unsubscribed!");
+          setTrigger(!trigger);
         }
       })
       .catch((e) => {
@@ -203,7 +202,7 @@ const SingleView = () => {
       .catch((e) => {
         console.log(e);
       });
-  }, [faqsTrigger]);
+  }, [faqsTrigger, trigger]);
 
   return (
     <div className='single-view-container'>
@@ -300,31 +299,7 @@ const SingleView = () => {
               </button>
             </div>
             {/* ------------ video buttons -------- */}
-            <div className='video-btns'>
-              {subData ? (
-                subData.find((e) => e.user_id === data.user_id) ? (
-                  <button
-                    className='subscribed'
-                    onClick={() => {
-                      handleUnSub(filterSubdata(subData, data.user_id));
-                      // filterSubdata(subData, data.user_id);
-                    }}>
-                    Subscribed
-                  </button>
-                ) : (
-                  <button
-                    className='subscribe'
-                    onClick={() => handleSub(data.user_id)}>
-                    Subscribe
-                  </button>
-                )
-              ) : (
-                <button
-                  className='subscribe'
-                  onClick={() => handleSub(data.user_id)}>
-                  Subscribe
-                </button>
-              )}
+            <div className='single-video-btns'>
               <div className='video-info'>
                 {likeData ? (
                   likeData.find(
@@ -389,7 +364,30 @@ const SingleView = () => {
             </div>
           </div>
           <div className='single-view-bottom'>
-            <button className='single-view-follow'>Follow</button>
+            {subData ? (
+              subData.find((e) => e.user_id === data.user_id) ? (
+                <button
+                  className='single-subscribed'
+                  onClick={() => {
+                    handleUnSub(filterSubdata(subData, data.user_id));
+                    // filterSubdata(subData, data.user_id);
+                  }}>
+                  Subscribed
+                </button>
+              ) : (
+                <button
+                  className='single-subscribe'
+                  onClick={() => handleSub(data.user_id)}>
+                  Subscribe
+                </button>
+              )
+            ) : (
+              <button
+                className='single-subscribe'
+                onClick={() => handleSub(data.user_id)}>
+                Subscribe
+              </button>
+            )}
             <p className='single-view-category'>{data.category_name}</p>
             <p className='single-view-description'>{data.keywords}</p>
             <p className='single-view-user'>
