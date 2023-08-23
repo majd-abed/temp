@@ -203,7 +203,7 @@ const SingleView = () => {
         console.log(e);
       });
   }, [faqsTrigger, trigger]);
-
+  useEffect(() => {}, [homeData, subData, likeData]);
   return (
     <div className='single-view-container'>
       <Toaster
