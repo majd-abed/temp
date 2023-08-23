@@ -284,7 +284,7 @@ const SingleView = () => {
               </button>
             </div>
             {/* ------------ mute button -------- */}
-            <div className='mute-container'>
+            <div className='single-mute-container'>
               <button
                 className='material-symbols-rounded mute-btn-style'
                 style={{ display: `${isMuted ? "block" : "none"}` }}
