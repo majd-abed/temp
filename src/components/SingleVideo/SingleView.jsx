@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Faqs from "./Faqs";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import millify from "millify";
 const SingleView = () => {
   const [toggleFaqs, setToggleFaqs] = useState(true);
@@ -32,12 +32,21 @@ const SingleView = () => {
               <p>{data.comments ? millify(data.comments) : 0}</p>
             </div>
           </div>
-          <div className='single-view-video-icon'>
-            {/* <img
+          {/* <div className='single-view-video-icon'>
+            <img
             src={require("../../../assets/images/video-button.png")}
             alt=''
             className='w-100'
-          /> */}
+          />
+          </div> */}
+          <div className='video-container'>
+            <video
+              // ref={videoRef}
+              src={data.video}
+              className='video'
+              // onClick={() => handlePause()}
+              // onEnded={() => setIsReplay(true)}
+            />
           </div>
           <div className='single-view-bottom'>
             <button className='single-view-follow'>Follow</button>

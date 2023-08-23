@@ -71,7 +71,6 @@
   padding-left: 25px;
   padding-bottom: 25px;
   position: absolute;
-  overflow: hidden;
   width: 100%;
   background: linear-gradient(transparent,#00000087) bottom;
   color: white;
@@ -122,6 +121,7 @@
 .single-view-category{
   font-size: 12px;
   font-weight: 300;
+  padding-top: 5px
 }
 
 .single-view-description{
