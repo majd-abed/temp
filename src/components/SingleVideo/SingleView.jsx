@@ -241,34 +241,10 @@ const SingleView = () => {
       <div className='single-view-video-container'>
         <div className='single-view-video'>
           {toggleFaqs ? <Faqs setToggleFaqs={setToggleFaqs} /> : null}
-          <div className='single-view-top'>
-            <div className='single-view-img'>
-              <img
-                src={
-                  data.profile_pic === null
-                    ? require("../../assets/images/propic.png")
-                    : data.profile_pic
-                }
-                alt='prop'
-                className='propic'
-              />
-            </div>
-            <div
-              className='single-view-interact'
-              onClick={() => setToggleFaqs(true)}>
-              <span className='material-symbols-outlined'>favorite</span>
-              <p>{data.likes ? millify(parseInt(data.likes)) : 0}</p>
-              <span className='material-symbols-outlined'>chat</span>
-              <p>{data.comments ? millify(data.comments) : 0}</p>
-            </div>
+          {/* <div className='single-view-top'>
+           
+            </div> */}
           </div>
-          {/* <div className='single-view-video-icon'>
-            <img
-            src={require("../../../assets/images/video-button.png")}
-            alt=''
-            className='w-100'
-          />
-          </div> */}
           <div className='single-container'>
             <video
               ref={videoRef}
@@ -309,7 +285,17 @@ const SingleView = () => {
             </div>
             {/* ------------ video buttons -------- */}
             <div className='video-btns'>
-              {subData ? (
+            <div className='single-view-img'>
+              <img
+                src={
+                  data.profile_pic === null
+                    ? require("../../assets/images/propic.png")
+                    : data.profile_pic
+                }
+                alt='prop'
+                className='propic'
+              />
+              {/* {subData ? (
                 subData.find((e) => e.user_id === data.user_id) ? (
                   <button
                     className='subscribed'
@@ -332,7 +318,7 @@ const SingleView = () => {
                   onClick={() => handleSub(data.user_id)}>
                   Subscribe
                 </button>
-              )}
+              )} */}
               <div className='video-info'>
                 {likeData ? (
                   likeData.find(
